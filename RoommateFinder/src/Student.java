@@ -8,14 +8,14 @@ import java.util.*;
  * @author Matt
  *
  */
-public class Student
+public class Student implements Comparable<Student>
 {
+	private String name;
 	public static final int PROPCOUNT = 8;
 	
 	/*
 	 * I tried using Enums for this, but Java's enums apprently don't work like C++'s.
 	 */
-	public static final int NAME = 0;
 	public static final int SCHOOL = 1;
 	public static final int AGE = 2;
 	public static final int GENDER = 3;
@@ -35,8 +35,9 @@ public class Student
 	 * Add those codes in an array placed into the constructor, and the student will be quickly generated.
 	 * @param p
 	 */
-	public Student(int[] p)
+	public Student(String name, int[] p)
 	{
+		this.name = name;
 		if(p.length != PROPCOUNT) throw new IllegalArgumentException();
 		for(int i = 0; i < PROPCOUNT; i++) properties[i] = p[i];
 	}
@@ -44,9 +45,10 @@ public class Student
 	public boolean completeProfile()
 	{
 		for(int i = 0; i != PROPCOUNT; ++i) if(properties[i] == 0) return false;
-		return true;
+		return name != null;
 	}
 	
+	public String getName() {return name;}
 	public String getSchool()
 	{
 		switch (properties[SCHOOL])
@@ -78,6 +80,8 @@ public class Student
 	public int getSleep(){return properties[SLEEP];}
 	public int getWake(){return properties[WAKE];}
 	
+	public void setName(String name) {this.name = name;}
+	
 	public void setSchool(String s)
 	{
 		switch (s)
@@ -104,5 +108,11 @@ public class Student
 	
 	public void setSleep(int s){properties[SLEEP] = s;}
 	public void setWake(int w) {properties[WAKE] = w;}
+
+	@Override
+	public int compareTo(Student arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
