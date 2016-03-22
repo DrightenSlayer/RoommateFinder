@@ -110,9 +110,9 @@ public class Student implements Comparable<Student>
 	public void setWake(int w) {properties[WAKE] = w;}
 
 	@Override
-	public int compareTo(Student arg0) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compareTo(Student arg0)
+	{
+		return name.compareTo(arg0.getName());
 	}
 	
 }
