@@ -11,6 +11,8 @@ import java.util.*;
 public class Student implements Comparable<Student>
 {
 	private String name;
+	private String major;
+	private String language;
 	private int key;
 	
 	public static final int PROPCOUNT = 8;
@@ -60,8 +62,7 @@ public class Student implements Comparable<Student>
 			case 1: return "San Jose State University";
 			case 2: return "University of California Los Angeles";
 			default: return "";
-		}
-			
+		}			
 	}
 	
 	public int getAge(){return properties[2];}
@@ -78,11 +79,50 @@ public class Student implements Comparable<Student>
 		}
 	}
 	
-	public String getLanguage(){return null;}
-	public String getMajor(){return null;}
+	public String getLanguage()
+	{
+		switch(properties[LANGUAGE])
+		{
+			case 0: return "no preference";
+			case 1: return language;
+			default: return "";
+		}
+//		return null;
+	}
 	
-	public int getSleep(){return properties[SLEEP];}
-	public int getWake(){return properties[WAKE];}
+	public String getMajor()
+	{
+		switch(properties[MAJOR])
+		{
+			case 0: return "un-declared";
+			case 1: return major;
+			default: return "";
+		}
+//		return null;
+	}
+	
+	public String getSleep()
+	{	
+		switch(properties[SLEEP])
+		{
+			case 1: return "early";
+			case 2: return "late";
+			case 3: return "no preference";
+			default: return "";
+		}
+//		return properties[SLEEP];
+	}
+	public String getWake()
+	{
+		switch(properties[WAKE])
+		{
+			case 1: return "early";
+			case 2: return "late";
+			case 3: return "no preference";
+			default: return "";
+		}
+//		return properties[WAKE];
+	}
 	
 	public void setName(String name) {this.name = name;}
 	
@@ -110,8 +150,49 @@ public class Student implements Comparable<Student>
 		}
 	}
 	
-	public void setSleep(int s){properties[SLEEP] = s;}
-	public void setWake(int w) {properties[WAKE] = w;}
+	public void setLanguage(String l)
+	{
+		language = l;
+		
+		if (language.equals("none"))
+			properties[LANGUAGE] = 0;
+		else
+			properties[LANGUAGE] = 1;
+	}
+	
+	public void setMajor(String m)
+	{
+		major = m;
+		
+		if (major.equals("none"))
+			properties[MAJOR] = 0;
+		else
+			properties[MAJOR] = 1;		
+	}
+		
+	public void setSleep(String s)
+	{
+		switch(s)
+		{
+			case "early": properties[SLEEP] = 1; break;
+			case "late": properties[SLEEP] = 2; break;
+			case "no preference": properties[SLEEP] = 3; break;
+			default: properties[SLEEP] = 0; break;
+		}
+//		properties[SLEEP] = s;
+	}
+	
+	public void setWake(String w) 
+	{
+		switch(w)
+		{
+			case "early": properties[WAKE] = 1; break;
+			case "late": properties[WAKE] = 2; break;
+			case "no preference": properties[WAKE] = 3; break;
+			default: properties[WAKE] = 0; break;			
+		}
+//		properties[WAKE] = w;
+	}
 
 	@Override
 	public int compareTo(Student arg0)
