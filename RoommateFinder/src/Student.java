@@ -11,6 +11,8 @@ import java.util.*;
 public class Student implements Comparable<Student>
 {
 	private String name;
+	private int key;
+	
 	public static final int PROPCOUNT = 8;
 	
 	/*
@@ -24,11 +26,13 @@ public class Student implements Comparable<Student>
 	public static final int SLEEP = 6;
 	public static final int WAKE = 7;
 	
-	private ArrayList<Student> matches;
+	private Queue<Student> matches;
 	
 	private int[] properties = new int[PROPCOUNT];
 	
 	public Student(){}
+	public void setKey(int key){this.key = key;}
+	public int getKey(){return key;}
 	
 	/**
 	 * This constructor is to be used if one knows the numeric codes for all student properties.
