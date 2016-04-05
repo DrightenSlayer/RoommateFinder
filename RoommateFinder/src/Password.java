@@ -9,10 +9,10 @@ public class Password
 	 * That string (of bits) will be converted to decimal, then the first character's of the password ASCII value  is added
 	 * if that matches the key, the user logs in.
 	 */
-	public static boolean createPassword(String p, String c)
+	public static int createPassword(String p, String c)
 	{
-		if(!p.equals(c)){ System.out.println("Passwords do not match!"); return false;}
-		if(p.equals("")) return false;
+		if(!p.equals(c)){ System.out.println("Passwords do not match!"); return 0;}
+		if(p.equals("")) return 0;
 		HuffmanTree ht = new HuffmanTree(null);
 		Map<Character, String> en = ht.getMap(p);
 		
@@ -23,13 +23,7 @@ public class Password
 		{
 			if(r.charAt(i) == '1') t += (Math.pow(2, k));
 		}
-		int key = t + p.charAt(0);
-		return true;
+		return t + p.charAt(0);
 		
-	}
-	
-	public static void main(String args[])
-	{
-		createPassword("apple", "apple");
 	}
 }

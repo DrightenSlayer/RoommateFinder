@@ -10,23 +10,32 @@ import java.util.*;
  */
 public class Student implements Comparable<Student>
 {
+	/*properties that will be static in nature can be enumerate (e. g. "English == 0"
+	 * properties that are changing, e. g. a student's school (which is an object itself)
+	 * should be stored herein as a pointer.*/
+	/*
+	 * Additionally, name and key (password decryption) are stored outside the properties field,
+	 * although we could change this.
+	 */
 	private String name;
+	private int key;
+	private School school;
+	
 	private String major;
 	private String language;
-	private int key;
 	
-	public static final int PROPCOUNT = 8;
+	
+	public static final int PROPCOUNT = 6;
 	
 	/*
-	 * I tried using Enums for this, but Java's enums apprently don't work like C++'s.
+	 * I tried using Enums for this, but Java's enums apparently don't work like C++'s.
 	 */
-	public static final int SCHOOL = 1;
-	public static final int AGE = 2;
-	public static final int GENDER = 3;
-	public static final int LANGUAGE = 4;
-	public static final int MAJOR = 5;
-	public static final int SLEEP = 6;
-	public static final int WAKE = 7;
+	public static final int AGE = 0;
+	public static final int GENDER = 1;
+	public static final int LANGUAGE = 2;
+	public static final int MAJOR = 3;
+	public static final int SLEEP = 4;
+	public static final int WAKE = 5;
 	
 	private Queue<Student> matches;
 	
@@ -55,17 +64,9 @@ public class Student implements Comparable<Student>
 	}
 	
 	public String getName() {return name;}
-	public String getSchool()
-	{
-		switch (properties[SCHOOL])
-		{
-			case 1: return "San Jose State University";
-			case 2: return "University of California Los Angeles";
-			default: return "";
-		}			
-	}
+	public School getSchool(){return school;}
 	
-	public int getAge(){return properties[2];}
+	public int getAge(){return properties[AGE];}
 	
 	public String getGender()
 	{
@@ -126,14 +127,10 @@ public class Student implements Comparable<Student>
 	
 	public void setName(String name) {this.name = name;}
 	
-	public void setSchool(String s)
+	public void setSchool(School school)
 	{
-		switch (s)
-		{
-			case "San Jose State University": properties[SCHOOL] = 1; break;
-			case "University of California Los Angeles": properties[SCHOOL] = 2; break;
-			default: properties[SCHOOL] = 0; break;
-		}
+		if(this.school != null) this.school.remove(this);
+		this.school = school;
 	}
 	
 	public void setAge(int a) {properties[AGE] = a;}
