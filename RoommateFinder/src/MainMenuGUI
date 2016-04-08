@@ -1,1 +1,118 @@
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+/**
+ * Can make this look much more pretty in IntelliJ (wanted to wait to see how that's going to work for Eclipse).
+ * Just some basic 'fluff' of the UI is here. 
+ */
+public class MainMenuGUI extends JPanel implements ActionListener //,Runnable
+{
+    ImageIcon background; //Sets background of the MainMenu
+    JLabel MainMenu; 
 
+    JLabel user; //"USERNAME" text
+    JLabel pass; //"PASSWORD" text
+    
+    JPasswordField password; //password entry
+    JTextField username; //username entry
+
+    ImageIcon loginIcon;
+    JLabel loginLabel;
+    JButton loginButton; //checks with password encoding to ensure password is correct.
+
+    JLabel title; //can be an ImageIcon too.. if we want to make one.
+
+    public MainMenuGUI()
+    {              
+        /**
+         * SOME API info:
+         * setBounds(int x, int y, int width, int height)
+         */       
+        this.setLayout( null );
+        setPreferredSize( new Dimension( 1200, 800 ) );
+        this.setFocusable(true);
+               
+        /**
+         * Setting up the JLabel for the username.
+         */
+        
+        user = new JLabel();
+        this.add(user);   
+        user.setBounds(345, 350, 150, 22);
+        user.setText( "USERNAME:" );
+        user.setFont( new Font( "Arial", Font.BOLD, 25 ) );
+        user.setVisible(true);
+        
+         /**
+         * Setting up the JLabel for the password..
+         */
+        
+        pass = new JLabel();
+        this.add(pass);   
+        pass.setBounds(345, 375, 160, 22);
+        pass.setText( "PASSWORD:" );
+        pass.setFont( new Font( "Arial", Font.BOLD, 25 ) );
+        pass.setVisible(true);
+              
+        /**
+         * Setting up the login text field for username ( can be changed to formatted text field ).
+         */     
+        username = new JTextField();
+        this.add(username);
+        username.setVisible(true);
+        username.addActionListener(this); //Validate username...
+        username.setBounds(505, 350, 150, 22);
+        
+        /**
+         * Setting up password text field...
+         */     
+        password = new JPasswordField();
+        this.add(password);
+        password.setVisible(true);
+        password.addActionListener(this); //Validate password..
+        password.setBounds(505, 375, 150, 22);
+        
+        /**
+         * Setting up loginButton.
+         * TODO: error checking with password here, validating username exists.
+         */
+        loginButton = new JButton( "Login" );
+        this.add( loginButton );
+        loginButton.setVisible( true );
+        loginButton.addActionListener( this );  //--> Todo: Make this go to next window after checking password.
+        loginButton.setBounds( 655, 350, 150, 48 );
+        loginButton.setBackground( Color.black ); //can change this to whatever. 
+        loginButton.setFont( new Font( "Arial", Font.BOLD, 23 ) ); //can change this to whatever, or we can make an image.
+        loginButton.setOpaque( true );        
+
+        /**
+         * Setting up title of Main Menu.
+         */
+        title = new JLabel();
+        this.add( title );
+        title.setText( "Roommate Finder" );
+        title.setFont( new Font( "Arial", Font.BOLD, 70 ) );
+        title.setBounds( 300,50,885,50 );
+        //title.setBackground( Color. );
+        title.setOpaque( true );
+        title.setVisible( true );               
+    }
+
+    public void actionPerformed( ActionEvent e ) //Maybe make a different UI class for each frame?
+    {
+        JButton button = ( JButton )e.getSource();
+        if( button == loginButton )
+        {
+            loginButton.setVisible(false);
+            title.setVisible(false);
+            password.setVisible(false);
+            user.setVisible(false);
+            username.setVisible(false);
+            pass.setVisible(false);
+            this.repaint();
+        }
+        this.requestFocusInWindow();
+        this.setFocusable( true );
+        this.repaint();
+    }
+}
