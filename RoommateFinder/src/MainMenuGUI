@@ -5,8 +5,16 @@ import java.awt.*;
  * Can make this look much more pretty in IntelliJ (wanted to wait to see how that's going to work for Eclipse).
  * Just some basic 'fluff' of the UI is here. 
  */
-public class MainMenuGUI extends JPanel implements ActionListener //,Runnable
+public class MainMenuGUI extends JPanel implements ActionListener 
 {
+    /**
+     * Need to reorganize this code out of the constructor and into a displayUI method.
+     * I need to do this to be able to call non static references easier.
+     * Will also make code much more readable/organized.
+     * This way, I can make different classes for each of the frame instances.
+     * Hopefully me and William can discuss how we'll do this more in detail on Wednesday April 20th.
+     * Since we're the two doing the UI.
+     */
     ImageIcon background; //Sets background of the MainMenu
     JLabel MainMenu; 
 
@@ -124,10 +132,8 @@ public class MainMenuGUI extends JPanel implements ActionListener //,Runnable
 
     public void actionPerformed( ActionEvent e ) //Maybe make a different UI class for each frame?
     {
-        JButton button = ( JButton )e.getSource();
-        
-        String passwordEntry = password.getText();
-        
+        JButton button = ( JButton )e.getSource();        
+        //String passwordEntry = password.getText();       
         //if(passwordEntry.isValid())   
         //--> do this, else, display error.
         //Error can be displayed by something like 'passwordDetails.setText("Incorrect password!");
@@ -146,6 +152,7 @@ public class MainMenuGUI extends JPanel implements ActionListener //,Runnable
                 
         if ( button == signUp ) //going to new screen, clear the current.
         {
+            //SignUpGUI.display();
             loginButton.setVisible(false);
             title.setVisible(false);
             password.setVisible(false);
