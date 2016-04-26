@@ -152,6 +152,8 @@ public class MainMenuGUI extends JPanel implements ActionListener
         boolean existingUsername = false;
         boolean correctPassword = false;
 
+        boolean userAndPass = existingUsername && correctPassword;
+
         System.out.println(usernameEntry); //to print to command line
         System.out.println(passwordEntry); //to print to command line
 
@@ -160,16 +162,21 @@ public class MainMenuGUI extends JPanel implements ActionListener
 
         //--> do this, else, display error.
         //Error can be displayed by something like 'passwordDetails.setText("Incorrect password!");
+        //if(ReadFile.usernames.contains(usernameEntry)) existingUsername = true;
 
-        if(button == loginButton && existingUsername != true && correctPassword != true)
+        if(button == loginButton && existingUsername == false)
         {
             errorText.setVisible(true);
         }
 
-        if( button == loginButton && existingUsername == true && correctPassword == true ) //going to new screen, clear the current.
+        ReadFile.read();
+        System.out.print(ReadFile.usernames);
+        System.out.println(ReadFile.usernames.contains(usernameEntry));
+        if( button == loginButton && ReadFile.usernames.contains(usernameEntry)) //going to new screen, clear the current.
         {
             //Jframe newclass = new JFrame();
             //newclass.setVisible();
+            errorText.setVisible(false);
             loginButton.setVisible(false);
             title.setVisible(false);
             password.setVisible(false);
