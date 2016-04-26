@@ -1,78 +1,89 @@
 import java.util.Scanner;
 
-
-
-
-
 public class SignUp 
 {
-	private Student student;
-	private School university;
-	private String name;
-	private int key;
-	private School school;
-	private int age;
-	
-	private String major;
-	private String language;
-	private String gender;
-	private String sleepTime;
-	private String wakeTime;
-	private String schoolName;
-	
-	public SignUp()
+	public static void main (String args[])
 	{
-		student = new Student();
-		
-	}
-	public void readIn()
-	{
+		Student student = new Student();
+		String name= "";
+		int age=0;
+		String major="";
+		String language="";
+		String gender="";
+		String sleepTime="";
+		String wakeTime="";
+		String schoolName="";
+
+
+
+
 		Scanner input = new Scanner(System.in);
-		
-		System.out.println("Enter name: ");
+
+		System.out.print("Enter name: ");
 		name= input.next();
-		
-		System.out.println("Enter gender: ");
+
+
+		System.out.print("Enter gender: ");
 		gender= input.next();
-		
-		System.out.println("Enter age: ");
-		gender= input.next();
-		
-		System.out.println("Major: ");
+
+
+		System.out.print("Enter age: ");
+		age= input.nextInt();
+
+
+
+		System.out.print("Major: ");
 		major=input.next();
-		
-		System.out.println("Language: ");
+
+
+		System.out.print("Language: ");
 		language = input.next();
-		
-		System.out.println("Sleep time: ");
+
+
+		System.out.print("Sleep time: ");
 		sleepTime = input.next();
-		
-		System.out.println("Wake time: ");
+
+
+		System.out.print("Wake time: ");
 		wakeTime = input.next();
-		
-		System.out.println("School: ");
+
+
+		System.out.print("School: ");
 		schoolName = input.next();
-		
+
+		input.close();
+
+
 		student.setAge(age);
 		student.setGender(gender);
 		student.setLanguage(language);
 		student.setMajor(major);
 		student.setName(name);
-		
-		university = new School(schoolName);
+
+		School university = new School(schoolName);
 		student.setSchool(university);
-		
+
 		student.setSleep(sleepTime);
 		student.setWake(wakeTime);
-		
-	
-	
+
+
+
 		//idk ask for help from matthew
+
 		School.Building tempDorm =new School.Building("temporary dorm");
+		if(tempDorm.getName().equals("temporary dorm"))//test
+		{
+			System.out.println("true");
+		}
+
 		School.Building.Room h1= new School.Building.Room(2);
-		tempDorm.add(h1, student);
-		
-	
-		
+
+		h1.add(student);
+		tempDorm.add(h1);
+		university.add(tempDorm);
+
+		System.out.println(h1.contains(student));//test
+		System.out.println("2" +tempDorm.contains(student));//test
+		//school class worng?, need double or triple for loops ask matthew
 	}
 }
