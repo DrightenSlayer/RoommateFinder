@@ -3,9 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 /**
  * Can make this look much more pretty in IntelliJ (wanted to wait to see how that's going to work for Eclipse).
- * Just some basic 'fluff' of the UI is here. 
+ * Just some basic 'fluff' of the UI is here.
  */
-public class MainMenuGUI extends JPanel implements ActionListener 
+public class MainMenuGUI extends JPanel implements ActionListener
 {
     /**
      * Need to reorganize this code out of the constructor and into a displayUI method.
@@ -16,7 +16,7 @@ public class MainMenuGUI extends JPanel implements ActionListener
      * Since we're the two doing the UI.
      */
     ImageIcon background; //Sets background of the MainMenu
-    JLabel MainMenu; 
+    JLabel MainMenu;
 
     JLabel user; //"USERNAME" text
     JLabel pass; //"PASSWORD" text
@@ -32,12 +32,14 @@ public class MainMenuGUI extends JPanel implements ActionListener
 
     JButton signUp; //sign up button for new people.
     JLabel signUpText; //sign up text box.
+
+    JLabel errorText; //error text if username or password is wrong.
     public MainMenuGUI()
-    {              
+    {
         /**
          * SOME API info:
          * setBounds(int x, int y, int width, int height)
-         */       
+         */
         this.setLayout( null );
         setPreferredSize( new Dimension( 1200, 800 ) );
         this.setFocusable(true);
@@ -47,7 +49,7 @@ public class MainMenuGUI extends JPanel implements ActionListener
          */
 
         user = new JLabel();
-        this.add(user);   
+        this.add(user);
         user.setBounds(345, 350, 150, 22);
         user.setText( "USERNAME:" );
         user.setFont( new Font( "Arial", Font.BOLD, 25 ) );
@@ -55,9 +57,9 @@ public class MainMenuGUI extends JPanel implements ActionListener
 
         /**
          * Setting up the JLabel for the password..
-         */        
+         */
         pass = new JLabel();
-        this.add(pass);   
+        this.add(pass);
         pass.setBounds(345, 375, 160, 22);
         pass.setText( "PASSWORD:" );
         pass.setFont( new Font( "Arial", Font.BOLD, 25 ) );
@@ -65,7 +67,7 @@ public class MainMenuGUI extends JPanel implements ActionListener
 
         /**
          * Setting up the login text field for username ( can be changed to formatted text field ).
-         */     
+         */
         username = new JTextField();
         this.add(username);
         username.setVisible(true);
@@ -74,7 +76,7 @@ public class MainMenuGUI extends JPanel implements ActionListener
 
         /**
          * Setting up password text field...
-         */     
+         */
         password = new JPasswordField();
         this.add(password);
         password.setVisible(true);
@@ -90,16 +92,16 @@ public class MainMenuGUI extends JPanel implements ActionListener
         loginButton.setVisible( true );
         loginButton.addActionListener( this );  //--> Todo: Make this go to next window after checking password.
         loginButton.setBounds( 655, 350, 150, 48 );
-        loginButton.setBackground( Color.black ); //can change this to whatever. 
+        loginButton.setBackground( Color.RED ); //can change this to whatever.
         loginButton.setFont( new Font( "Arial", Font.BOLD, 23 ) ); //can change this to whatever, or we can make an image.
-        loginButton.setOpaque( true );        
+        loginButton.setOpaque( true );
 
         /**
          * Setting up the sign up label of the Main Menu.
          */
 
         signUpText = new JLabel();
-        this.add(signUpText);   
+        this.add(signUpText);
         signUpText.setBounds(415, 415, 360, 22);
         signUpText.setText( "New? Sign up here." );
         signUpText.setFont( new Font( "Arial", Font.BOLD, 18 ) );
@@ -113,9 +115,9 @@ public class MainMenuGUI extends JPanel implements ActionListener
         signUp.setVisible( true );
         signUp.addActionListener( this );  //--> Todo: Make this go to next window after checking password.
         signUp.setBounds( 595, 415, 130, 50 );
-        signUp.setBackground( Color.black ); //can change this to whatever. 
+        signUp.setBackground( Color.red ); //can change this to whatever.
         signUp.setFont( new Font( "Arial", Font.BOLD, 16 ) ); //can change this to whatever, or we can make an image.
-        signUp.setOpaque( true );        
+        signUp.setOpaque( true );
 
         /**
          * Setting up title of Main Menu.
@@ -127,18 +129,31 @@ public class MainMenuGUI extends JPanel implements ActionListener
         title.setBounds( 300,50,885,50 );
         //title.setBackground( Color. );
         title.setOpaque( true );
-        title.setVisible( true );               
+        title.setVisible( true );
     }
 
     public void actionPerformed( ActionEvent e ) //Maybe make a different UI class for each frame?
     {
-        JButton button = ( JButton )e.getSource();        
-        //String passwordEntry = password.getText();       
-        //if(passwordEntry.isValid())   
+        JButton button = ( JButton )e.getSource();
+
+        String passwordEntry = password.getText();
+        String usernameEntry = username.getText();
+
+        boolean existingUsername = false;
+        boolean correctPassword = false;
+        
+        System.out.println(usernameEntry); //to print to command line
+        System.out.println(passwordEntry); //to print to command line
+
+        //Profile profile = new Profile();
+        //profile.isValid(passwordEntry);
+
         //--> do this, else, display error.
         //Error can be displayed by something like 'passwordDetails.setText("Incorrect password!");
         if( button == loginButton ) //going to new screen, clear the current.
         {
+            //Jframe newclass = new JFrame();
+            //newclass.setVisible();
             loginButton.setVisible(false);
             title.setVisible(false);
             password.setVisible(false);
@@ -149,7 +164,7 @@ public class MainMenuGUI extends JPanel implements ActionListener
             signUp.setVisible(false);
             this.repaint();
         }
-                
+
         if ( button == signUp ) //going to new screen, clear the current.
         {
             //SignUpGUI.display();
@@ -161,10 +176,12 @@ public class MainMenuGUI extends JPanel implements ActionListener
             pass.setVisible(false);
             signUpText.setVisible(false);
             signUp.setVisible(false);
-            this.repaint(); 
+            this.repaint();
         }
         this.requestFocusInWindow();
         this.setFocusable( true );
         this.repaint();
     }
 }
+
+
