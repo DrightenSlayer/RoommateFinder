@@ -1,0 +1,20 @@
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.io.File;
+
+public class ReadFile {
+    public static void main(String[] args) {
+    File accounts = new File("accounts");
+    try {
+        Scanner scan = new Scanner(accounts);
+        while(scan.hasNextLine()) {
+            String s = scan.nextLine();
+            String[] accountInfo = s.split("\\|");
+            System.out.println(accountInfo[0] + " " + accountInfo[1]);
+        }
+    }
+    catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }
+    }
+}
