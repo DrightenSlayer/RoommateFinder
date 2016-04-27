@@ -125,7 +125,7 @@ public class MainMenuGUI extends JPanel implements ActionListener
         signUp = new JButton( "Sign Up." );
         this.add( signUp );
         signUp.setVisible( true );
-        signUp.addActionListener( this );  //--> Todo: Make this go to next window after checking password.
+        signUp.addActionListener( this );  //-->
         signUp.setBounds( 595, 415, 130, 50 );
         signUp.setBackground( Color.red ); //can change this to whatever.
         signUp.setFont( new Font( "Arial", Font.BOLD, 16 ) ); //can change this to whatever, or we can make an image.
