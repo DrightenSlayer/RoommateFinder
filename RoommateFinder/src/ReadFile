@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ReadFile {
 
     static ArrayList<String> usernames = new ArrayList<>();
-    static ArrayList<String> password = new ArrayList<>();
+    static ArrayList<String> passwords = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -22,11 +22,24 @@ public class ReadFile {
                 String[] accountInfo = s.split("\\|");
                 usernames.add(accountInfo[0]);
                 System.out.println(usernames);
-                password.add(accountInfo[1]);
+                passwords.add(accountInfo[1]);
                 //System.out.println(accountInfo[0] + " " + accountInfo[1]);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
+
+    public static boolean validate(String user, String pass)
+    {
+        //call decrypt here, then validate.
+        int index = usernames.indexOf(user);
+        if(index == -1) return false;
+        if(usernames.get(index).equals(user) && passwords.get(index).equals(pass))
+        {
+            return true;
+        }
+        else return false;
+    }
 }
+
