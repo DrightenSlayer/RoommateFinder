@@ -1,22 +1,15 @@
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
+
 /**
- * Can make this look much more pretty in IntelliJ (wanted to wait to see how that's going to work for Eclipse).
- * Just some basic 'fluff' of the UI is here.
+ * MainMenu of the Roomie Finder Application.
+ * Launches the frame that acts as the log in screen.
  */
 public class MainMenuGUI extends JPanel implements ActionListener
 {
-    /**
-     * Need to reorganize this code out of the constructor and into a displayUI method.
-     * I need to do this to be able to call non static references easier.
-     * Will also make code much more readable/organized.
-     * This way, I can make different classes for each of the frame instances.
-     * Hopefully me and William can discuss how we'll do this more in detail on Wednesday April 20th.
-     * Since we're the two doing the UI.
-     */
     ImageIcon background; //Sets background of the MainMenu
-    JLabel MainMenu;
+    JLabel MainMenu; //Text for the MainMenu (can be made into an Image Icon)
 
     JLabel user; //"USERNAME" text
     JLabel pass; //"PASSWORD" text
