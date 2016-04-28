@@ -66,10 +66,6 @@ public class SignUp
 		student.setSleep(sleepTime);
 		student.setWake(wakeTime);
 
-
-
-		//idk ask for help from matthew
-
 		School.Building tempDorm =new School.Building("temporary dorm");
 		if(tempDorm.getName().equals("temporary dorm"))//test
 		{
@@ -84,6 +80,5 @@ public class SignUp
 
 		System.out.println(h1.contains(student));//test
 		System.out.println("2" +tempDorm.contains(student));//test
-		//school class worng?, need double or triple for loops ask matthew
 	}
 }

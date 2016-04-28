@@ -39,7 +39,8 @@ public class School
 		}
 		public boolean contains(Student student)
 		{
-			return rooms.contains(student);
+			for(Room room : rooms) if(room.contains(student)) return true;
+			return false;
 		}
 		
 		public Building(String name)
