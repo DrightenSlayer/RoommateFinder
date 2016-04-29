@@ -35,6 +35,9 @@ public class LogInGUI {
                 System.out.println("Successful log in.");
                 System.out.println("Redirecting now...");
                 errorLabel.setVisible(false);
+                StudentInfoGUI.createFrame();
+                ((JFrame) loginPanel.getTopLevelAncestor()).dispose();
+
             }
             else { errorLabel.setVisible(true); }
         });
