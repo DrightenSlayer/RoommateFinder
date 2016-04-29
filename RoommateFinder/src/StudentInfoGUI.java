@@ -41,11 +41,11 @@ public class StudentInfoGUI {
             String schoolEntry = schoolField.getText();
             String sidEntry = sidField.getText();
             String languageEntry = (String) languageBox.getSelectedItem();
-            studentInfo.add(nameEntry[0]);
+            studentInfo.add(nameEntry[0]); //check if 0 or 1 contain anything other than characters.
             studentInfo.add(nameEntry[1]);
-            studentInfo.add(schoolEntry);
-            studentInfo.add(sidEntry);
-            studentInfo.add(languageEntry);
+            studentInfo.add(schoolEntry); //check if school contains anything other than characters.
+            studentInfo.add(sidEntry); //check if it contains anything other than integers.
+            studentInfo.add(languageEntry); //check if it contains anything other than characters.
 
             if (nameEntry.length != 2 || schoolEntry.length() == 0 || sidEntry.length() == 0) {
                 System.out.println("Error, missing input.");
@@ -56,6 +56,12 @@ public class StudentInfoGUI {
             }
             if (!studentInfo.isEmpty()) {
                 System.out.println("Testing Array List: " + studentInfo);
+            }
+
+            if (nameEntry.length == 2 && schoolEntry.length() != 0 && sidEntry.length() != 0) {
+                //StudentInfoGUI.createFrame();
+                PasswordSetupGUI.createFrame();
+                ((JFrame) studentInfoPanel.getTopLevelAncestor()).dispose();
             }
 
             //check if name entry has first + last by splitting
