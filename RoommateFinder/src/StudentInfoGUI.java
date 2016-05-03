@@ -90,4 +90,9 @@ public class StudentInfoGUI {
         return (String) languageBox.getSelectedItem();
     }
 
+    private List<String> getStudentInfo()
+    {
+        return studentInfo;
+    }
+
 }
