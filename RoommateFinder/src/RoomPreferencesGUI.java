@@ -1,5 +1,3 @@
-import com.sun.xml.internal.bind.api.impl.NameConverter;
-
 import javax.swing.*;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -56,7 +54,7 @@ public class RoomPreferencesGUI {
             roomPreferencesList.add(bunkPref());
 
             try {
-                Files.write(Paths.get("RoomPreferences.txt"), roomPreferencesList, UTF8,
+                Files.write(Paths.get("StudentInfo.txt"), roomPreferencesList, UTF8,
                         StandardOpenOption.CREATE, StandardOpenOption.APPEND);
             } catch (IOException exc) {
                 exc.printStackTrace();

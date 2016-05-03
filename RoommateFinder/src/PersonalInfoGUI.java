@@ -48,7 +48,7 @@ public class PersonalInfoGUI {
             personalInfoList.add(getRoommatePref());
 
             try {
-                Files.write(Paths.get("PersonalInfo.txt"), personalInfoList, UTF8,
+                Files.write(Paths.get("StudentInfo.txt"), personalInfoList, UTF8,
                         StandardOpenOption.CREATE, StandardOpenOption.APPEND);
             } catch (IOException exc) {
                 exc.printStackTrace();
