@@ -76,10 +76,19 @@ public class StudentInfoGUI {
 
     private String getSidEntry() {
         String sidEntry = sidField.getText();
-        if (sidField.getText().matches("[a-zA-Z]+")) {
-            return null;
+        if (legitSidEntry())
+        {
+            return sidEntry;
         }
-        else return sidEntry;
+        else return null;
+    }
+
+    private boolean legitSidEntry() {
+        String sidEntry = sidField.getText();
+        if( sidEntry != null && sidEntry.matches("^\\d+$")) {
+            return true;
+        }
+        else {return false; }
     }
 
     private String getSchoolEntry() {
