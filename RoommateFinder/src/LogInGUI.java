@@ -51,7 +51,7 @@ public class LogInGUI {
             logInEntryInfo.add(getUsername());
             logInEntryInfo.add(getPassword());
 
-            //System.out.println(modifyPassword());
+            System.out.println(modifyPassword());
             if (validateInput()) {
                 ((JFrame) loginPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
             } else {
