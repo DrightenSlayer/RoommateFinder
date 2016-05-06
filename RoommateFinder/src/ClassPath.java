@@ -7,11 +7,33 @@ public class ClassPath
 	private static int track=0;
 	private static int heading=0;
 	private static double total=0;
+	public static String s = "";
+	public static  double graph[][] = 
+		{
+				{0,0.27,0.22,0.23,0.15,0.04,0.05,0.21,0.3,0.42, 0.18,0.31,0.39,0.38,0.37,0.26},//cvb start
+				{0.27,0,0.04,0.09,0.12,0.27,0.23,0.2,0.19,0.21,0.29,0.22,0.18,0.14,0.1,0.16},//mcq
+				{0.23,0.04,0,0.06,0.07,0.22,0.18,0.16,0.16,0.22,0.23,0.18,0.19,0.17,0.14,0.13,},//sweeney
+				{0.23,0.08,0.06,0,0.08,0.2,0.17,0.11,0.12,0.20,0.20,0.13,0.17,0.15,0.16,0.07},//health
+				{0.17,0.11,0.07,0.07,0,0.16,0.12,0.15,0.18,0.27,0.19,0.21,0.23,0.21,0.18,0.1},//bricks
+				{0.07,0.23,0.19,0.18,0.11,0,0.04,0.2,0.25,0.36,0.13,0.22,0.34,0.33,0.33,0.14},//cvc
+				{0.06,0.27,0.23,0.22,0.15,0,0.06,0.21,0.27,0.39,0.12,0.26,0.38,0.36,0.36,0.17},//cva
+				{0.25,0.21,0.18,0.11,0.15,0.17,0.19,0,0.09,0.22,0.12,0.05,0.22,0.22,0.24,0.06},//student union
+				{0.32,0.19,0.16,0.11,0.18,0.24,0.27,0.05,0,0.15,0.2,0.04,0.16,0.15,0.17,0.1},//clark
+				{0.43,0.20,0.21,0.19,0.27,0.36,0.39,0.21,0.12,0,0.33,0.23,0.06,0.09,0.12,0.20},//library
+				{0.19,0.29,0.26,0.2,0.19,0.12,0.13,0.13,0.21,0.33,0,34,0.34,0.35,0.35,0.15},//business building
+				{0.24,0.05,0.04,0.1,0.09,0.24,0.21,0.21,0.22,0.25,0.28,0,0.21,0.18,0.16,0.21},//duncan
+				{0.4,0.16,0.18,0.16,0.24,0.34,0.37,0.18,0.14,0.05,0.33,0.21,0,0.04,0.07,0.21},//old science
+				{0.38,0.12,0.16,0.14,0.21,0.32,0.36,0.2,0.15,0.08,0.33,0.18,0.02,0,0.04,0.2},//wsq
+				{0.38,0.11,0.15,0.15,0.2,0.33,0.37,0.22,0.19,0.13,0.35,0.16,0.08,0.05,0,0.26},//yoshida
+				{0.26,0.16,0.13,0.07,0.1,0.14,0.17,0.06,0.1,0.2,0.15,0.21,0.21,0.2,0.26,0}//engineering
+
+		};
 	public static ArrayList<Integer> classes;
 	
 	public ClassPath(ArrayList<Integer> temp)
 	{
 		classes = temp;
+		
 	}
 	
 	public static void insert(int buildingNumber)
@@ -21,6 +43,7 @@ public class ClassPath
 
 	public static int minDistance(double dist[], boolean sptSet[])
 	{
+
 		double min = 999;
 		int min_index = -1;
 
@@ -36,13 +59,13 @@ public class ClassPath
 
 	private static String printPath(int parent[], int j)
 	{
-		String s = "";
+		
 		if (parent[j]==-1)
 		{
-			return "";	
+			return"";	
 		}
 		printPath(parent, parent[j]);
-		return s=j+"";
+		return ""+j;
 	}
 
 	private static String printSolution(double[] dist, int n, int[] parent,ArrayList<Integer> arr)
@@ -76,7 +99,7 @@ public class ClassPath
 				{
 					//TODO: if there is a way to make this work with integers instead of "%d"
 					//TODO: then I think the convertToName would work
-					result =temp+" -> " + i+"		   "+ dist[i]+"			   "+ error;
+					result =temp+" -> " + i+"		   "+ dist[i]+"			   " + error;
 					total = total+ dist[i];
 					if(error.equals("no path"))
 					{
@@ -84,7 +107,7 @@ public class ClassPath
 					}
 					else
 					{
-						printPath(parent, i);
+						s=printPath(parent, i);
 					}
 					break;
 				}
@@ -94,7 +117,7 @@ public class ClassPath
 			
 		}
 		track++;
-		result = top + "\n" + result;
+		result = top + "\n" + result +" " +s;
 		return result;
 		
 	}
@@ -187,26 +210,7 @@ public class ClassPath
 		//14=yoshida uchida hall
 		//15 Engineering
 
-		double graph[][] = 
-			{
-					{0,0.27,0.22,0.23,0.15,0.04,0.05,0.21,0.3,0.42, 0.18,0.31,0.39,0.38,0.37,0.26},//cvb start
-					{0.27,0,0.04,0.09,0.12,0.27,0.23,0.2,0.19,0.21,0.29,0.22,0.18,0.14,0.1,0.16},//mcq
-					{0.23,0.04,0,0.06,0.07,0.22,0.18,0.16,0.16,0.22,0.23,0.18,0.19,0.17,0.14,0.13,},//sweeney
-					{0.23,0.08,0.06,0,0.08,0.2,0.17,0.11,0.12,0.20,0.20,0.13,0.17,0.15,0.16,0.07},//health
-					{0.17,0.11,0.07,0.07,0,0.16,0.12,0.15,0.18,0.27,0.19,0.21,0.23,0.21,0.18,0.1},//bricks
-					{0.07,0.23,0.19,0.18,0.11,0,0.04,0.2,0.25,0.36,0.13,0.22,0.34,0.33,0.33,0.14},//cvc
-					{0.06,0.27,0.23,0.22,0.15,0,0.06,0.21,0.27,0.39,0.12,0.26,0.38,0.36,0.36,0.17},//cva
-					{0.25,0.21,0.18,0.11,0.15,0.17,0.19,0,0.09,0.22,0.12,0.05,0.22,0.22,0.24,0.06},//student union
-					{0.32,0.19,0.16,0.11,0.18,0.24,0.27,0.05,0,0.15,0.2,0.04,0.16,0.15,0.17,0.1},//clark
-					{0.43,0.20,0.21,0.19,0.27,0.36,0.39,0.21,0.12,0,0.33,0.23,0.06,0.09,0.12,0.20},//library
-					{0.19,0.29,0.26,0.2,0.19,0.12,0.13,0.13,0.21,0.33,0,34,0.34,0.35,0.35,0.15},//business building
-					{0.24,0.05,0.04,0.1,0.09,0.24,0.21,0.21,0.22,0.25,0.28,0,0.21,0.18,0.16,0.21},//duncan
-					{0.4,0.16,0.18,0.16,0.24,0.34,0.37,0.18,0.14,0.05,0.33,0.21,0,0.04,0.07,0.21},//old science
-					{0.38,0.12,0.16,0.14,0.21,0.32,0.36,0.2,0.15,0.08,0.33,0.18,0.02,0,0.04,0.2},//wsq
-					{0.38,0.11,0.15,0.15,0.2,0.33,0.37,0.22,0.19,0.13,0.35,0.16,0.08,0.05,0,0.26},//yoshida
-					{0.26,0.16,0.13,0.07,0.1,0.14,0.17,0.06,0.1,0.2,0.15,0.21,0.21,0.2,0.26,0}//engineering
 
-			};
 
 		ArrayList<Integer> schedule = new ArrayList<Integer>();
 		schedule.add(1);
@@ -216,7 +220,8 @@ public class ClassPath
 
 		for(int i=0; i <schedule.size(); i++)
 		{
-			System.out.println(dijkstra(graph, schedule.get(i),schedule));//A=0, B=1, C=2 etc	
+			System.out.println(dijkstra(graph, schedule.get(i),schedule));//A=0, B=1, C=2 etc
+			s="";
 		}
 		
 	System.out.println(getTotal());
