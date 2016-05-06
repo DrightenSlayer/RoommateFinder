@@ -99,7 +99,7 @@ public class ClassPath
 				{
 					//TODO: if there is a way to make this work with integers instead of "%d"
 					//TODO: then I think the convertToName would work
-					result =temp+" -> " + i+"		   "+ dist[i]+"			   " + error;
+					result =temp+" -> " + i+"		   "+ dist[i]+"			   " ;
 					total = total+ dist[i];
 					if(error.equals("no path"))
 					{
@@ -117,7 +117,7 @@ public class ClassPath
 			
 		}
 		track++;
-		result = top + "\n" + result +" " +s;
+		result = top + "\n" + result +" ";
 		return result;
 		
 	}
