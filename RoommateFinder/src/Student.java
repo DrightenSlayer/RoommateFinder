@@ -20,13 +20,13 @@ public class Student implements Comparable<Student>
 	private String name;
 	private int key;
 	private School school;
-	
+
 	private String major;
 	private String language;
-	
-	
+
+
 	public static final int PROPCOUNT = 6;
-	
+
 	/*
 	 * I tried using Enums for this, but Java's enums apparently don't work like C++'s.
 	 */
@@ -36,15 +36,67 @@ public class Student implements Comparable<Student>
 	public static final int MAJOR = 3;
 	public static final int SLEEP = 4;
 	public static final int WAKE = 5;
-	
-	private Queue<Student> matches;
-	
+
 	private int[] properties = new int[PROPCOUNT];
-	
+
 	public Student(){}
 	public void setKey(int key){this.key = key;}
 	public int getKey(){return key;}
 	
+	public static Student generate()
+	{
+		int nameLength = (int) ((100 * Math.random()) % 11) + 4;
+		String name = "";
+		name += (char) (65 + ((int)(10*Math.random())%25));
+		for(int i = 0; i < nameLength; i++)
+		{
+			name += (char) (97 + (((int)((100*Math.random())))%25));
+		}
+		String name2 = ""; String name3 = "";
+		if((int)(Math.random()*10) >= 3)
+		{
+			int index = ((int) (Math.random()*10) % name.length());
+			if(index == 0) index = name.length()/2;
+			name2 = name.substring(0, index);
+			name3 = name.substring(index);
+			name = name2 + " " + name3;
+		}
+		int[] p = new int[PROPCOUNT];
+		for(int i = 0; i < PROPCOUNT; i++)
+		{
+				p[i] = (int) (10*Math.random());
+		};
+		return new Student(name, p);
+	}
+	
+	public Queue<Student> matches(){return matches(this.school);}
+	
+	public Queue<Student> matches(School school)
+	{
+		Set<Student> others = school.getStudents();
+		others.remove(this);
+		Map<Student, Integer> matchMap = new HashMap<>();
+		for(Student other : others)
+		{
+			matchMap.put(other, compareTo(other));
+		}
+		Queue<Student> matches = new LinkedList<>();
+		while(!matchMap.isEmpty())
+		{
+			Student most = null;
+			for(Student key : matchMap.keySet())
+			{
+				if(most == null) most = key;
+				else
+				{
+					if(matchMap.get(key) > matchMap.get(most)) most = key;
+				}
+			}
+			matches.add(most);
+			matchMap.remove(most);
+		}
+		return matches;
+	}
 	/**
 	 * This constructor is to be used if one knows the numeric codes for all student properties.
 	 * Add those codes in an array placed into the constructor, and the student will be quickly generated.
@@ -56,145 +108,150 @@ public class Student implements Comparable<Student>
 		if(p.length != PROPCOUNT) throw new IllegalArgumentException();
 		for(int i = 0; i < PROPCOUNT; i++) properties[i] = p[i];
 	}
-	
+
 	public boolean completeProfile()
 	{
 		for(int i = 0; i != PROPCOUNT; ++i) if(properties[i] == 0) return false;
 		return name != null;
 	}
-	
+
 	public String getName() {return name;}
 	public School getSchool(){return school;}
-	
+
 	public int getAge(){return properties[AGE];}
-	
+
 	public String getGender()
 	{
 		switch(properties[GENDER])
 		{
-			case 1: return "male";
-			case 2: return "female";
-			case 3: return "other";
-			case 4: return "choose not to identify";
-			default: return "";
+		case 1: return "male";
+		case 2: return "female";
+		case 3: return "other";
+		case 4: return "choose not to identify";
+		default: return "";
 		}
 	}
-	
+
 	public String getLanguage()
 	{
 		switch(properties[LANGUAGE])
 		{
-			case 0: return "no preference";
-			case 1: return language;
-			default: return "";
+		case 0: return "no preference";
+		case 1: return language;
+		default: return "";
 		}
-//		return null;
+		//		return null;
 	}
-	
+
 	public String getMajor()
 	{
 		switch(properties[MAJOR])
 		{
-			case 0: return "un-declared";
-			case 1: return major;
-			default: return "";
+		case 0: return "un-declared";
+		case 1: return major;
+		default: return "";
 		}
-//		return null;
+		//		return null;
 	}
-	
+
 	public String getSleep()
 	{	
 		switch(properties[SLEEP])
 		{
-			case 1: return "early";
-			case 2: return "late";
-			case 3: return "no preference";
-			default: return "";
+		case 1: return "early";
+		case 2: return "late";
+		case 3: return "no preference";
+		default: return "";
 		}
-//		return properties[SLEEP];
+		//		return properties[SLEEP];
 	}
 	public String getWake()
 	{
 		switch(properties[WAKE])
 		{
-			case 1: return "early";
-			case 2: return "late";
-			case 3: return "no preference";
-			default: return "";
+		case 1: return "early";
+		case 2: return "late";
+		case 3: return "no preference";
+		default: return "";
 		}
-//		return properties[WAKE];
+		//		return properties[WAKE];
 	}
-	
+
 	public void setName(String name) {this.name = name;}
-	
+
 	public void setSchool(School school)
 	{
 		if(this.school != null) this.school.remove(this);
 		this.school = school;
 	}
-	
+
 	public void setAge(int a) {properties[AGE] = a;}
-	
+
 	public void setGender(String g)
 	{
 		switch(g)
 		{
-			case "male": properties[GENDER] = 1; break;
-			case "female": properties[GENDER] = 2; break;
-			case "other": properties[GENDER] = 3; break;
-			case "choose not to identify": properties[GENDER] = 4; break;
-			default: properties[GENDER] = 0; break;
+		case "male": properties[GENDER] = 1; break;
+		case "female": properties[GENDER] = 2; break;
+		case "other": properties[GENDER] = 3; break;
+		case "choose not to identify": properties[GENDER] = 4; break;
+		default: properties[GENDER] = 0; break;
 		}
 	}
-	
+
 	public void setLanguage(String l)
 	{
 		language = l;
-		
+
 		if (language.equals("none"))
 			properties[LANGUAGE] = 0;
 		else
 			properties[LANGUAGE] = 1;
 	}
-	
+
 	public void setMajor(String m)
 	{
 		major = m;
-		
+
 		if (major.equals("none"))
 			properties[MAJOR] = 0;
 		else
 			properties[MAJOR] = 1;		
 	}
-		
+
 	public void setSleep(String s)
 	{
 		switch(s)
 		{
-			case "early": properties[SLEEP] = 1; break;
-			case "late": properties[SLEEP] = 2; break;
-			case "no preference": properties[SLEEP] = 3; break;
-			default: properties[SLEEP] = 0; break;
+		case "early": properties[SLEEP] = 1; break;
+		case "late": properties[SLEEP] = 2; break;
+		case "no preference": properties[SLEEP] = 3; break;
+		default: properties[SLEEP] = 0; break;
 		}
-//		properties[SLEEP] = s;
+		//		properties[SLEEP] = s;
 	}
-	
+
 	public void setWake(String w) 
 	{
 		switch(w)
 		{
-			case "early": properties[WAKE] = 1; break;
-			case "late": properties[WAKE] = 2; break;
-			case "no preference": properties[WAKE] = 3; break;
-			default: properties[WAKE] = 0; break;			
+		case "early": properties[WAKE] = 1; break;
+		case "late": properties[WAKE] = 2; break;
+		case "no preference": properties[WAKE] = 3; break;
+		default: properties[WAKE] = 0; break;			
 		}
-//		properties[WAKE] = w;
+		//		properties[WAKE] = w;
 	}
 
 	@Override
-	public int compareTo(Student arg0)
+	public int compareTo(Student other)
 	{
-		return name.compareTo(arg0.getName());
+		int c = 0;
+		for(int i = 0; i < PROPCOUNT; i++)
+		{
+			if(properties[i] == other.properties[i]) c++;
+		}
+		return c;
 	}
-	
+
 }
