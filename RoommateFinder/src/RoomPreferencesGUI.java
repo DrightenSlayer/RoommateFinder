@@ -60,14 +60,11 @@ public class RoomPreferencesGUI {
                 exc.printStackTrace();
             }
 
-            //TODO: link with Next screen
-            // ((JFrame) RoomPreferencesPanel.getTopLevelAncestor()).dispose();
-            // _________.createFrame();
+            ((JFrame) RoomPreferencesPanel.getTopLevelAncestor()).dispose();
+            MainMenuGUI.createFrame();
         });
 
         previousButton.addActionListener(e -> {
-            //TODO: anything else to do here besides moving to previous screen?
-
             ((JFrame) RoomPreferencesPanel.getTopLevelAncestor()).dispose();
             PersonalInfoGUI.createFrame();
         });

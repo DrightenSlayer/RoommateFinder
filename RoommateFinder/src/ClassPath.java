@@ -62,6 +62,8 @@ public class ClassPath
 				}
 				for(int k=0; k <arr.size(); k++)
 				{
+					//TODO: if there is a way to make this work with integers instead of "%d"
+					//TODO: then I think the convertToName would work
 					System.out.printf("\n%d -> %d \t\t %f\t\t%s ", temp, i, dist[i], error);
 					total = total+ dist[i];
 					if(error.equals("no path"))
@@ -124,6 +126,29 @@ public class ClassPath
 
 
 
+	}
+
+	private static String convertToName(int i) {
+
+		switch (i) {
+			case 0  : return "CVB";
+			case 1  : return "McQuarrie Hall";
+			case 2  : return "Sweeney Hall";
+			case 3  : return "Health Building";
+			case 4  : return "Bricks";
+			case 5  : return "CVC";
+			case 6  : return "CVA";
+			case 7  : return "Student Union";
+			case 8  : return "Clark Hall";
+			case 9  : return "Library";
+			case 10 : return "Business Building";
+			case 11 : return "Duncan Hall";
+			case 12 : return "Old Science Building";
+			case 13 : return "Washington Square Hall";
+			case 14 : return "Yoshida Uchida Hall";
+			case 15 : return "Engineering";
+			default : return "Didn't work";
+		}
 	}
 	
 	public static double getTotal()

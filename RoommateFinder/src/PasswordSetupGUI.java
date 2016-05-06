@@ -41,6 +41,7 @@ public class PasswordSetupGUI {
         nextButton.addActionListener(e -> {
             if (checkPasswords() && !noInput()) {
                 ((JFrame) accountSetupPanel.getTopLevelAncestor()).dispose();
+                PersonalInfoGUI.createFrame();
             } else errorLabel.setVisible(true);
         });
         prevButton.addActionListener(e -> {

@@ -24,6 +24,7 @@ public class PersonalInfoGUI {
     private JRadioButton livelyButton;
     private JButton previousButton;
     private JButton nextButton;
+    private JTextField ageText;
     private List<String> personalInfoList;
     private final Charset UTF8 = StandardCharsets.UTF_8;
 
@@ -41,6 +42,7 @@ public class PersonalInfoGUI {
         personalInfoList = new ArrayList<>();
 
         nextButton.addActionListener(e -> {
+            personalInfoList.add(getAge());
             personalInfoList.add(getMajor());
             personalInfoList.add(getYear());
             personalInfoList.add(getSleepPrefs());
@@ -60,8 +62,8 @@ public class PersonalInfoGUI {
 
         previousButton.addActionListener(e -> {
             //TODO: Add actionListener to Go to Ray's screen
-            // ((JFrame) PersonalInfoPanel.getTopLevelAncestor()).dispose();
-            // ________.createFrame();
+             ((JFrame) PersonalInfoPanel.getTopLevelAncestor()).dispose();
+             StudentInfoGUI.createFrame();
         });
     }
 
@@ -102,6 +104,10 @@ public class PersonalInfoGUI {
             return "Lively";
         else
             return "No preference";
+    }
+
+    private String getAge() {
+        return ageText.getText();
     }
 
 

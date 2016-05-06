@@ -1,5 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +26,9 @@ public class StudentInfoGUI {
     private JButton previousButton;
     private JComboBox schoolComboBox;
     private JLabel errorLabel;
-    private List<String> studentInfo;
+    private JComboBox genderBox;
+    private List<String> studentInfoList;
+    private final Charset UTF8 = StandardCharsets.UTF_8;
 
     public static void main(String[] args) {
         StudentInfoGUI.createFrame();
@@ -37,13 +45,22 @@ public class StudentInfoGUI {
 
     public StudentInfoGUI() {
         $$$setupUI$$$();
-        studentInfo = new ArrayList<>();
+        studentInfoList = new ArrayList<>();
         nextButton.addActionListener(e -> {
 
-            studentInfo.add(getNameEntry());
-            studentInfo.add(getLanguageEntry());
-            studentInfo.add(getSidEntry());
-            studentInfo.add(getSchoolEntry());
+            studentInfoList.add(getNameEntry());
+            studentInfoList.add(getGenderEntry());
+            studentInfoList.add(getLanguageEntry());
+            studentInfoList.add(getSidEntry());
+            studentInfoList.add(getSchoolEntry());
+
+            try {
+                Files.write(Paths.get("StudentInfo.txt"), studentInfoList, UTF8,
+                        StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            } catch (IOException exc) {
+                exc.printStackTrace();
+            }
+
 
             if (getSidEntry() != null && getNameEntry() != null) {
                 PasswordSetupGUI.createFrame();
@@ -64,6 +81,10 @@ public class StudentInfoGUI {
         if (legitNameEntry()) {
             return nameEntry;
         } else return null;
+    }
+
+    private String getGenderEntry() {
+        return genderBox.getSelectedItem().toString();
     }
 
     private boolean legitNameEntry() {
@@ -100,7 +121,7 @@ public class StudentInfoGUI {
     }
 
     private List<String> getStudentInfo() {
-        return studentInfo;
+        return studentInfoList;
     }
 
     /**

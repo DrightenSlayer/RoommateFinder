@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.*;
 
 /**
@@ -40,6 +41,8 @@ public class Student implements Comparable<Student>
 	private int[] properties = new int[PROPCOUNT];
 
 	public Student(){}
+
+
 	public void setKey(int key){this.key = key;}
 	public int getKey(){return key;}
 	
