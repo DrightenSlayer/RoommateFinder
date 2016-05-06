@@ -1,395 +1,415 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="MyGPA">
-  <grid id="27dc6" binding="myGpaPanel" layout-manager="GridLayoutManager" row-count="10" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="517" height="400"/>
+      <xy x="20" y="20" width="500" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="aa2e9" class="javax.swing.JTextField" binding="class1Text">
+      <grid id="cb15d" binding="myGpaPanel" layout-manager="GridLayoutManager" row-count="10" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="( class name )"/>
-        </properties>
-      </component>
-      <vspacer id="9b675">
-        <constraints>
-          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
-      <component id="db6dd" class="javax.swing.JComboBox" binding="class1Grade">
-        <constraints>
-          <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value=""/>
-            <item value="A+"/>
-            <item value="A"/>
-            <item value="A-"/>
-            <item value="B+"/>
-            <item value="B"/>
-            <item value="B-"/>
-            <item value="C+"/>
-            <item value="C"/>
-            <item value="C-"/>
-            <item value="D+"/>
-            <item value="D"/>
-            <item value="D-"/>
-            <item value="F"/>
-          </model>
-        </properties>
-      </component>
-      <component id="fe1c5" class="javax.swing.JButton" binding="calculateGPAButton" default-binding="true">
-        <constraints>
-          <grid row="9" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Calculate GPA"/>
-        </properties>
-      </component>
-      <component id="20f19" class="javax.swing.JTextField" binding="class2Text">
-        <constraints>
-          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="( class name )"/>
-        </properties>
-      </component>
-      <component id="5537f" class="javax.swing.JTextField" binding="class3Text">
-        <constraints>
-          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="( class name )"/>
-        </properties>
-      </component>
-      <component id="5f4f5" class="javax.swing.JTextField" binding="class4Text">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="( class name )"/>
-        </properties>
-      </component>
-      <component id="2cc66" class="javax.swing.JTextField" binding="class5Text">
-        <constraints>
-          <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="( class name )"/>
-        </properties>
-      </component>
-      <component id="4e4c9" class="javax.swing.JComboBox" binding="class2Grade">
-        <constraints>
-          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value=""/>
-            <item value="A+"/>
-            <item value="A"/>
-            <item value="A-"/>
-            <item value="B+"/>
-            <item value="B"/>
-            <item value="B-"/>
-            <item value="C+"/>
-            <item value="C"/>
-            <item value="C-"/>
-            <item value="D+"/>
-            <item value="D"/>
-            <item value="D-"/>
-            <item value="F"/>
-          </model>
-        </properties>
-      </component>
-      <component id="6a5f8" class="javax.swing.JComboBox" binding="class3Grade">
-        <constraints>
-          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value=""/>
-            <item value="A+"/>
-            <item value="A"/>
-            <item value="A-"/>
-            <item value="B+"/>
-            <item value="B"/>
-            <item value="B-"/>
-            <item value="C+"/>
-            <item value="C"/>
-            <item value="C-"/>
-            <item value="D+"/>
-            <item value="D"/>
-            <item value="D-"/>
-            <item value="F"/>
-          </model>
-        </properties>
-      </component>
-      <component id="35589" class="javax.swing.JComboBox" binding="class4Grade">
-        <constraints>
-          <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value=""/>
-            <item value="A+"/>
-            <item value="A"/>
-            <item value="A-"/>
-            <item value="B+"/>
-            <item value="B"/>
-            <item value="B-"/>
-            <item value="C+"/>
-            <item value="C"/>
-            <item value="C-"/>
-            <item value="D+"/>
-            <item value="D"/>
-            <item value="D-"/>
-            <item value="F"/>
-          </model>
-        </properties>
-      </component>
-      <component id="c79d1" class="javax.swing.JComboBox" binding="class5Grade">
-        <constraints>
-          <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value=""/>
-            <item value="A+"/>
-            <item value="A"/>
-            <item value="A-"/>
-            <item value="B+"/>
-            <item value="B"/>
-            <item value="B-"/>
-            <item value="C+"/>
-            <item value="C"/>
-            <item value="C-"/>
-            <item value="D+"/>
-            <item value="D"/>
-            <item value="D-"/>
-            <item value="F"/>
-          </model>
-        </properties>
-      </component>
-      <component id="d47ac" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Course Name"/>
-        </properties>
-      </component>
-      <component id="f3083" class="javax.swing.JTextField" binding="class1Credit">
-        <constraints>
-          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="60" height="-1"/>
-          </grid>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
-      </component>
-      <component id="bdc1" class="javax.swing.JLabel">
+        <border type="none"/>
+        <children>
+          <component id="f212" class="javax.swing.JTextField" binding="class1Text">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="( class name )"/>
+            </properties>
+          </component>
+          <vspacer id="52bde">
+            <constraints>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="27d6b" class="javax.swing.JComboBox" binding="class1Grade">
+            <constraints>
+              <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value=""/>
+                <item value="A+"/>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D+"/>
+                <item value="D"/>
+                <item value="D-"/>
+                <item value="F"/>
+              </model>
+            </properties>
+          </component>
+          <component id="c838d" class="javax.swing.JButton" binding="calculateGPAButton" default-binding="true">
+            <constraints>
+              <grid row="9" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Calculate GPA"/>
+            </properties>
+          </component>
+          <component id="37e20" class="javax.swing.JTextField" binding="class2Text">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="( class name )"/>
+            </properties>
+          </component>
+          <component id="188a7" class="javax.swing.JTextField" binding="class3Text">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="( class name )"/>
+            </properties>
+          </component>
+          <component id="ec150" class="javax.swing.JTextField" binding="class4Text">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="( class name )"/>
+            </properties>
+          </component>
+          <component id="707ef" class="javax.swing.JTextField" binding="class5Text">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="( class name )"/>
+            </properties>
+          </component>
+          <component id="a000a" class="javax.swing.JComboBox" binding="class2Grade">
+            <constraints>
+              <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value=""/>
+                <item value="A+"/>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D+"/>
+                <item value="D"/>
+                <item value="D-"/>
+                <item value="F"/>
+              </model>
+            </properties>
+          </component>
+          <component id="4e85" class="javax.swing.JComboBox" binding="class3Grade">
+            <constraints>
+              <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value=""/>
+                <item value="A+"/>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D+"/>
+                <item value="D"/>
+                <item value="D-"/>
+                <item value="F"/>
+              </model>
+            </properties>
+          </component>
+          <component id="96d5d" class="javax.swing.JComboBox" binding="class4Grade">
+            <constraints>
+              <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value=""/>
+                <item value="A+"/>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D+"/>
+                <item value="D"/>
+                <item value="D-"/>
+                <item value="F"/>
+              </model>
+            </properties>
+          </component>
+          <component id="26292" class="javax.swing.JComboBox" binding="class5Grade">
+            <constraints>
+              <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value=""/>
+                <item value="A+"/>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D+"/>
+                <item value="D"/>
+                <item value="D-"/>
+                <item value="F"/>
+              </model>
+            </properties>
+          </component>
+          <component id="9040b" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Course Name"/>
+            </properties>
+          </component>
+          <component id="1861b" class="javax.swing.JTextField" binding="class1Credit">
+            <constraints>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+                <maximum-size width="60" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="57bc4" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Credits  "/>
+            </properties>
+          </component>
+          <component id="89f4" class="javax.swing.JTextField" binding="class2Credit">
+            <constraints>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+                <maximum-size width="60" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="c4242" class="javax.swing.JTextField" binding="class3Credit">
+            <constraints>
+              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+                <maximum-size width="60" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="b5c97" class="javax.swing.JTextField" binding="class4Credit">
+            <constraints>
+              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+                <maximum-size width="60" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="d60b7" class="javax.swing.JTextField" binding="class5Credit">
+            <constraints>
+              <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+                <maximum-size width="60" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="22fb6" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Grade"/>
+            </properties>
+          </component>
+          <component id="60d26" class="javax.swing.JTextField" binding="class6Text">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="( class name )"/>
+            </properties>
+          </component>
+          <component id="ddbb1" class="javax.swing.JTextField" binding="class7Text">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="( class name )"/>
+            </properties>
+          </component>
+          <component id="3dc0" class="javax.swing.JTextField" binding="class6Credit">
+            <constraints>
+              <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+                <maximum-size width="60" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="165c4" class="javax.swing.JTextField" binding="class7Credit">
+            <constraints>
+              <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+                <maximum-size width="60" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="79df0" class="javax.swing.JComboBox" binding="class6Grade">
+            <constraints>
+              <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value=""/>
+                <item value="A+"/>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D+"/>
+                <item value="D"/>
+                <item value="D-"/>
+                <item value="F"/>
+              </model>
+            </properties>
+          </component>
+          <component id="59064" class="javax.swing.JComboBox" binding="class7Grade">
+            <constraints>
+              <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value=""/>
+                <item value="A+"/>
+                <item value="A"/>
+                <item value="A-"/>
+                <item value="B+"/>
+                <item value="B"/>
+                <item value="B-"/>
+                <item value="C+"/>
+                <item value="C"/>
+                <item value="C-"/>
+                <item value="D+"/>
+                <item value="D"/>
+                <item value="D-"/>
+                <item value="F"/>
+              </model>
+            </properties>
+          </component>
+          <hspacer id="2b5ee">
+            <constraints>
+              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="40" height="-1"/>
+              </grid>
+            </constraints>
+          </hspacer>
+          <component id="13993" class="javax.swing.JButton" binding="returnButton" default-binding="true">
+            <constraints>
+              <grid row="9" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Return"/>
+            </properties>
+          </component>
+          <component id="f21a7" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Your GPA is:"/>
+            </properties>
+          </component>
+          <component id="5414" class="javax.swing.JTextField" binding="GpaField">
+            <constraints>
+              <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="7cf6b" class="javax.swing.JButton" binding="clearButton" default-binding="true">
+            <constraints>
+              <grid row="8" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Clear"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <hspacer id="11313">
         <constraints>
-          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Credits  "/>
-        </properties>
-      </component>
-      <component id="2acbc" class="javax.swing.JTextField" binding="class2Credit">
-        <constraints>
-          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="60" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="d48b2" class="javax.swing.JTextField" binding="class3Credit">
-        <constraints>
-          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="60" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="c8a7a" class="javax.swing.JTextField" binding="class4Credit">
-        <constraints>
-          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="60" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="4d22b" class="javax.swing.JTextField" binding="class5Credit">
-        <constraints>
-          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="60" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="836e9" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Grade"/>
-        </properties>
-      </component>
-      <component id="cac84" class="javax.swing.JTextField" binding="class6Text">
-        <constraints>
-          <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="( class name )"/>
-        </properties>
-      </component>
-      <component id="f826d" class="javax.swing.JTextField" binding="class7Text">
-        <constraints>
-          <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="( class name )"/>
-        </properties>
-      </component>
-      <component id="c6047" class="javax.swing.JTextField" binding="class6Credit">
-        <constraints>
-          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="60" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="fb5c5" class="javax.swing.JTextField" binding="class7Credit">
-        <constraints>
-          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="60" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="a8b91" class="javax.swing.JComboBox" binding="class6Grade">
-        <constraints>
-          <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value=""/>
-            <item value="A+"/>
-            <item value="A"/>
-            <item value="A-"/>
-            <item value="B+"/>
-            <item value="B"/>
-            <item value="B-"/>
-            <item value="C+"/>
-            <item value="C"/>
-            <item value="C-"/>
-            <item value="D+"/>
-            <item value="D"/>
-            <item value="D-"/>
-            <item value="F"/>
-          </model>
-        </properties>
-      </component>
-      <component id="ead4e" class="javax.swing.JComboBox" binding="class7Grade">
-        <constraints>
-          <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value=""/>
-            <item value="A+"/>
-            <item value="A"/>
-            <item value="A-"/>
-            <item value="B+"/>
-            <item value="B"/>
-            <item value="B-"/>
-            <item value="C+"/>
-            <item value="C"/>
-            <item value="C-"/>
-            <item value="D+"/>
-            <item value="D"/>
-            <item value="D-"/>
-            <item value="F"/>
-          </model>
-        </properties>
-      </component>
-      <hspacer id="2fdcf">
-        <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="40" height="-1"/>
-          </grid>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <component id="cc84a" class="javax.swing.JButton" binding="returnButton" default-binding="true">
+      <vspacer id="61d6b">
         <constraints>
-          <grid row="9" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties>
-          <text value="Return"/>
-        </properties>
-      </component>
-      <component id="46936" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Your GPA is:"/>
-        </properties>
-      </component>
-      <component id="fdb56" class="javax.swing.JTextField" binding="GpaField">
-        <constraints>
-          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-        </properties>
-      </component>
-      <component id="d4272" class="javax.swing.JButton" binding="clearButton" default-binding="true">
-        <constraints>
-          <grid row="8" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Clear"/>
-        </properties>
-      </component>
+      </vspacer>
     </children>
   </grid>
 </form>
