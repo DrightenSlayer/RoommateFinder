@@ -21,7 +21,6 @@ public class ClassPath
 
 	public static int minDistance(double dist[], boolean sptSet[])
 	{
-
 		double min = 999;
 		int min_index = -1;
 
