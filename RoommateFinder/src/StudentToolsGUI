@@ -29,6 +29,16 @@ public class StudentToolsGUI {
             MainMenuGUI.createFrame();
             ((JFrame) studentToolsPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
         });
+        
+        calculatorButton.addActionListener(e -> {
+        MyGPA.createFrame();
+        ((JFrame) studentToolsPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
+        });
+        
+        goButton.addActionListener(e -> {
+            ClassPathGUI.createFrame();
+            ((JFrame) studentToolsPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
+        });
     }
 
     /**
