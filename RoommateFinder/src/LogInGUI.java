@@ -16,14 +16,13 @@ public class LogInGUI {
     private JButton signUpButton;
     private JLabel errorLabel;
     private JPanel loginPanel;
-    private JButton backButton;
     private List<String> logInEntryInfo;
 
     /**
      * Main method of the LogInGUI. Calls for the creation of the frame containing the log in window.
      * Also, it reads in the account file to later be validated against.
      */
-    public static void main(String... args) {
+    public static void main(String[] args) {
         LogInGUI.createFrame();
         ReadFile.read();
     }
@@ -48,7 +47,9 @@ public class LogInGUI {
     public LogInGUI() {
         $$$setupUI$$$();
         ReadFile.read();
+
         logInEntryInfo = new ArrayList<>();
+
         logInButton.addActionListener(e -> {
             logInEntryInfo.add(getUsername());
             logInEntryInfo.add(getPassword());
@@ -63,11 +64,6 @@ public class LogInGUI {
 
         signUpButton.addActionListener(e -> {
             StudentInfoGUI.createFrame(); //calling for the creation of the sign up frame.
-            ((JFrame) loginPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
-        });
-
-        backButton.addActionListener(e -> {
-            MainMenuGUI.createFrame();
             ((JFrame) loginPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
         });
     }
