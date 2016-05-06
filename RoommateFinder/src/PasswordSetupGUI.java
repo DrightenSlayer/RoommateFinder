@@ -1,7 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by Ray on 4/29/2016.
@@ -19,6 +26,7 @@ public class PasswordSetupGUI {
     private JLabel passwordSetupLabel;
     private JLabel errorLabel;
     private List<String> accountSecurityInfo;
+    private final Charset UTF8 = StandardCharsets.UTF_8;
 
     public static void main(String[] args) {
         PasswordSetupGUI.createFrame();
@@ -40,8 +48,13 @@ public class PasswordSetupGUI {
         accountSecurityInfo.add(getPasswordEntry());
         nextButton.addActionListener(e -> {
             if (checkPasswords() && !noInput()) {
+                try {
+                    Files.write(Paths.get("NewAccounts.txt"), accountSecurityInfo, UTF8,
+                            StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                } catch (IOException exc) {
+                    exc.printStackTrace();
+                }
                 ((JFrame) accountSetupPanel.getTopLevelAncestor()).dispose();
-                PersonalInfoGUI.createFrame();
             } else errorLabel.setVisible(true);
         });
         prevButton.addActionListener(e -> {
