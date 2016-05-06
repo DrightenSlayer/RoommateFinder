@@ -11,6 +11,12 @@ public class School
 		private String name;
 		private Set<Room> rooms;
 		
+		public Set<Student> getStudents()
+		{
+			Set<Student> students = new HashSet<Student>();
+			for(Room room : rooms) students.addAll(room.getStudents());
+			return students;
+		}
 		public static class Room implements Comparable<Room>
 		{
 			private int capacity;
@@ -26,13 +32,16 @@ public class School
 			}
 			public boolean contains(Student student)
 			{
-				for(Student s : students) if(s == student) return true;
-				return false;
+				return students.contains(student);
 			}
 			public boolean add(Student student)
 			{
 				if(students.size()+1 > capacity) return false;
 				return students.add(student);
+			}
+			public Set<Student> getStudents()
+			{
+				return students;
 			}
 			
 			public boolean remove(Student student) {return students.remove(student);}
@@ -95,6 +104,7 @@ public class School
 	public boolean add(Student student, Building building, Building.Room room)
 	{
 		if(!buildings.contains(building)) throw new IllegalArgumentException();
+		student.setSchool(this);
 		return building.add(room, student);
 	}
 	
@@ -106,5 +116,10 @@ public class School
 	
 	
 	public String getName() {return name;}
-	
+	public Set<Student> getStudents()
+	{
+		Set<Student> students = new HashSet<Student>();
+		for(Building building : buildings) students.addAll(building.getStudents());
+		return students;
+	}
 }
