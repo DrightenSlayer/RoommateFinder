@@ -7,7 +7,17 @@ public class ClassPath
 	private static int track=0;
 	private static int heading=0;
 	private static double total=0;
-
+	public static ArrayList<Integer> classes;
+	
+	public ClassPath()
+	{
+		classes = new ArrayList<Integer>();
+	}
+	
+	public static void insert(int buildingNumber)
+	{
+		classes.add(buildingNumber);
+	}
 
 	public static int minDistance(double dist[], boolean sptSet[])
 	{
@@ -25,23 +35,26 @@ public class ClassPath
 		return min_index;
 	}
 
-	private static void printPath(int parent[], int j)
+	private static String printPath(int parent[], int j)
 	{
+		String s = "";
 		if (parent[j]==-1)
 		{
-			return;	
+			return "";	
 		}
 		printPath(parent, parent[j]);
-		System.out.printf("%d ", j);
+		return s=j+"";
 	}
 
-	private static void printSolution(double[] dist, int n, int[] parent,ArrayList<Integer> arr)
+	private static String printSolution(double[] dist, int n, int[] parent,ArrayList<Integer> arr)
 	{
 		String error="";
+		String result="";
 		int src = temp;
+		String top="";
 		if(heading==0)
 		{
-			System.out.printf("Vertex\t\t  Distance\t\tPath");
+			top= "Vertex\t\t  Distance\t\tStarting Position";
 			heading++;
 		}
 		
@@ -64,7 +77,7 @@ public class ClassPath
 				{
 					//TODO: if there is a way to make this work with integers instead of "%d"
 					//TODO: then I think the convertToName would work
-					System.out.printf("\n%d -> %d \t\t %f\t\t%s ", temp, i, dist[i], error);
+					result =temp+" -> " + i+"		   "+ dist[i]+"			   "+ error;
 					total = total+ dist[i];
 					if(error.equals("no path"))
 					{
@@ -82,10 +95,12 @@ public class ClassPath
 			
 		}
 		track++;
+		result = top + "\n" + result;
+		return result;
 		
 	}
 
-	private static void dijkstra(double graph[][], int src, ArrayList<Integer>arr)
+	public static String dijkstra(double graph[][], int src, ArrayList<Integer>arr)
 	{
 
 		temp=src;
@@ -121,9 +136,8 @@ public class ClassPath
 				dist[v] = dist[u] + graph[u][v];
 			}  
 
-		printSolution(dist, V, parent,arr);
-
-
+		String returnResult= printSolution(dist, V, parent,arr);
+		return returnResult;
 
 
 	}
@@ -151,9 +165,9 @@ public class ClassPath
 		}
 	}
 	
-	public static double getTotal()
+	public static String getTotal()
 	{
-		return total;
+		return "\nTotal walk length: " +total;
 	}
 	public static void main(String[] args)
 	{
@@ -203,10 +217,10 @@ public class ClassPath
 
 		for(int i=0; i <schedule.size(); i++)
 		{
-			dijkstra(graph, schedule.get(i),schedule);//A=0, B=1, C=2 etc	
+			System.out.println(dijkstra(graph, schedule.get(i),schedule));//A=0, B=1, C=2 etc	
 		}
 		
-		System.out.println("\nTotal walk length: " + getTotal()) ;
+	System.out.println(getTotal());
 	}
 
 }
