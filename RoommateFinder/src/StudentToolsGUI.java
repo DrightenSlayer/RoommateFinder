@@ -29,7 +29,11 @@ public class StudentToolsGUI {
         calculatorButton.addActionListener(e -> {
             MyGPA.createFrame();
         });
-
+        
+        goButton.addActionListener(e -> {
+            ClassPathGUI.createFrame();
+        });
+        
         mainMenu.addActionListener(e -> {
             MainMenuGUI.createFrame();
             ((JFrame) studentToolsPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
