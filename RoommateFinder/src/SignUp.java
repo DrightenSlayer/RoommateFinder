@@ -66,19 +66,16 @@ public class SignUp
 		student.setSleep(sleepTime);
 		student.setWake(wakeTime);
 
-		School.Building tempDorm =new School.Building("temporary dorm");
+		School.Building tempDorm =new School.Building("temporary dorm", 2);
 		if(tempDorm.getName().equals("temporary dorm"))//test
 		{
 			System.out.println("true");
 		}
 
-		School.Building.Room h1= new School.Building.Room(2);
-
-		h1.add(student);
-		tempDorm.add(h1);
+		tempDorm.add(student);
 		university.add(tempDorm);
 
-		System.out.println(h1.contains(student));//test
+		System.out.println(tempDorm.contains(student));//test
 		System.out.println("2" +tempDorm.contains(student));//test
 	}
 }

@@ -10,11 +10,7 @@ public class Tester
 	public static void main(String args[])
 	{
 		School sjsu = new School("SJSU");
-		School.Building cvb = new School.Building("CVB");
-		School.Building.Room room101 = new School.Building.Room(4);
-		School.Building.Room room102 = new School.Building.Room(4);
-		
-		sjsu.add(cvb); cvb.add(room101); cvb.add(room102);
+		sjsu.add(new School.Building("CVB", 400));
 		
 		Student you = new Student("Bob", new int[]{1, 1, 1, 1, 1, 1});
 		Student wu = new Student("Wu Zetan", new int[]{5, 5, 5, 5, 5, 5});
@@ -23,20 +19,19 @@ public class Tester
 		
 		while(you.getKey() == 0) you.setKey(Password.createPassword("pass", "pass"));
 		
-		sjsu.add(you, cvb, room101);
-		sjsu.add(wu, cvb, room101);
-		sjsu.add(cptc, cvb, room101);
-		sjsu.add(nap, cvb, room101);
+		sjsu.add(you);
+		sjsu.add(wu);
+		sjsu.add(cptc);
 		
-//		sjsu.add(Student.generate(), cvb, room101);
-//		for(int i = 0; i < 6; i++){sjsu.add(Student.generate(), cvb, room102);}
+		sjsu.add(Student.generate());
+		for(int i = 0; i < 6; i++){sjsu.add(Student.generate());}
 		
 		Queue<Student> matches = you.matches();
 		
-		System.out.println("Name\t\t\t\t" + "Number of similarities to You\t");
+		System.out.println("Name\t\t\t" + "Number of similarities to You\t");
 		for(Student match : matches)
 		{
-			System.out.println(match.getName() + "\t\t\t\t" + match.compareTo(you));
+			System.out.println(match.getName() + "\t\t\t" + match.compareTo(you));
 		}
 	}
 }
