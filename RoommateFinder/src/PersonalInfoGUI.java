@@ -45,12 +45,12 @@ public class PersonalInfoGUI {
         personalInfoList = new ArrayList<>();
 
         nextButton.addActionListener(e -> {
-            personalInfoList.add(getAge());
+//            personalInfoList.add(getAge());
             personalInfoList.add(getMajor());
-            personalInfoList.add(getYear());
+//            personalInfoList.add(getYear());
             personalInfoList.add(getSleepPrefs());
             personalInfoList.add(getWakePrefs());
-            personalInfoList.add(getRoommatePref());
+//            personalInfoList.add(getRoommatePref());
 
             try {
                 Files.write(Paths.get("StudentInfo.txt"), personalInfoList, UTF8,

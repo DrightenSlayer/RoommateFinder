@@ -4,6 +4,8 @@
 public class RoommateFinder {
     public static void main(String[] args) {
 
+//        LogInGUI.createFrame();  //TODO: start here
+
         School sjsu = new School("SJSU");
         School.Building cvb = new School.Building("CVB");
         School.Building.Room room101 = new School.Building.Room(4);

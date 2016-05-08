@@ -46,13 +46,14 @@ public class StudentInfoGUI {
     public StudentInfoGUI() {
         $$$setupUI$$$();
         studentInfoList = new ArrayList<>();
+
         nextButton.addActionListener(e -> {
 
             studentInfoList.add(getNameEntry());
             studentInfoList.add(getGenderEntry());
             studentInfoList.add(getLanguageEntry());
-            studentInfoList.add(getSidEntry());
-            studentInfoList.add(getSchoolEntry());
+//            studentInfoList.add(getSidEntry());
+//            studentInfoList.add(getSchoolEntry());
 
             try {
                 Files.write(Paths.get("StudentInfo.txt"), studentInfoList, UTF8,
@@ -61,9 +62,8 @@ public class StudentInfoGUI {
                 exc.printStackTrace();
             }
 
-
             if (getSidEntry() != null && getNameEntry() != null) {
-                PasswordSetupGUI.createFrame();
+                PersonalInfoGUI.createFrame();
                 ((JFrame) studentInfoPanel.getTopLevelAncestor()).dispose();
             } else {
                 errorLabel.setVisible(true);

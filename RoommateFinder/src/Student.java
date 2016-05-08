@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -25,55 +28,58 @@ public class Student implements Comparable<Student>
 	private String language;
 
 
-	public static final int PROPCOUNT = 6;
+	private static final int PROPCOUNT = 6;
 
 	/*
 	 * I tried using Enums for this, but Java's enums apparently don't work like C++'s.
 	 */
-	public static final int AGE = 0;
-	public static final int GENDER = 1;
-	public static final int LANGUAGE = 2;
-	public static final int MAJOR = 3;
-	public static final int SLEEP = 4;
-	public static final int WAKE = 5;
+	private static final int AGE = 0;
+	private static final int GENDER = 1;
+	private static final int LANGUAGE = 2;
+	private static final int MAJOR = 3;
+	private static final int SLEEP = 4;
+	private static final int WAKE = 5;
 
 	private int[] properties = new int[PROPCOUNT];
+	private ArrayList<String> propFromFile;
 
 	public Student(){}
 
 
 	public void setKey(int key){this.key = key;}
 	public int getKey(){return key;}
-	
-	public static Student generate()
-	{
-		int nameLength = (int) ((100 * Math.random()) % 11) + 4;
-		String name = "";
-		name += (char) (65 + ((int)(10*Math.random())%25));
-		for(int i = 0; i < nameLength; i++)
-		{
-			name += (char) (97 + (((int)((100*Math.random())))%25));
-		}
-		String name2 = ""; String name3 = "";
-		if((int)(Math.random()*10) >= 3)
-		{
-			int index = ((int) (Math.random()*10) % name.length());
-			if(index == 0) index = name.length()/2;
-			name2 = name.substring(0, index);
-			name3 = name.substring(index);
-			name = name2 + " " + name3;
-		}
-		int[] p = new int[PROPCOUNT];
-		for(int i = 0; i < PROPCOUNT; i++)
-		{
-				p[i] = (int) (10*Math.random());
-		};
-		return new Student(name, p);
-	}
+
+
+
+//	public static Student generate()
+//	{
+//		int nameLength = (int) ((100 * Math.random()) % 11) + 4;
+//		String name = "";
+//		name += (char) (65 + ((int)(10*Math.random())%25));
+//		for(int i = 0; i < nameLength; i++)
+//		{
+//			name += (char) (97 + (((int)((100*Math.random())))%25));
+//		}
+//		String name2 = ""; String name3 = "";
+//		if((int)(Math.random()*10) >= 3)
+//		{
+//			int index = ((int) (Math.random()*10) % name.length());
+//			if(index == 0) index = name.length()/2;
+//			name2 = name.substring(0, index);
+//			name3 = name.substring(index);
+//			name = name2 + " " + name3;
+//		}
+//		int[] p = new int[PROPCOUNT];
+//		for(int i = 0; i < PROPCOUNT; i++)
+//		{
+//				p[i] = (int) (10*Math.random());
+//		};
+//		return new Student(name, p);
+//	}
 	
 	public Queue<Student> matches(){return matches(this.school);}
-	
-	public Queue<Student> matches(School school)
+
+	private Queue<Student> matches(School school)
 	{
 		Set<Student> others = school.getStudents();
 		others.remove(this);
@@ -142,7 +148,6 @@ public class Student implements Comparable<Student>
 		case 1: return language;
 		default: return "";
 		}
-		//		return null;
 	}
 
 	public String getMajor()
@@ -153,7 +158,6 @@ public class Student implements Comparable<Student>
 		case 1: return major;
 		default: return "";
 		}
-		//		return null;
 	}
 
 	public String getSleep()
@@ -165,8 +169,8 @@ public class Student implements Comparable<Student>
 		case 3: return "no preference";
 		default: return "";
 		}
-		//		return properties[SLEEP];
 	}
+
 	public String getWake()
 	{
 		switch(properties[WAKE])
@@ -176,7 +180,6 @@ public class Student implements Comparable<Student>
 		case 3: return "no preference";
 		default: return "";
 		}
-		//		return properties[WAKE];
 	}
 
 	public void setName(String name) {this.name = name;}
@@ -256,4 +259,26 @@ public class Student implements Comparable<Student>
 		return c;
 	}
 
+	private void readFromFile() {
+		propFromFile = new ArrayList<>();
+		try (BufferedReader br = new BufferedReader(new FileReader("StudentInfo.txt"))) {
+
+			String line;
+			while ((line = br.readLine()) != null) {
+				propFromFile.add(line);
+			}
+		} catch (IOException e) {
+			System.out.println("File not found.");
+			e.printStackTrace();
+		}
+
+		for (int i = 0; i < propFromFile.size(); i++){
+			System.out.println(i + ". " + propFromFile.get(i));
+		}
+	}
+
+	public static void main(String[] args){
+		Student x = new Student();
+		x.readFromFile();
+	}
 }

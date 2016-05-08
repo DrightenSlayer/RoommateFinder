@@ -59,6 +59,7 @@ public class PasswordSetupGUI {
                     exc.printStackTrace();
                 }
                 ((JFrame) accountSetupPanel.getTopLevelAncestor()).dispose();
+                PersonalInfoGUI.createFrame();
             } else errorLabel.setVisible(true);
         });
         prevButton.addActionListener(e -> {

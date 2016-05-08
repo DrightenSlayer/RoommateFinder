@@ -28,8 +28,8 @@ public class Tester
 		sjsu.add(cptc, cvb, room101);
 		sjsu.add(nap, cvb, room101);
 		
-		sjsu.add(Student.generate(), cvb, room101);
-		for(int i = 0; i < 6; i++){sjsu.add(Student.generate(), cvb, room102);}
+//		sjsu.add(Student.generate(), cvb, room101);
+//		for(int i = 0; i < 6; i++){sjsu.add(Student.generate(), cvb, room102);}
 		
 		Queue<Student> matches = you.matches();
 		
