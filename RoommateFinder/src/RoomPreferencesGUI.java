@@ -48,13 +48,13 @@ public class RoomPreferencesGUI {
         roomPreferencesList = new ArrayList<>();
 
         nextButton.addActionListener(e -> {
-//            roomPreferencesList.add(pricePref());
-//            roomPreferencesList.add(kitchenPref());
-//            roomPreferencesList.add(showerPref());
-//            roomPreferencesList.add(washerDryerPref());
-//            roomPreferencesList.add(floorPref());
-//            roomPreferencesList.add(roomBrightnessPref());
-//            roomPreferencesList.add(bunkPref());
+            roomPreferencesList.add(pricePref());
+            roomPreferencesList.add(kitchenPref());
+            roomPreferencesList.add(showerPref());
+            roomPreferencesList.add(washerDryerPref());
+            roomPreferencesList.add(floorPref());
+            roomPreferencesList.add(roomBrightnessPref());
+            roomPreferencesList.add(bunkPref());
             roomPreferencesList.add("");
 
             try {

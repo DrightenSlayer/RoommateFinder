@@ -17,8 +17,9 @@ public class DisplayMatchesGUI {
 
     public DisplayMatchesGUI() {
         $$$setupUI$$$();
-        Student you = new Student("Bob", new int[]{1, 1, 1, 1, 1, 1});
 
+
+        Student you = new Student("Bob", new int[]{1, 1, 1, 1, 1, 1});
         studQueue.add(you);
         studQueue.add(new Student("Wu Zetan", new int[]{5, 5, 5, 5, 5, 5}));
         studQueue.add(new Student("Napolean Bonaparte", new int[]{1, 2, 3, 4, 5, 6}));

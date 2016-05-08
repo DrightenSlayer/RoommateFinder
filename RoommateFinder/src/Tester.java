@@ -23,8 +23,8 @@ public class Tester
 		sjsu.add(wu);
 		sjsu.add(cptc);
 		
-		sjsu.add(Student.generate());
-		for(int i = 0; i < 6; i++){sjsu.add(Student.generate());}
+//		sjsu.add(Student.generate());
+//		for(int i = 0; i < 6; i++){sjsu.add(Student.generate());}
 		
 		Queue<Student> matches = you.matches();
 		

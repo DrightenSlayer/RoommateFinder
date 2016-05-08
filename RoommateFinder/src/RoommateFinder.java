@@ -7,13 +7,10 @@ public class RoommateFinder {
 //        LogInGUI.createFrame();  //TODO: start here
 
         School sjsu = new School("SJSU");
-        School.Building cvb = new School.Building("CVB");
-        School.Building.Room room101 = new School.Building.Room(4);
-        School.Building.Room room102 = new School.Building.Room(4);
+        School.Building cvb = new School.Building("CVB", 10);
+
 
         sjsu.add(cvb);
-        cvb.add(room101);
-        cvb.add(room102);
 
 
         Student you = new Student("Bob", new int[]{1, 1, 1, 1, 1, 1});
@@ -27,14 +24,14 @@ public class RoommateFinder {
 
         while(you.getKey() == 0) you.setKey(Password.createPassword("pass", "pass"));
 
-        sjsu.add(you, cvb, room101);
-        sjsu.add(wu, cvb, room101);
-        sjsu.add(cptc, cvb, room101);
-        sjsu.add(nap, cvb, room101);
+        sjsu.add(you, cvb);
+        sjsu.add(wu, cvb);
+        sjsu.add(cptc, cvb);
+        sjsu.add(nap, cvb);
 
-        sjsu.add(stc, cvb, room102);
-        sjsu.add(mno, cvb, room102);
-        sjsu.add(wc, cvb, room102);
+        sjsu.add(stc, cvb);
+        sjsu.add(mno, cvb);
+        sjsu.add(wc, cvb);
 
 
 

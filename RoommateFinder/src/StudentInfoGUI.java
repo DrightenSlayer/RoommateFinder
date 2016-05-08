@@ -50,10 +50,9 @@ public class StudentInfoGUI {
         nextButton.addActionListener(e -> {
 
             studentInfoList.add(getNameEntry());
-            studentInfoList.add(getGenderEntry());
             studentInfoList.add(getLanguageEntry());
-//            studentInfoList.add(getSidEntry());
-//            studentInfoList.add(getSchoolEntry());
+            studentInfoList.add(getGenderEntry());
+            studentInfoList.add(getSchoolEntry());
 
             try {
                 Files.write(Paths.get("StudentInfo.txt"), studentInfoList, UTF8,
