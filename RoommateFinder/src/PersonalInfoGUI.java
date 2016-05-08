@@ -64,7 +64,6 @@ public class PersonalInfoGUI {
         });
 
         previousButton.addActionListener(e -> {
-            //TODO: Add actionListener to Go to Ray's screen
             ((JFrame) PersonalInfoPanel.getTopLevelAncestor()).dispose();
             StudentInfoGUI.createFrame();
         });

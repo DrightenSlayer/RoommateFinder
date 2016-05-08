@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by William Vagharfard on 5/6/16.
@@ -11,24 +11,27 @@ public class DisplayMatchesGUI {
     private JList studentList;
     private JButton getInfoButton;
     private JButton returnButton;
+    private static Student stud;
+    private static Queue<Student> studQueue = new LinkedList<>();
 
 
     public DisplayMatchesGUI() {
         $$$setupUI$$$();
+        Student you = new Student("Bob", new int[]{1, 1, 1, 1, 1, 1});
 
-        //TODO: This doesn't work right now!!
+        studQueue.add(you);
+        studQueue.add(new Student("Wu Zetan", new int[]{5, 5, 5, 5, 5, 5}));
+        studQueue.add(new Student("Napolean Bonaparte", new int[]{1, 2, 3, 4, 5, 6}));
+        studQueue.add(new Student("Captain Crunch", new int[]{6, 3, 1, 6, 3, 2}));
 
-        //TODO: need to bring in the list of students in this ↓ array list
-        ArrayList<String> stu = new ArrayList<>();
-        stu.add("Khoi");
-        stu.add("Matt");
-        stu.add("Ray");
-        stu.add("William");
+
 
         DefaultListModel listModel = new DefaultListModel<>();
 
-        for (String s : stu)
-            listModel.addElement(s);
+        for (Student s : studQueue)
+            listModel.addElement(s.getName());
+
+        listModel.addElement(you.matches());
 
         studentList.setListData(listModel.toArray());
 
@@ -54,6 +57,13 @@ public class DisplayMatchesGUI {
     }
 
     public static void main(String[] args) {
+//        studQueue.add(new Student("Bob", new int[]{1, 1, 1, 1, 1, 1}));
+//        studQueue.add(new Student("Wu Zetan", new int[]{5, 5, 5, 5, 5, 5}));
+//        studQueue.add(new Student("Napolean Bonaparte", new int[]{1, 2, 3, 4, 5, 6}));
+//        studQueue.add(new Student("Captain Crunch", new int[]{6, 3, 1, 6, 3, 2}));
+//        studQueue.add(stud.generate());
+
+//        System.out.println(studQueue.size());
         createFrame();
     }
 

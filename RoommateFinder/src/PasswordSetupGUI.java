@@ -27,6 +27,7 @@ public class PasswordSetupGUI {
     private JLabel errorLabel;
     private List<String> accountSecurityInfo;
     private final Charset UTF8 = StandardCharsets.UTF_8;
+    Password pClass;
 
     public static void main(String[] args) {
         PasswordSetupGUI.createFrame();
@@ -44,9 +45,12 @@ public class PasswordSetupGUI {
     public PasswordSetupGUI() {
         $$$setupUI$$$();
         accountSecurityInfo = new ArrayList<>();
-        accountSecurityInfo.add(getUsernameEntry());
-        accountSecurityInfo.add(getPasswordEntry());
+
         nextButton.addActionListener(e -> {
+
+            accountSecurityInfo.add(getUsernameEntry());
+            accountSecurityInfo.add("" + getHashedPassword());
+
             if (checkPasswords() && !noInput()) {
                 try {
                     Files.write(Paths.get("NewAccounts.txt"), accountSecurityInfo, UTF8,
@@ -67,10 +71,11 @@ public class PasswordSetupGUI {
         return usernameEntryField.getText();
     }
 
-    private String getPasswordEntry() {
-        if (checkPasswords()) {
-            return pwdEntryField.getText();
-        } else return null;
+    private int getHashedPassword() {
+        if (checkPasswords())
+            return pClass.createPassword(pwdEntryField.getText(), pwdCheckField.getText());
+
+        return 0;
     }
 
     private boolean checkPasswords() {

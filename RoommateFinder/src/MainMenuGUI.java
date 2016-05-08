@@ -25,7 +25,7 @@ public class MainMenuGUI {
     public MainMenuGUI() {
         $$$setupUI$$$();
         logInButton.addActionListener(e -> {
-            LogInGUI.createFrame(); //calling for the creation of the sign up frame.
+            DisplayMatchesGUI.createFrame();  //TODO: change the label for this to "Display Matches"
             ((JFrame) mainMenuPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
         });
 

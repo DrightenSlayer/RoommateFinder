@@ -57,6 +57,7 @@ public class LogInGUI {
             System.out.println(modifyPassword());
             if (validateInput()) {
                 ((JFrame) loginPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
+                MainMenuGUI.createFrame();
             } else {
                 errorLabel.setVisible(true); //displaying an error when the given input is incorrect.
             }

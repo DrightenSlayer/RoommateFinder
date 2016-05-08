@@ -26,16 +26,17 @@ public class Tester
 		sjsu.add(you, cvb, room101);
 		sjsu.add(wu, cvb, room101);
 		sjsu.add(cptc, cvb, room101);
+		sjsu.add(nap, cvb, room101);
 		
 		sjsu.add(Student.generate(), cvb, room101);
 		for(int i = 0; i < 6; i++){sjsu.add(Student.generate(), cvb, room102);}
 		
 		Queue<Student> matches = you.matches();
 		
-		System.out.println("Name\t\t\t" + "Number of similarities to You\t");
+		System.out.println("Name\t\t\t\t" + "Number of similarities to You\t");
 		for(Student match : matches)
 		{
-			System.out.println(match.getName() + "\t\t\t" + match.compareTo(you));
+			System.out.println(match.getName() + "\t\t\t\t" + match.compareTo(you));
 		}
 	}
 }
