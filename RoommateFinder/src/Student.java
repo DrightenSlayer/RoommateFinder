@@ -486,7 +486,8 @@ public class Student implements Comparable<Student>
 					String line = br.nextLine();
 					if (!line.equals(""))
 					{
-						props.add(line.toLowerCase());
+//						props.add(line.toLowerCase());
+						props.add(line);
 					}
 					else break;
 				}
