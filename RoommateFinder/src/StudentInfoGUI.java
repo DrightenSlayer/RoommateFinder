@@ -217,7 +217,7 @@ public class StudentInfoGUI {
         defaultComboBoxModel3.addElement("Male");
         defaultComboBoxModel3.addElement("Female");
         defaultComboBoxModel3.addElement("Other");
-        defaultComboBoxModel3.addElement("Prefer not to reply");
+        defaultComboBoxModel3.addElement("Choose not to identify");
         genderBox.setModel(defaultComboBoxModel3);
         genderBox.setToolTipText("");
         studentInfoPanel.add(genderBox, new com.intellij.uiDesigner.core.GridConstraints(5, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

@@ -198,6 +198,19 @@ public class PersonalInfoGUI {
         panel4.add(spacer3, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer4 = new com.intellij.uiDesigner.core.Spacer();
         PersonalInfoPanel.add(spacer4, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        ButtonGroup buttonGroup;
+        buttonGroup = new ButtonGroup();
+        buttonGroup.add(earlySleepButton);
+        buttonGroup.add(earlySleepButton);
+        buttonGroup.add(lateSleepButton);
+        buttonGroup = new ButtonGroup();
+        buttonGroup.add(lateWakeButton);
+        buttonGroup.add(lateWakeButton);
+        buttonGroup.add(earlyWakeButton);
+        buttonGroup = new ButtonGroup();
+        buttonGroup.add(quietButton);
+        buttonGroup.add(quietButton);
+        buttonGroup.add(livelyButton);
     }
 
     /**
