@@ -16,19 +16,31 @@ public class DisplayMatchesGUI {
     private JButton getInfoButton;
     private JButton returnButton;
     private static Student stud;
-    private static List<Student> studQueue = new LinkedList<>();
-    private Student theChosenOne;
-    StudentMatch sm = new StudentMatch();
+    private static Queue<Student> studQueue = new LinkedList<>();
+    private static List<Student> studList = new LinkedList<>();
+    Student theChosenOne;
+    RoommateFinder rf = new RoommateFinder();
 
     public DisplayMatchesGUI() {
         $$$setupUI$$$();
+
+        RoommateFinder.main(null);
+
+
         DefaultListModel listModel = new DefaultListModel<>();
 
         //TODO:
         //TODO: I need to pass in the student list here
         //TODO:
 
-        studQueue = Student.readFile();
+//        studQueue = Student.readFile();
+
+
+
+
+        studQueue = rf.getMatchQueue();
+
+
 
         for (Student s : studQueue)
             listModel.addElement(s.getName());
@@ -36,11 +48,22 @@ public class DisplayMatchesGUI {
 
         studentList.setListData(listModel.toArray());
 
+        for (Student x : studQueue)
+            if (x.getName().equals(studentList.getSelectedValue())) {
+                theChosenOne = x;
+                break;
+            }
+
         getInfoButton.addActionListener(e -> {
-            theChosenOne = (Student) studentList.getSelectedValue(); // gets selected student
+
+
+            DisplayMatchesGUI.StudentMatch sm = new DisplayMatchesGUI().new StudentMatch();
+//            System.out.println(theChosenOne.getName());
+//            theChosenOne = (Student) studentList.getSelectedValue(); // gets selected student
+
+//            sm.createFrame();
 
             sm.createFrame();
-//            StudentMatch.createFrame();
         });
 
         returnButton.addActionListener(e -> {
@@ -122,30 +145,27 @@ public class DisplayMatchesGUI {
             private JTextField ageText;
             private JTextField genderText;
             private JButton returnButton;
-//            private List<String> studentMatch;
-//            List<Student> studentQueue = new LinkedList<>();
-//            DisplayMatchesGUI dm = new DisplayMatchesGUI();
-
             public StudentMatch() {
                 $$$setupUINewOne$$$();
 
-//                readFromFile();
 
+//                System.out.println(theChosenOne.getName());
+                System.out.println("size: " + studQueue.size());
 
-                nameText.setText(theChosenOne.getName());
-                genderText.setText(theChosenOne.getGender());
-                majorText.setText(theChosenOne.getMajor());
-                yearText.setText(theChosenOne.getYear());
-                sleepText.setText(theChosenOne.getSleep());
-                wakeText.setText(theChosenOne.getWake());
-                roommateText.setText(theChosenOne.getPreferences());
-                priceText.setText(theChosenOne.getPrice());
-                kitchenText.setText(theChosenOne.getKitchen());
-                showerText.setText(theChosenOne.getShower());
-                wdText.setText(theChosenOne.getWash_Dry());
-                floorText.setText(theChosenOne.getFloor());
-                brightnessText.setText(theChosenOne.getLight());
-                bunkText.setText(theChosenOne.getBunk());
+//                nameText.setText(theChosenOne.getName());
+//                genderText.setText(theChosenOne.getGender());
+//                majorText.setText(theChosenOne.getMajor());
+//                yearText.setText(theChosenOne.getYear());
+//                sleepText.setText(theChosenOne.getSleep());
+//                wakeText.setText(theChosenOne.getWake());
+//                roommateText.setText(theChosenOne.getPreferences());
+//                priceText.setText(theChosenOne.getPrice());
+//                kitchenText.setText(theChosenOne.getKitchen());
+//                showerText.setText(theChosenOne.getShower());
+//                wdText.setText(theChosenOne.getWash_Dry());
+//                floorText.setText(theChosenOne.getFloor());
+//                brightnessText.setText(theChosenOne.getLight());
+//                bunkText.setText(theChosenOne.getBunk());
 
                 returnButton.addActionListener(e -> {
                     ((JFrame) studentPanel.getTopLevelAncestor()).dispose();
