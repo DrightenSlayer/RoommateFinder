@@ -25,22 +25,22 @@ public class Student implements Comparable<Student>
 	private int key;
 	private School school;
 
-	private static final int PROPCOUNT = 15;
+	private static final int PROPCOUNT = 14;
 
-	private static final int LANGUAGE = 1;
-	private static final int GENDER = 2;
-	private static final int MAJOR = 3;
-	private static final int YEAR = 4;
-	private static final int SLEEP = 5;
-	private static final int WAKE = 6;
-	private static final int PREFERENCES = 7;
-	private static final int PRICE = 8;
-	private static final int KITCHEN = 9;
-	private static final int SHOWER = 10;
-	private static final int WASH_DRY = 11;
-	private static final int FLOOR = 12;
-	private static final int LIGHT = 13;
-	private static final int BUNK = 14;
+	private static final int LANGUAGE = 0;
+	private static final int GENDER = 1;
+	private static final int MAJOR = 2;
+	private static final int YEAR = 3;
+	private static final int SLEEP = 4;
+	private static final int WAKE = 5;
+	private static final int PREFERENCES = 6;
+	private static final int PRICE = 7;
+	private static final int KITCHEN = 8;
+	private static final int SHOWER = 9;
+	private static final int WASH_DRY = 10;
+	private static final int FLOOR = 11;
+	private static final int LIGHT = 12;
+	private static final int BUNK = 13;
 
 	private int[] properties = new int[PROPCOUNT];
 
@@ -52,31 +52,31 @@ public class Student implements Comparable<Student>
 
 
 
-	//	public static Student generate()
-	//	{
-	//		int nameLength = (int) ((100 * Math.random()) % 11) + 4;
-	//		String name = "";
-	//		name += (char) (65 + ((int)(10*Math.random())%25));
-	//		for(int i = 0; i < nameLength; i++)
-	//		{
-	//			name += (char) (97 + (((int)((100*Math.random())))%25));
-	//		}
-	//		String name2 = ""; String name3 = "";
-	//		if((int)(Math.random()*10) >= 3)
-	//		{
-	//			int index = ((int) (Math.random()*10) % name.length());
-	//			if(index == 0) index = name.length()/2;
-	//			name2 = name.substring(0, index);
-	//			name3 = name.substring(index);
-	//			name = name2 + " " + name3;
-	//		}
-	//		int[] p = new int[PROPCOUNT];
-	//		for(int i = 0; i < PROPCOUNT; i++)
-	//		{
-	//				p[i] = (int) (10*Math.random());
-	//		};
-	//		return new Student(name, p);
-	//	}
+		public static Student generate()
+		{
+			int nameLength = (int) ((100 * Math.random()) % 11) + 4;
+			String name = "";
+			name += (char) (65 + ((int)(10*Math.random())%25));
+			for(int i = 0; i < nameLength; i++)
+			{
+				name += (char) (97 + (((int)((100*Math.random())))%25));
+			}
+			String name2 = ""; String name3 = "";
+			if((int)(Math.random()*10) >= 3)
+			{
+				int index = ((int) (Math.random()*10) % name.length());
+				if(index == 0) index = name.length()/2;
+				name2 = name.substring(0, index);
+				name3 = name.substring(index);
+				name = name2 + " " + name3;
+			}
+			int[] p = new int[PROPCOUNT];
+			for(int i = 0; i < PROPCOUNT; i++)
+			{
+					p[i] = (int) (10*Math.random());
+			};
+			return new Student(name, p);
+		}
 
 	public Queue<Student> matches(){return matches(this.school);}
 
@@ -277,28 +277,28 @@ public class Student implements Comparable<Student>
 		default: return "no";
 		}
 	}
-	
+
 	public void setProp(int i, String v)
 	{
 		switch(i)
 		{
-		case 1 : setLanguage(v); break;
-		case 2 : setGender(v); break;
-		case 3 : setMajor(v); break;
-		case 4 : setYear(v); break;
-		case 5 : setSleep(v); break;
-		case 6 : setWake(v); break;
-		case 7 : setPreferences(v); break;
-		case 8 : setPrice(v); break;
-		case 9 : setKitchen(v); break;
-		case 10 : setShower(v); break;
-		case 11 : setWash_Dry(v); break;
-		case 12 : setFloor(v); break;
-		case 13 : setLight(v); break;
-		case 14 : setBunk(v); break;
+		case 0 : setLanguage(v); break;
+		case 1 : setGender(v); break;
+		case 2 : setMajor(v); break;
+		case 3 : setYear(v); break;
+		case 4 : setSleep(v); break;
+		case 5 : setWake(v); break;
+		case 6 : setPreferences(v); break;
+		case 7 : setPrice(v); break;
+		case 8 : setKitchen(v); break;
+		case 9 : setShower(v); break;
+		case 10 : setWash_Dry(v); break;
+		case 11 : setFloor(v); break;
+		case 12 : setLight(v); break;
+		case 13 : setBunk(v); break;
 		}
 	}
-	
+
 	public void setLanguage(String l) //prop1
 	{
 		switch(l)
@@ -448,7 +448,7 @@ public class Student implements Comparable<Student>
 	public int compareTo(Student other)
 	{
 		int c = 0;
-		for(int i = 0; i <= PROPCOUNT; i++)
+		for(int i = 0; i < PROPCOUNT; i++)
 		{
 			if(properties[i] == other.properties[i]) c++;
 		}
@@ -465,7 +465,7 @@ public class Student implements Comparable<Student>
 			{
 				String name = "";
 				ArrayList<String> props = new ArrayList<>();
-				
+
 				if(br.hasNextLine()) name = br.nextLine();
 				while(br.hasNextLine())
 				{
@@ -477,9 +477,9 @@ public class Student implements Comparable<Student>
 					else break;
 				}
 				Student temp = new Student(name, new int[PROPCOUNT]);
-				for(int s = 1; s <= PROPCOUNT; s++)
+				for(int s = 0; s <= PROPCOUNT; s++)
 				{
-					temp.setProp(s, props.get(s-1));
+					temp.setProp(s, props.get(s));
 				}
 				fromFile.add(temp);
 			}
@@ -494,10 +494,14 @@ public class Student implements Comparable<Student>
 
 	public static void main(String[] args)
 	{
+		Student me = null;
+		String username = "Wu Zetian";
 		List<Student> students = Student.readFile();
 		for(Student student : students)
 		{
 			System.out.println(student.getName() + "\t" + student.getLanguage() + "\t" + student.getGender());
+			if(student.getName().equals(username)) me = student;
 		}
+		System.out.println(me.getName() + "\t" + me.getLanguage() + "\t" + me.getGender());
 	}
 }
