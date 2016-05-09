@@ -1,5 +1,10 @@
 import java.util.ArrayList;
-
+/**
+ * calculates the minimum distance to each class 
+ * to find shortest, efficient path
+ * @author Khoi
+ *
+ */
 public class ClassPath 
 {
 	private static final int V = 16;
@@ -8,7 +13,9 @@ public class ClassPath
 	private static int heading=0;
 	private static double total=0;
 	public static String s = "";
-	static  double graph[][] =
+	
+	
+	public static  double graph[][] = 
 		{
 				{0,0.27,0.22,0.23,0.15,0.04,0.05,0.21,0.3,0.42, 0.18,0.31,0.39,0.38,0.37,0.26},//cvb start
 				{0.27,0,0.04,0.09,0.12,0.27,0.23,0.2,0.19,0.21,0.29,0.22,0.18,0.14,0.1,0.16},//mcq
@@ -28,26 +35,40 @@ public class ClassPath
 				{0.26,0.16,0.13,0.07,0.1,0.14,0.17,0.06,0.1,0.2,0.15,0.21,0.21,0.2,0.26,0}//engineering
 
 		};
-	static ArrayList<Integer> classes;
+	public static ArrayList<Integer> classes;
 	
-	ClassPath(ArrayList<Integer> temp)
+	/**
+	 * copy array list for class functions
+	 * @param temp the temporary array list
+	 */
+	public ClassPath(ArrayList<Integer> temp)
 	{
 		classes = temp;
+		
 	}
 	
+	/**
+	 * inserts class building into array list
+	 * @param buildingNumber the building you are going to
+	 */
 	public static void insert(int buildingNumber)
 	{
 		classes.add(buildingNumber);
 	}
-
-	private static int minDistance(double dist[], boolean sptSet[])
+/**
+ * finds the distance between buildings and overwrites if shorter
+ * @param dist keeps minimum distance from each building
+ * @param sptSet checks if we visited building yet
+ * @return
+ */
+	public static int minDistance(double dist[], boolean sptSet[])
 	{
 
 		double min = 999;
 		int min_index = -1;
 
 		for (int v = 0; v < V; v++)
-			if (!sptSet[v] && dist[v] <= min)
+			if (sptSet[v] == false && dist[v] <= min)
 			{
 				min = dist[v];
 				min_index = v;
@@ -55,7 +76,12 @@ public class ClassPath
 
 		return min_index;
 	}
-
+	/**
+	 * prints the shortest path to building
+	 * @param parent the list of vertexs we pass to get shortest distance
+	 * @param j the spot in the array containing vertex number
+	 * @return string containing path
+	 */
 	private static String printPath(int parent[], int j)
 	{
 		
@@ -66,7 +92,15 @@ public class ClassPath
 		printPath(parent, parent[j]);
 		return ""+j;
 	}
-
+/**
+ * formats and prints out a table containing paths and costs
+ * also gets total distance for schedule
+ * @param dist the shortest distance to each location
+ * @param n number of vertexes
+ * @param parent array containing path
+ * @param arr list of buildings student needs to go in order
+ * @return result, string version of result
+ */
 	private static String printSolution(double[] dist, int n, int[] parent,ArrayList<Integer> arr)
 	{
 		String error="";
@@ -98,7 +132,7 @@ public class ClassPath
 				{
 					//TODO: if there is a way to make this work with integers instead of "%d"
 					//TODO: then I think the convertToName would work
-					result =temp+" -> " + i+"		   "+ dist[i]+"			   " ;
+					result =convertToName(temp)+" -> " + convertToName(i)+"		   "+ dist[i]+"			   " ;
 					total = total+ dist[i];
 					if(error.equals("no path"))
 					{
@@ -120,8 +154,16 @@ public class ClassPath
 		return result;
 		
 	}
-
-	static String dijkstra(double graph[][], int src, ArrayList<Integer>arr)
+/**
+ * sets the values with default values before start
+ * gets the minimum distance and overwrites if smaller than one already in parent
+ * after finish, calls printsolution
+ * @param graph the adjacency matrix
+ * @param src where to start
+ * @param arr list of building order must follow
+ * @return returnResult the solution string
+ */
+	public static String dijkstra(double graph[][], int src, ArrayList<Integer>arr)
 	{
 
 		temp=src;
@@ -157,12 +199,16 @@ public class ClassPath
 				dist[v] = dist[u] + graph[u][v];
 			}  
 
-		return printSolution(dist, V, parent,arr);
-//		return returnResult;
+		String returnResult= printSolution(dist, V, parent,arr);
+		return returnResult;
 
 
 	}
-
+/**
+ * converts int into a string value
+ * @param i the building number
+ * @return string with building name equivalent
+ */
 	private static String convertToName(int i) {
 
 		switch (i) {
@@ -185,12 +231,28 @@ public class ClassPath
 			default : return "Didn't work";
 		}
 	}
-	
-	static String getTotal()
+	/**
+	 * gets the total journey distance
+	 * @return total, the distance for your schedule
+	 */
+	public static String getTotal()
 	{
 		return "\nTotal walk length: " +total;
 	}
+	
+	public static void reset()
+	{
+		s="";
+		track=0;
+		total=0;
+		
+	
+	}
 
+	/**
+	 * tester class
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		//0= CVB
@@ -221,9 +283,11 @@ public class ClassPath
 		for(int i=0; i <schedule.size(); i++)
 		{
 			System.out.println(dijkstra(graph, schedule.get(i),schedule));//A=0, B=1, C=2 etc
-			s="";
+			
 		}
+		
 	System.out.println(getTotal());
 	}
 
 }
+
