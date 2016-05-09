@@ -255,8 +255,8 @@ public class Student implements Comparable<Student>
 	{
 		switch(properties[FLOOR])
 		{
-		case 1: return "low";
-		case 2: return "high";
+		case 1: return "upper";
+		case 2: return "lower";
 		default: return "mid";
 		}
 	}
@@ -265,15 +265,17 @@ public class Student implements Comparable<Student>
 		switch(properties[LIGHT])
 		{
 		case 1: return "dark";
-		default: return "bright";
+		case 2: return "light";
+		default: return "no preference";
 		}
 	}
 	public String getBunk() //prop14
 	{
 		switch(properties[BUNK])
 		{
-		case 1: return "yes";
-		case 2: return "Wu Zetian";
+		case 1: return "upper";
+		case 2: return "lower";
+		case 3: return "Wu Zetian";
 		default: return "no";
 		}
 	}
@@ -419,8 +421,8 @@ public class Student implements Comparable<Student>
 	{
 		switch(f)
 		{
-		case "low": properties[FLOOR] = 1; break;
-		case "high": properties[FLOOR] = 2; break;
+		case "upper": properties[FLOOR] = 1; break;
+		case "lower": properties[FLOOR] = 2; break;
 		default: properties[FLOOR] = 0; break;
 		}
 	}
@@ -430,6 +432,7 @@ public class Student implements Comparable<Student>
 		switch(l)
 		{
 		case "dark": properties[LIGHT] = 1; break;
+		case "light" : properties[LIGHT] = 2; break;
 		default: properties[FLOOR] = 0; break;
 		}
 	}
@@ -438,8 +441,9 @@ public class Student implements Comparable<Student>
 	{
 		switch(b)
 		{
-		case "yes": properties[BUNK] = 1; break;
-		case "Wu Zetian": properties[BUNK] = 2; break;
+		case "upper": properties[BUNK] = 1; break;
+		case "lower" : properties[BUNK] = 2; break;
+		case "Wu Zetian": properties[BUNK] = 3; break;
 		default: properties[BUNK] = 0; break;
 		}
 	}
@@ -463,10 +467,12 @@ public class Student implements Comparable<Student>
 		{
 			while(br.hasNext())
 			{
-				String name = "";
+				String name = ""; String schoolName = null;
 				ArrayList<String> props = new ArrayList<>();
 
 				if(br.hasNextLine()) name = br.nextLine();
+				if(br.hasNextLine()) schoolName = br.nextLine();
+				
 				while(br.hasNextLine())
 				{
 					String line = br.nextLine();
@@ -477,7 +483,9 @@ public class Student implements Comparable<Student>
 					else break;
 				}
 				Student temp = new Student(name, new int[PROPCOUNT]);
-				for(int s = 0; s <= PROPCOUNT; s++)
+				temp.school = new School(schoolName);
+				
+				for(int s = 0; s < PROPCOUNT; s++)
 				{
 					temp.setProp(s, props.get(s));
 				}

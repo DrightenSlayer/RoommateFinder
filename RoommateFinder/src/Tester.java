@@ -18,7 +18,7 @@ public class Tester
 		List<Student> fromFile = Student.readFile();
 		for(Student student : fromFile)
 		{
-			sjsu.add(student);
+			if(student.getSchool().getName().equals(sjsu.getName())) sjsu.add(student);
 			if(student.getName().equals(username)) me = student;
 		}
 		

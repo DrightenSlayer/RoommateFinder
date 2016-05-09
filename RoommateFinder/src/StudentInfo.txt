@@ -1,0 +1,85 @@
+Napoleon Bonaparte
+SJSU
+French
+Male
+Government
+Senior
+Late
+Late
+Lively
+High
+Yes
+Yes
+No
+Lower
+No preference
+Upper
+
+Wu Zetian
+SJSU
+Chinese
+Female
+Math
+Junior
+Early
+Late
+Quiet
+No preference
+Yes
+No
+No
+Lower
+No preference
+Lower
+
+Nero
+SJSU
+English
+Male
+Politics
+Freshman
+Late
+Late
+Lively
+High
+Yes
+Yes
+Yes
+Upper
+Light
+Upper
+
+Winston Churchill
+SJSU
+English
+Other
+Undeclared
+Graduate Student
+Late
+No preference
+No preference
+No preference
+Yes
+No preference
+No
+Upper
+No preference
+Upper
+
+Darius
+SJSU
+Farsi
+Male
+Undeclared
+Junior
+Early
+Late
+Quiet
+High
+Yes
+Yes
+Yes
+Lower
+Light
+No preference
+
