@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
@@ -25,7 +26,7 @@ public class Student implements Comparable<Student>
 	private School school;
 
 	private static final int PROPCOUNT = 15;
-	
+
 	private static final int LANGUAGE = 1;
 	private static final int GENDER = 2;
 	private static final int MAJOR = 3;
@@ -42,7 +43,6 @@ public class Student implements Comparable<Student>
 	private static final int BUNK = 14;
 
 	private int[] properties = new int[PROPCOUNT];
-	private ArrayList<String> propFromFile;
 
 	public Student(){}
 
@@ -52,32 +52,32 @@ public class Student implements Comparable<Student>
 
 
 
-//	public static Student generate()
-//	{
-//		int nameLength = (int) ((100 * Math.random()) % 11) + 4;
-//		String name = "";
-//		name += (char) (65 + ((int)(10*Math.random())%25));
-//		for(int i = 0; i < nameLength; i++)
-//		{
-//			name += (char) (97 + (((int)((100*Math.random())))%25));
-//		}
-//		String name2 = ""; String name3 = "";
-//		if((int)(Math.random()*10) >= 3)
-//		{
-//			int index = ((int) (Math.random()*10) % name.length());
-//			if(index == 0) index = name.length()/2;
-//			name2 = name.substring(0, index);
-//			name3 = name.substring(index);
-//			name = name2 + " " + name3;
-//		}
-//		int[] p = new int[PROPCOUNT];
-//		for(int i = 0; i < PROPCOUNT; i++)
-//		{
-//				p[i] = (int) (10*Math.random());
-//		};
-//		return new Student(name, p);
-//	}
-	
+	//	public static Student generate()
+	//	{
+	//		int nameLength = (int) ((100 * Math.random()) % 11) + 4;
+	//		String name = "";
+	//		name += (char) (65 + ((int)(10*Math.random())%25));
+	//		for(int i = 0; i < nameLength; i++)
+	//		{
+	//			name += (char) (97 + (((int)((100*Math.random())))%25));
+	//		}
+	//		String name2 = ""; String name3 = "";
+	//		if((int)(Math.random()*10) >= 3)
+	//		{
+	//			int index = ((int) (Math.random()*10) % name.length());
+	//			if(index == 0) index = name.length()/2;
+	//			name2 = name.substring(0, index);
+	//			name3 = name.substring(index);
+	//			name = name2 + " " + name3;
+	//		}
+	//		int[] p = new int[PROPCOUNT];
+	//		for(int i = 0; i < PROPCOUNT; i++)
+	//		{
+	//				p[i] = (int) (10*Math.random());
+	//		};
+	//		return new Student(name, p);
+	//	}
+
 	public Queue<Student> matches(){return matches(this.school);}
 
 	private Queue<Student> matches(School school)
@@ -132,7 +132,7 @@ public class Student implements Comparable<Student>
 		if(this.school != null) this.school.remove(this);
 		this.school = school;
 	}
-	
+
 	/*
 	 * PROPERTIES SWITCH STATEMENTS
 	 */
@@ -159,7 +159,7 @@ public class Student implements Comparable<Student>
 		default: return "choose not to identify";
 		}
 	}
-	
+
 	public String getMajor() // prop 3
 	{
 		switch(properties[MAJOR])
@@ -171,7 +171,7 @@ public class Student implements Comparable<Student>
 		default: return "undeclared";
 		}
 	}
-	
+
 	public String getYear() //prop 4
 	{
 		switch(properties[YEAR])
@@ -182,7 +182,7 @@ public class Student implements Comparable<Student>
 		default: return "senior";
 		}
 	}
-	
+
 	public String getSleep() //prop5
 	{	
 		switch(properties[SLEEP])
@@ -202,7 +202,7 @@ public class Student implements Comparable<Student>
 		default: return "no preference";
 		}
 	}
-	
+
 	public String getPreferences() //prop7
 	{
 		switch(properties[PREFERENCES])
@@ -212,7 +212,7 @@ public class Student implements Comparable<Student>
 		default: return "no preference";
 		}
 	}
-	
+
 	public String getPrice() //prop8
 	{
 		switch(properties[PREFERENCES])
@@ -223,7 +223,7 @@ public class Student implements Comparable<Student>
 		default: return "mid";
 		}
 	}
-	
+
 	public String getKitchen() //prop9
 	{
 		switch(properties[KITCHEN])
@@ -232,7 +232,7 @@ public class Student implements Comparable<Student>
 		default: return "no";
 		}
 	}
-	
+
 	public String getShower() //prop10
 	{
 		switch(properties[SHOWER])
@@ -241,7 +241,7 @@ public class Student implements Comparable<Student>
 		default: return "no";
 		}
 	}
-	
+
 	public String getWash_Dry() //prop11
 	{
 		switch(properties[WASH_DRY])
@@ -250,7 +250,7 @@ public class Student implements Comparable<Student>
 		default: return "no";
 		}
 	}
-	
+
 	public String getFloor() //prop12
 	{
 		switch(properties[FLOOR])
@@ -278,19 +278,40 @@ public class Student implements Comparable<Student>
 		}
 	}
 	
+	public void setProp(int i, String v)
+	{
+		switch(i)
+		{
+		case 1 : setLanguage(v); break;
+		case 2 : setGender(v); break;
+		case 3 : setMajor(v); break;
+		case 4 : setYear(v); break;
+		case 5 : setSleep(v); break;
+		case 6 : setWake(v); break;
+		case 7 : setPreferences(v); break;
+		case 8 : setPrice(v); break;
+		case 9 : setKitchen(v); break;
+		case 10 : setShower(v); break;
+		case 11 : setWash_Dry(v); break;
+		case 12 : setFloor(v); break;
+		case 13 : setLight(v); break;
+		case 14 : setBunk(v); break;
+		}
+	}
+	
 	public void setLanguage(String l) //prop1
 	{
 		switch(l)
 		{
-		case "English" : properties[LANGUAGE] = 1; break;
-		case "Farsi" : properties[LANGUAGE] = 2; break;
-		case "Japanese" : properties[LANGUAGE] = 3; break;
-		case "Vietnamese" : properties[LANGUAGE] = 4; break;
-		case "Russian" : properties[LANGUAGE] = 5; break;
+		case "english" : properties[LANGUAGE] = 1; break;
+		case "farsi" : properties[LANGUAGE] = 2; break;
+		case "japanese" : properties[LANGUAGE] = 3; break;
+		case "vietnamese" : properties[LANGUAGE] = 4; break;
+		case "russian" : properties[LANGUAGE] = 5; break;
 		default : properties[LANGUAGE] = 0; break;
 		}
 	}
-	
+
 	public void setGender(String g) //prop2
 	{
 		switch(g)
@@ -307,14 +328,14 @@ public class Student implements Comparable<Student>
 	{
 		switch(m)
 		{
-		case "Computer Science" : properties[MAJOR] = 1; break;
-		case "Engineering" : properties[MAJOR] = 2; break;
-		case "Art" : properties[MAJOR] = 3; break;
-		case "Underwater Basket Weaving" : properties[MAJOR] = 4; break;
+		case "computer Science" : properties[MAJOR] = 1; break;
+		case "engineering" : properties[MAJOR] = 2; break;
+		case "art" : properties[MAJOR] = 3; break;
+		case "underwater Basket Weaving" : properties[MAJOR] = 4; break;
 		default : properties[MAJOR] = 0; break;
 		}	
 	}
-	
+
 	public void setYear(String y) //prop 4
 	{
 		switch(y)
@@ -325,7 +346,7 @@ public class Student implements Comparable<Student>
 		default: properties[YEAR] = 0; break;
 		}
 	}
-	
+
 	public void setSleep(String s) //prop5
 	{
 		switch(s)
@@ -345,7 +366,7 @@ public class Student implements Comparable<Student>
 		default: properties[WAKE] = 0; break;			
 		}
 	}
-	
+
 	public void setPreferences(String p) //prop7
 	{
 		switch(p)
@@ -355,7 +376,7 @@ public class Student implements Comparable<Student>
 		default: properties[WAKE] = 0; break;			
 		}
 	}
-	
+
 	public void setPrice(String p) //prop8
 	{
 		switch(p)
@@ -366,7 +387,7 @@ public class Student implements Comparable<Student>
 		default : properties[PRICE] = 0; break;
 		}
 	}
-	
+
 	public void setKitchen(String k) //prop9
 	{
 		switch(k)
@@ -375,7 +396,7 @@ public class Student implements Comparable<Student>
 		default: properties[KITCHEN] = 0; break;
 		}
 	}
-	
+
 	public void setShower(String s) //prop10
 	{
 		switch(s)
@@ -384,7 +405,7 @@ public class Student implements Comparable<Student>
 		default: properties[SHOWER] = 0; break;
 		}
 	}
-	
+
 	public void setWash_Dry(String w) //prop11
 	{
 		switch(w)
@@ -393,7 +414,7 @@ public class Student implements Comparable<Student>
 		default: properties[WASH_DRY] = 0; break;
 		}
 	}
-	
+
 	public void setFloor(String f) //prop12
 	{
 		switch(f)
@@ -403,7 +424,7 @@ public class Student implements Comparable<Student>
 		default: properties[FLOOR] = 0; break;
 		}
 	}
-	
+
 	public void setLight(String l) //prop13
 	{
 		switch(l)
@@ -412,7 +433,7 @@ public class Student implements Comparable<Student>
 		default: properties[FLOOR] = 0; break;
 		}
 	}
-	
+
 	public void setBunk(String b) //prop14
 	{
 		switch(b)
@@ -422,38 +443,61 @@ public class Student implements Comparable<Student>
 		default: properties[BUNK] = 0; break;
 		}
 	}
-	
+
 	@Override
 	public int compareTo(Student other)
 	{
 		int c = 0;
-		for(int i = 0; i < PROPCOUNT; i++)
+		for(int i = 0; i <= PROPCOUNT; i++)
 		{
 			if(properties[i] == other.properties[i]) c++;
 		}
 		return c;
 	}
 
-	private void readFromFile() {
-		propFromFile = new ArrayList<>();
-		try (BufferedReader br = new BufferedReader(new FileReader("StudentInfo.txt"))) {
+	public static List<Student> readFile()
+	{
+		List<Student> fromFile = new ArrayList<>();
 
-			String line;
-			while ((line = br.readLine()) != null) {
-				propFromFile.add(line);
+		try(Scanner br = new Scanner(new File("StudentInfo.txt")))
+		{
+			while(br.hasNext())
+			{
+				String name = "";
+				ArrayList<String> props = new ArrayList<>();
+				
+				if(br.hasNextLine()) name = br.nextLine();
+				while(br.hasNextLine())
+				{
+					String line = br.nextLine();
+					if (!line.equals(""))
+					{
+						props.add(line.toLowerCase());
+					}
+					else break;
+				}
+				Student temp = new Student(name, new int[PROPCOUNT]);
+				for(int s = 1; s <= PROPCOUNT; s++)
+				{
+					temp.setProp(s, props.get(s-1));
+				}
+				fromFile.add(temp);
 			}
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			System.out.println("File not found.");
 			e.printStackTrace();
 		}
-
-		for (int i = 0; i < propFromFile.size(); i++){
-			System.out.println(i + ". " + propFromFile.get(i));
-		}
+		return fromFile;
 	}
 
-	public static void main(String[] args){
-		Student x = new Student();
-		x.readFromFile();
+	public static void main(String[] args)
+	{
+		List<Student> students = Student.readFile();
+		for(Student student : students)
+		{
+			System.out.println(student.getName() + "\t" + student.getLanguage() + "\t" + student.getGender());
+		}
 	}
 }
