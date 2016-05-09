@@ -54,7 +54,7 @@ public class SignUp
 		input.close();
 
 
-		student.setAge(age);
+//		student.setAge(age);
 		student.setGender(gender);
 		student.setLanguage(language);
 		student.setMajor(major);

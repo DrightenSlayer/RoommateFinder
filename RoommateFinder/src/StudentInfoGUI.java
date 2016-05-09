@@ -50,9 +50,10 @@ public class StudentInfoGUI {
         nextButton.addActionListener(e -> {
 
             studentInfoList.add(getNameEntry());
+            studentInfoList.add(getSchoolEntry());
             studentInfoList.add(getLanguageEntry());
             studentInfoList.add(getGenderEntry());
-            studentInfoList.add(getSchoolEntry());
+
 
             try {
                 Files.write(Paths.get("StudentInfo.txt"), studentInfoList, UTF8,
@@ -155,11 +156,11 @@ public class StudentInfoGUI {
         languageBox = new JComboBox();
         final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
         defaultComboBoxModel1.addElement("English");
-        defaultComboBoxModel1.addElement("Spanish");
         defaultComboBoxModel1.addElement("Farsi");
+        defaultComboBoxModel1.addElement("Japanese");
         defaultComboBoxModel1.addElement("Chinese");
-        defaultComboBoxModel1.addElement("French");
-        defaultComboBoxModel1.addElement("Klingon");
+        defaultComboBoxModel1.addElement("Vietnamese");
+        defaultComboBoxModel1.addElement("Russian");
         languageBox.setModel(defaultComboBoxModel1);
         languageBox.setToolTipText("");
         panel1.add(languageBox, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

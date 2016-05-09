@@ -107,11 +107,6 @@ public class PersonalInfoGUI {
             return "No preference";
     }
 
-    private String getAge() {
-        return ageText.getText();
-    }
-
-
     public static void main(String[] args) {
         PersonalInfoGUI.createFrame();
     }

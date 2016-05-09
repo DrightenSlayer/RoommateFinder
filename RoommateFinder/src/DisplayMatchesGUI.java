@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created by William Vagharfard on 5/6/16.
@@ -12,32 +13,28 @@ public class DisplayMatchesGUI {
     private JButton getInfoButton;
     private JButton returnButton;
     private static Student stud;
-    private static Queue<Student> studQueue = new LinkedList<>();
+    private static List<Student> studQueue = new LinkedList<>();
 
 
     public DisplayMatchesGUI() {
         $$$setupUI$$$();
-
-
-        Student you = new Student("Bob", new int[]{1, 1, 1, 1, 1, 1});
-        studQueue.add(you);
-        studQueue.add(new Student("Wu Zetan", new int[]{5, 5, 5, 5, 5, 5}));
-        studQueue.add(new Student("Napolean Bonaparte", new int[]{1, 2, 3, 4, 5, 6}));
-        studQueue.add(new Student("Captain Crunch", new int[]{6, 3, 1, 6, 3, 2}));
-
-
-
         DefaultListModel listModel = new DefaultListModel<>();
+
+        //TODO:
+        //TODO: I need to pass in the student list here
+        //TODO:
+
+        studQueue = Student.readFile();
 
         for (Student s : studQueue)
             listModel.addElement(s.getName());
 
-        listModel.addElement(you.matches());
 
         studentList.setListData(listModel.toArray());
 
         getInfoButton.addActionListener(e -> {
             studentList.getSelectedValue(); // gets selected student
+
             StudentMatch.createFrame();  //TODO: here, how to create frame from the selected student???
         });
 
@@ -46,6 +43,10 @@ public class DisplayMatchesGUI {
             MainMenuGUI.createFrame();
 
         });
+    }
+
+    Student getSelect() {
+        return (Student) studentList.getSelectedValue();
     }
 
     static void createFrame() {
@@ -58,13 +59,6 @@ public class DisplayMatchesGUI {
     }
 
     public static void main(String[] args) {
-//        studQueue.add(new Student("Bob", new int[]{1, 1, 1, 1, 1, 1}));
-//        studQueue.add(new Student("Wu Zetan", new int[]{5, 5, 5, 5, 5, 5}));
-//        studQueue.add(new Student("Napolean Bonaparte", new int[]{1, 2, 3, 4, 5, 6}));
-//        studQueue.add(new Student("Captain Crunch", new int[]{6, 3, 1, 6, 3, 2}));
-//        studQueue.add(stud.generate());
-
-//        System.out.println(studQueue.size());
         createFrame();
     }
 

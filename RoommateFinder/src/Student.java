@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
@@ -146,7 +144,7 @@ public class Student implements Comparable<Student>
 		case 4: return "chinese";
 		case 5: return "vietnamese";
 		case 6: return "russian";
-		default: return "no preference";
+		default: return "english";
 		}
 	}
 
@@ -181,7 +179,9 @@ public class Student implements Comparable<Student>
 		case 1: return "freshman";
 		case 2: return "sophomore";
 		case 3: return "junior";
-		default: return "senior";
+		case 4: return "senior";
+		case 5: return "graduate student";
+		default: return "freshman";
 		}
 	}
 
@@ -221,8 +221,7 @@ public class Student implements Comparable<Student>
 		{
 		case 1: return "low";
 		case 2: return "high";
-		case 3: return "> 9000!";
-		default: return "mid";
+		default: return "no preference";
 		}
 	}
 
@@ -241,7 +240,8 @@ public class Student implements Comparable<Student>
 		switch(properties[SHOWER])
 		{
 		case 1: return "yes";
-		default: return "no";
+		case 2: return "no";
+		default: return "no preference";
 		}
 	}
 
@@ -250,7 +250,8 @@ public class Student implements Comparable<Student>
 		switch(properties[WASH_DRY])
 		{
 		case 1: return "yes";
-		default: return "no";
+		case 2: return "no";
+		default: return "no preference";
 		}
 	}
 
@@ -260,7 +261,7 @@ public class Student implements Comparable<Student>
 		{
 		case 1: return "upper";
 		case 2: return "lower";
-		default: return "mid";
+		default: return "no preference";
 		}
 	}
 	public String getLight() //prop13
@@ -278,8 +279,7 @@ public class Student implements Comparable<Student>
 		{
 		case 1: return "upper";
 		case 2: return "lower";
-		case 3: return "Wu Zetian";
-		default: return "no";
+		default: return "no preference";
 		}
 	}
 
@@ -350,6 +350,8 @@ public class Student implements Comparable<Student>
 		case "freshman": properties[YEAR] = 1; break;
 		case "sophomore": properties[YEAR] = 2; break;
 		case "junior": properties[YEAR] = 3; break;
+		case "senior": properties[YEAR] = 4; break;
+		case "graduate student": properties[YEAR] = 5; break;
 		default: properties[YEAR] = 0; break;
 		}
 	}
@@ -390,7 +392,6 @@ public class Student implements Comparable<Student>
 		{
 		case "low" : properties[PRICE] = 1; break;
 		case "high" : properties[PRICE] = 2; break;
-		case "< 9000!" : properties[PRICE] = 3; break;
 		default : properties[PRICE] = 0; break;
 		}
 	}
@@ -410,6 +411,7 @@ public class Student implements Comparable<Student>
 		switch(s)
 		{
 		case "yes": properties[SHOWER] = 1; break;
+		case "no" : properties[SHOWER] = 2; break;
 		default: properties[SHOWER] = 0; break;
 		}
 	}
@@ -419,6 +421,7 @@ public class Student implements Comparable<Student>
 		switch(w)
 		{
 		case "yes": properties[WASH_DRY] = 1; break;
+		case "no" : properties[WASH_DRY] = 2; break;
 		default: properties[WASH_DRY] = 0; break;
 		}
 	}
@@ -449,7 +452,6 @@ public class Student implements Comparable<Student>
 		{
 		case "upper": properties[BUNK] = 1; break;
 		case "lower" : properties[BUNK] = 2; break;
-		case "Wu Zetian": properties[BUNK] = 3; break;
 		default: properties[BUNK] = 0; break;
 		}
 	}

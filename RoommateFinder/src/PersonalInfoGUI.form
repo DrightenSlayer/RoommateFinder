@@ -215,4 +215,21 @@
       </vspacer>
     </children>
   </grid>
+  <buttonGroups>
+    <group name="sleepGroup">
+      <member id="28707"/>
+      <member id="28707"/>
+      <member id="8957f"/>
+    </group>
+    <group name="wakeGroup">
+      <member id="b8506"/>
+      <member id="b8506"/>
+      <member id="43bad"/>
+    </group>
+    <group name="roomPrefGroup">
+      <member id="9f73b"/>
+      <member id="9f73b"/>
+      <member id="a5fe2"/>
+    </group>
+  </buttonGroups>
 </form>

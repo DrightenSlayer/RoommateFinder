@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -26,46 +27,40 @@ public class StudentMatch {
     private JTextField nameText;
     private JTextField ageText;
     private JTextField genderText;
-    private JButton acceptButton;
     private JButton returnButton;
-    private JButton declineButton;
     private List<String> studentMatch;
+    List<Student> studentQueue = new LinkedList<>();
+    DisplayMatchesGUI dm = new DisplayMatchesGUI();
 
     public StudentMatch() {
         $$$setupUI$$$();
 
         readFromFile();
 
-        //TODO: I don't know if there's a better way to do this
-        nameText.setText(studentMatch.get(0));
-        ageText.setText(studentMatch.get(5));
-        genderText.setText(studentMatch.get(1));
-        majorText.setText(studentMatch.get(6));
-        yearText.setText(studentMatch.get(7));
-        sleepText.setText(studentMatch.get(8));
-        wakeText.setText(studentMatch.get(9));
-        roommateText.setText(studentMatch.get(10));
-        priceText.setText(studentMatch.get(11));
-        kitchenText.setText(studentMatch.get(12));
-        showerText.setText(studentMatch.get(13));
-        wdText.setText(studentMatch.get(14));
-        floorText.setText(studentMatch.get(15));
-        brightnessText.setText(studentMatch.get(16));
-        bunkText.setText(studentMatch.get(17));
+        studentQueue = Student.readFile();
+
+        Student x = dm.getSelect();
 
 
-        acceptButton.addActionListener(e -> {
-            //TODO: add this student to list of potential roommates for the user
-        });
+        nameText.setText(x.getName());
+        genderText.setText(x.getGender());
+        majorText.setText(x.getMajor());
+        yearText.setText(x.getYear());
+        sleepText.setText(x.getSleep());
+        wakeText.setText(x.getWake());
+        roommateText.setText(x.getPreferences());
+        priceText.setText(x.getPrice());
+        kitchenText.setText(x.getKitchen());
+        showerText.setText(x.getShower());
+        wdText.setText(x.getWash_Dry());
+        floorText.setText(x.getFloor());
+        brightnessText.setText(x.getLight());
+        bunkText.setText(x.getBunk());
+
 
         returnButton.addActionListener(e -> {
             ((JFrame) studentPanel.getTopLevelAncestor()).dispose();
             DisplayMatchesGUI.createFrame();
-        });
-
-        declineButton.addActionListener(e -> {
-            //TODO: add this student to list of roommated declined
-            //or take away from list of potential roommates
         });
 
         studentMatch.clear();
@@ -82,24 +77,16 @@ public class StudentMatch {
         } catch (IOException e) {
             System.out.println("File not found.");
         }
-
-//        for (int i = 0; i < studentMatch.size(); i++){
-//            System.out.println(i + ". " + studentMatch.get(i));
-//        }
     }
 
 
     static void createFrame() {
         JFrame frame = new JFrame();
         frame.setContentPane(new StudentMatch().studentPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        createFrame();
     }
 
     /**
@@ -213,16 +200,15 @@ public class StudentMatch {
         genderText.setEditable(false);
         genderText.setHorizontalAlignment(4);
         studentPanel.add(genderText, new com.intellij.uiDesigner.core.GridConstraints(7, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        acceptButton = new JButton();
-        acceptButton.setText("Accept");
-        studentPanel.add(acceptButton, new com.intellij.uiDesigner.core.GridConstraints(12, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         returnButton = new JButton();
         returnButton.setText("Return");
         studentPanel.add(returnButton, new com.intellij.uiDesigner.core.GridConstraints(12, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        declineButton = new JButton();
-        declineButton.setText("Decline");
-        studentPanel.add(declineButton, new com.intellij.uiDesigner.core.GridConstraints(12, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
         panel1.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
     }
+
+//    public static void main(String[] args) {
+//        createFrame();
+//    }
+
 }
