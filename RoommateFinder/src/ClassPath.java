@@ -107,11 +107,7 @@ public class ClassPath
 		String result="";
 		int src = temp;
 		String top="";
-		if(heading==0)
-		{
-			top= "Vertex\t\t  Distance\t\tStarting Position";
-			heading++;
-		}
+	
 		
 		
 		for (int i = 0; i <= V && ((track+1)<arr.size()) ; i++)
