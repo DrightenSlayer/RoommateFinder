@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -28,7 +30,9 @@ public class StudentInfoGUI {
     private JLabel errorLabel;
     private JComboBox genderBox;
     private List<String> studentInfoList;
+    private List<String> userName;
     private final Charset UTF8 = StandardCharsets.UTF_8;
+
 
     public static void main(String[] args) {
         StudentInfoGUI.createFrame();
@@ -47,9 +51,10 @@ public class StudentInfoGUI {
         $$$setupUI$$$();
         studentInfoList = new ArrayList<>();
 
+
         nextButton.addActionListener(e -> {
 
-            studentInfoList.add(getNameEntry());
+//            studentInfoList.add(getNameEntry());
             studentInfoList.add(getSchoolEntry());
             studentInfoList.add(getLanguageEntry());
             studentInfoList.add(getGenderEntry());
@@ -62,7 +67,7 @@ public class StudentInfoGUI {
                 exc.printStackTrace();
             }
 
-            if (getSidEntry() != null && getNameEntry() != null) {
+            if (getSidEntry() != null) {// && getNameEntry() != null) {
                 PersonalInfoGUI.createFrame();
                 ((JFrame) studentInfoPanel.getTopLevelAncestor()).dispose();
             } else {
@@ -77,6 +82,9 @@ public class StudentInfoGUI {
     }
 
     private String getNameEntry() {
+
+
+        nameField.setText(PasswordSetupGUI.name);
         String nameEntry = nameField.getText();
         if (legitNameEntry()) {
             return nameEntry;
@@ -120,6 +128,7 @@ public class StudentInfoGUI {
         return (String) languageBox.getSelectedItem();
     }
 
+
     private List<String> getStudentInfo() {
         return studentInfoList;
     }
@@ -150,6 +159,7 @@ public class StudentInfoGUI {
         languageLabel.setText("Language:");
         panel1.add(languageLabel, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         nameField = new JTextField();
+        nameField.setEditable(false);
         panel1.add(nameField, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         sidField = new JTextField();
         panel1.add(sidField, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));

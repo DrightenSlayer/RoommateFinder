@@ -100,3 +100,54 @@ Lower
 No preference
 Upper
 
+Mark Antony
+SJSU
+Russian
+Male
+Warfare
+Graduate Student
+Late
+No preference
+Lively
+No preference
+No
+Yes
+No preference
+Lower
+Light
+Lower
+
+Xerxes
+SJSU
+English
+Male
+Hospitality
+Senior
+Early
+Late
+Lively
+High
+Yes
+Yes
+No
+Upper
+Dark
+Lower
+
+Hector
+SJSU
+English
+Male
+Strategy
+Junior
+Late
+Early
+Quiet
+Low
+Yes
+No
+No preference
+Upper
+Dark
+Lower
+

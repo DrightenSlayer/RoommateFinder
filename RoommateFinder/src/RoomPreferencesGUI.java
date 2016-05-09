@@ -65,7 +65,7 @@ public class RoomPreferencesGUI {
             }
 
             ((JFrame) RoomPreferencesPanel.getTopLevelAncestor()).dispose();
-            MainMenuGUI.createFrame();
+            LogInGUI.createFrame();
         });
 
         previousButton.addActionListener(e -> {

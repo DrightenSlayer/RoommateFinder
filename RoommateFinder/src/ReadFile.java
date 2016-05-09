@@ -11,9 +11,9 @@ public class ReadFile {
     private static ArrayList<String> passwords = new ArrayList<>();
     private static String str;
 
-    public static void main(String[] args) {
-        read();
-    }
+//    public static void main(String[] args) {
+//        read();
+//    }
 
     static void read()
     {
@@ -28,8 +28,6 @@ public class ReadFile {
                 passwords.add(accountInfo.get(i + 1));
             }
 
-
-            System.out.println(accountInfo);
             System.out.println(usernames);
             System.out.println(passwords);
 

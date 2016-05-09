@@ -1,4 +1,3 @@
-import javax.security.auth.login.LoginContext;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -15,10 +14,10 @@ import java.util.List;
  * Created by Ray on 4/29/2016.
  */
 public class PasswordSetupGUI {
-    private JLabel desiredNameLabel;
+    private JLabel nameLabel;
     private JLabel createPwdLabel;
     private JLabel pwdCheckLabel;
-    private JTextField usernameEntryField;
+    private JTextField nameEntryField;
     private JPasswordField pwdEntryField;
     private JPasswordField pwdCheckField;
     private JPanel accountSetupPanel;
@@ -27,8 +26,10 @@ public class PasswordSetupGUI {
     private JLabel passwordSetupLabel;
     private JLabel errorLabel;
     private List<String> accountSecurityInfo;
+    private List<String> userName;
     private final Charset UTF8 = StandardCharsets.UTF_8;
     Password pClass;
+    static String name;
 
     public static void main(String[] args) {
         PasswordSetupGUI.createFrame();
@@ -43,18 +44,23 @@ public class PasswordSetupGUI {
         frame.setVisible(true);
     }
 
-    private PasswordSetupGUI() {
+    PasswordSetupGUI() {
         $$$setupUI$$$();
         accountSecurityInfo = new ArrayList<>();
+        userName = new ArrayList<>();
 
         nextButton.addActionListener(e -> {
 
-            accountSecurityInfo.add(getUsernameEntry());
+            accountSecurityInfo.add(getNameEntry());
             accountSecurityInfo.add("" + getHashedPassword());
+            userName.add(getNameEntry());
+
 
             if (checkPasswords() && !noInput()) {
                 try {
                     Files.write(Paths.get("NewAccounts.txt"), accountSecurityInfo, UTF8,
+                            StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                    Files.write(Paths.get("StudentInfo.txt"), userName, UTF8,
                             StandardOpenOption.CREATE, StandardOpenOption.APPEND);
                 } catch (IOException exc) {
                     exc.printStackTrace();
@@ -69,8 +75,8 @@ public class PasswordSetupGUI {
         });
     }
 
-    private String getUsernameEntry() {
-        return usernameEntryField.getText();
+    String getNameEntry() {
+        return nameEntryField.getText();
     }
 
     private int getHashedPassword() {
@@ -98,8 +104,8 @@ public class PasswordSetupGUI {
     private void $$$setupUI$$$() {
         accountSetupPanel = new JPanel();
         accountSetupPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(7, 6, new Insets(10, 25, 25, 25), -1, -1));
-        usernameEntryField = new JTextField();
-        accountSetupPanel.add(usernameEntryField, new com.intellij.uiDesigner.core.GridConstraints(2, 3, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        nameEntryField = new JTextField();
+        accountSetupPanel.add(nameEntryField, new com.intellij.uiDesigner.core.GridConstraints(2, 3, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         pwdEntryField = new JPasswordField();
         accountSetupPanel.add(pwdEntryField, new com.intellij.uiDesigner.core.GridConstraints(3, 3, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         pwdCheckField = new JPasswordField();
@@ -107,15 +113,15 @@ public class PasswordSetupGUI {
         accountSetupPanel.add(pwdCheckField, new com.intellij.uiDesigner.core.GridConstraints(4, 3, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         createPwdLabel = new JLabel();
         createPwdLabel.setFont(new Font(createPwdLabel.getFont().getName(), createPwdLabel.getFont().getStyle(), 20));
-        createPwdLabel.setText("Password:");
+        createPwdLabel.setText("Password :");
         accountSetupPanel.add(createPwdLabel, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        desiredNameLabel = new JLabel();
-        desiredNameLabel.setFont(new Font(desiredNameLabel.getFont().getName(), desiredNameLabel.getFont().getStyle(), 20));
-        desiredNameLabel.setText("Username:");
-        accountSetupPanel.add(desiredNameLabel, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        nameLabel = new JLabel();
+        nameLabel.setFont(new Font(nameLabel.getFont().getName(), nameLabel.getFont().getStyle(), 20));
+        nameLabel.setText("Name :");
+        accountSetupPanel.add(nameLabel, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         pwdCheckLabel = new JLabel();
         pwdCheckLabel.setFont(new Font(pwdCheckLabel.getFont().getName(), pwdCheckLabel.getFont().getStyle(), 20));
-        pwdCheckLabel.setText("Confirm Password:");
+        pwdCheckLabel.setText("Confirm Password :");
         accountSetupPanel.add(pwdCheckLabel, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
         accountSetupPanel.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 5, 7, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
