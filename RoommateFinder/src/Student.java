@@ -140,11 +140,12 @@ public class Student implements Comparable<Student>
 	{
 		switch(properties[LANGUAGE])
 		{
-		case 1: return "English";
-		case 2: return "Farsi";
-		case 3: return "Japanese";
-		case 4: return "Vietnamese";
-		case 5: return "Russian";
+		case 1: return "english";
+		case 2: return "farsi";
+		case 3: return "japanese";
+		case 4: return "chinese";
+		case 5: return "vietnamese";
+		case 6: return "russian";
 		default: return "no preference";
 		}
 	}
@@ -230,7 +231,8 @@ public class Student implements Comparable<Student>
 		switch(properties[KITCHEN])
 		{
 		case 1: return "yes";
-		default: return "no";
+		case 2: return "no";
+		default: return "no preference";
 		}
 	}
 
@@ -309,8 +311,9 @@ public class Student implements Comparable<Student>
 		case "english" : properties[LANGUAGE] = 1; break;
 		case "farsi" : properties[LANGUAGE] = 2; break;
 		case "japanese" : properties[LANGUAGE] = 3; break;
-		case "vietnamese" : properties[LANGUAGE] = 4; break;
-		case "russian" : properties[LANGUAGE] = 5; break;
+		case "chinese" : properties[LANGUAGE] = 4; break;
+		case "vietnamese" : properties[LANGUAGE] = 5; break;
+		case "russian" : properties[LANGUAGE] = 6; break;
 		default : properties[LANGUAGE] = 0; break;
 		}
 	}
@@ -397,6 +400,7 @@ public class Student implements Comparable<Student>
 		switch(k)
 		{
 		case "yes": properties[KITCHEN] = 1; break;
+		case "no" : properties[KITCHEN] = 2; break;
 		default: properties[KITCHEN] = 0; break;
 		}
 	}
