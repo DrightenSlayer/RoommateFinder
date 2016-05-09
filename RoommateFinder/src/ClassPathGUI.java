@@ -52,7 +52,7 @@ public class ClassPathGUI {
 			ClassPath.reset(); 
 			displayDistancePath.setText("");
 			displayPath.setText("");
-			
+			inputSet.clear();
 	
 		});
 		
