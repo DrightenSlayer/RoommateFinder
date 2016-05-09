@@ -1,3 +1,4 @@
+import javax.security.auth.login.LoginContext;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class PasswordSetupGUI {
         frame.setVisible(true);
     }
 
-    public PasswordSetupGUI() {
+    private PasswordSetupGUI() {
         $$$setupUI$$$();
         accountSecurityInfo = new ArrayList<>();
 
@@ -59,11 +60,11 @@ public class PasswordSetupGUI {
                     exc.printStackTrace();
                 }
                 ((JFrame) accountSetupPanel.getTopLevelAncestor()).dispose();
-                PersonalInfoGUI.createFrame();
+                StudentInfoGUI.createFrame();
             } else errorLabel.setVisible(true);
         });
         prevButton.addActionListener(e -> {
-            StudentInfoGUI.createFrame();
+            LogInGUI.createFrame();
             ((JFrame) accountSetupPanel.getTopLevelAncestor()).dispose();
         });
     }

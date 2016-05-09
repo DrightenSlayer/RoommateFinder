@@ -42,9 +42,5 @@ public class RoommateFinder {
         return matches;
     }
 
-    List getStudentList(){
-        return fromFile;
-    }
-
 
 }

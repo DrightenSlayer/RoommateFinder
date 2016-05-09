@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class ReadFile {
 
-    static ArrayList<String> usernames = new ArrayList<>();
-    static ArrayList<String> passwords = new ArrayList<>();
-    static String str;
+    private static ArrayList<String> usernames = new ArrayList<>();
+    private static ArrayList<String> passwords = new ArrayList<>();
+    private static String str;
 
     public static void main(String[] args) {
         read();
@@ -46,11 +46,6 @@ public class ReadFile {
         if(index == -1) return false;
 
         return (usernames.get(index).equals(user) && passwords.get(index).equals(pass));
-//        if(usernames.get(index).equals(user) && passwords.get(index).equals(pass))
-//        {
-//            return true;
-//        }
-//        else return false;
     }
 
 }

@@ -42,7 +42,7 @@ public class RoomPreferencesGUI {
         frame.setVisible(true);
     }
 
-    public RoomPreferencesGUI() {
+    private RoomPreferencesGUI() {
         $$$setupUI$$$();
 
         roomPreferencesList = new ArrayList<>();

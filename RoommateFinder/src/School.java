@@ -85,7 +85,7 @@ public class School
 		return false;
 	}
 	
-	public boolean remove(Student student)
+	boolean remove(Student student)
 	{
 		for(Building building : buildings) if(building.remove(student)) return true;
 		return false;
@@ -93,7 +93,8 @@ public class School
 	
 	
 	public String getName() {return name;}
-	public Set<Student> getStudents()
+
+	Set<Student> getStudents()
 	{
 		Set<Student> students = new HashSet<Student>();
 		for(Building building : buildings) students.addAll(building.getStudents());
@@ -119,9 +120,9 @@ public class School
 			return students.add(student);
 		}
 		
-		public Set<Student> getStudents(){return students;}
-		public boolean contains(Student student) {return students.contains(student);}
-		public boolean remove(Student student) {return students.remove(student);}
+		Set<Student> getStudents(){return students;}
+		boolean contains(Student student) {return students.contains(student);}
+		boolean remove(Student student) {return students.remove(student);}
 		
 		public String getName(){return name;}
 	}

@@ -64,7 +64,7 @@ public class LogInGUI {
         });
 
         signUpButton.addActionListener(e -> {
-            StudentInfoGUI.createFrame(); //calling for the creation of the sign up frame.
+            PasswordSetupGUI.createFrame(); //calling for the creation of the sign up frame.
             ((JFrame) loginPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
         });
     }

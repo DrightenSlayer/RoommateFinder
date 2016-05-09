@@ -8,7 +8,7 @@ public class ClassPath
 	private static int heading=0;
 	private static double total=0;
 	public static String s = "";
-	public static  double graph[][] = 
+	static  double graph[][] =
 		{
 				{0,0.27,0.22,0.23,0.15,0.04,0.05,0.21,0.3,0.42, 0.18,0.31,0.39,0.38,0.37,0.26},//cvb start
 				{0.27,0,0.04,0.09,0.12,0.27,0.23,0.2,0.19,0.21,0.29,0.22,0.18,0.14,0.1,0.16},//mcq
@@ -28,12 +28,11 @@ public class ClassPath
 				{0.26,0.16,0.13,0.07,0.1,0.14,0.17,0.06,0.1,0.2,0.15,0.21,0.21,0.2,0.26,0}//engineering
 
 		};
-	public static ArrayList<Integer> classes;
+	static ArrayList<Integer> classes;
 	
-	public ClassPath(ArrayList<Integer> temp)
+	ClassPath(ArrayList<Integer> temp)
 	{
 		classes = temp;
-		
 	}
 	
 	public static void insert(int buildingNumber)
@@ -41,14 +40,14 @@ public class ClassPath
 		classes.add(buildingNumber);
 	}
 
-	public static int minDistance(double dist[], boolean sptSet[])
+	private static int minDistance(double dist[], boolean sptSet[])
 	{
 
 		double min = 999;
 		int min_index = -1;
 
 		for (int v = 0; v < V; v++)
-			if (sptSet[v] == false && dist[v] <= min)
+			if (!sptSet[v] && dist[v] <= min)
 			{
 				min = dist[v];
 				min_index = v;
@@ -122,7 +121,7 @@ public class ClassPath
 		
 	}
 
-	public static String dijkstra(double graph[][], int src, ArrayList<Integer>arr)
+	static String dijkstra(double graph[][], int src, ArrayList<Integer>arr)
 	{
 
 		temp=src;
@@ -158,8 +157,8 @@ public class ClassPath
 				dist[v] = dist[u] + graph[u][v];
 			}  
 
-		String returnResult= printSolution(dist, V, parent,arr);
-		return returnResult;
+		return printSolution(dist, V, parent,arr);
+//		return returnResult;
 
 
 	}
@@ -187,10 +186,11 @@ public class ClassPath
 		}
 	}
 	
-	public static String getTotal()
+	static String getTotal()
 	{
 		return "\nTotal walk length: " +total;
 	}
+
 	public static void main(String[] args)
 	{
 		//0= CVB
@@ -223,7 +223,6 @@ public class ClassPath
 			System.out.println(dijkstra(graph, schedule.get(i),schedule));//A=0, B=1, C=2 etc
 			s="";
 		}
-		
 	System.out.println(getTotal());
 	}
 

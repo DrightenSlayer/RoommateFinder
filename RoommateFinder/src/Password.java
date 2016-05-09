@@ -9,7 +9,7 @@ public class Password
 	 * That string (of bits) will be converted to decimal, then the first character's of the password ASCII value  is added
 	 * if that matches the key, the user logs in.
 	 */
-	public static int createPassword(String p, String c)
+	static int createPassword(String p, String c)
 	{
 		if(!p.equals(c)){ System.out.println("Passwords do not match!"); return 0;}
 		if(p.equals("")) return 0;

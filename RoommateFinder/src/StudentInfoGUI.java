@@ -43,7 +43,7 @@ public class StudentInfoGUI {
         frame.setVisible(true);
     }
 
-    public StudentInfoGUI() {
+    private StudentInfoGUI() {
         $$$setupUI$$$();
         studentInfoList = new ArrayList<>();
 
@@ -71,7 +71,7 @@ public class StudentInfoGUI {
         });
 
         previousButton.addActionListener(e -> {
-            LogInGUI.createFrame();
+            PasswordSetupGUI.createFrame();
             ((JFrame) studentInfoPanel.getTopLevelAncestor()).dispose();
         });
     }

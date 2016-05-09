@@ -49,8 +49,7 @@ public class Student implements Comparable<Student>
 	public int getKey(){return key;}
 
 
-
-		public static Student generate()
+		static Student generate()
 		{
 			int nameLength = (int) ((100 * Math.random()) % 11) + 4;
 			String name = "";
@@ -76,7 +75,7 @@ public class Student implements Comparable<Student>
 			return new Student(name, p);
 		}
 
-	public Queue<Student> matches(){return matches(this.school);}
+	Queue<Student> matches(){return matches(this.school);}
 
 	private Queue<Student> matches(School school)
 	{
@@ -124,8 +123,8 @@ public class Student implements Comparable<Student>
 
 	public String getName() {return name;}
 	public void setName(String name) {this.name = name;}
-	public School getSchool(){return school;}
-	public void setSchool(School school)
+	School getSchool(){return school;}
+	void setSchool(School school)
 	{
 		if(this.school != null) this.school.remove(this);
 		this.school = school;
@@ -134,156 +133,157 @@ public class Student implements Comparable<Student>
 	/*
 	 * PROPERTIES SWITCH STATEMENTS
 	 */
-	public String getLanguage() //prop1
+	String getLanguage() //prop1
 	{
 		switch(properties[LANGUAGE])
 		{
-		case 1: return "english";
-		case 2: return "farsi";
-		case 3: return "japanese";
-		case 4: return "chinese";
-		case 5: return "vietnamese";
-		case 6: return "russian";
-		default: return "english";
+		case 1: return "English";
+		case 2: return "Farsi";
+		case 3: return "Japanese";
+		case 4: return "Chinese";
+		case 5: return "Vietnamese";
+		case 6: return "Russian";
+		default: return "English";
 		}
 	}
 
-	public String getGender() //prop 2
+	String getGender() //prop 2
 	{
 		switch(properties[GENDER])
 		{
-		case 1: return "male";
-		case 2: return "female";
-		case 3: return "other";
-		default: return "choose not to identify";
+		case 1: return "Male";
+		case 2: return "Female";
+		case 3: return "Other";
+		default: return "Not Identify";
 		}
 	}
 
-	public String getMajor() // prop 3
+	String getMajor() // prop 3
 	{
 		switch(properties[MAJOR])
 		{
-		case 1: return "computer Science";
-		case 2: return "engineering";
-		case 3: return "art";
-		case 4: return "underwater Basket Weaving";
-		case 5: return "undeclared";
-		default: return "";
+		case 1: return "Computer Science";
+		case 2: return "Engineering";
+		case 3: return "Art";
+		case 4: return "Underwater Basket Weaving";
+		case 5: return "Undeclared";
+		default: return "Undeclared";
 		}
 	}
 
-	public String getYear() //prop 4
+	String getYear() //prop 4
 	{
 		switch(properties[YEAR])
 		{
-		case 1: return "freshman";
-		case 2: return "sophomore";
-		case 3: return "junior";
-		case 4: return "senior";
-		case 5: return "graduate student";
-		default: return "freshman";
+		case 1: return "Freshman";
+		case 2: return "Sophomore";
+		case 3: return "Junior";
+		case 4: return "Senior";
+		case 5: return "Graduate student";
+		default: return "Freshman";
 		}
 	}
 
-	public String getSleep() //prop5
+	String getSleep() //prop5
 	{	
 		switch(properties[SLEEP])
 		{
-		case 1: return "early";
-		case 2: return "late";
-		default: return "no preference";
+		case 1: return "Early";
+		case 2: return "Late";
+		default: return "No preference";
 		}
 	}
 
-	public String getWake() //prop6
+	String getWake() //prop6
 	{
 		switch(properties[WAKE])
 		{
-		case 1: return "early";
-		case 2: return "late";
-		default: return "no preference";
+		case 1: return "Early";
+		case 2: return "Late";
+		default: return "No preference";
 		}
 	}
 
-	public String getPreferences() //prop7
+	String getPreferences() //prop7
 	{
 		switch(properties[PREFERENCES])
 		{
-		case 1: return "quiet";
-		case 2: return "lively";
-		default: return "no preference";
+		case 1: return "Quiet";
+		case 2: return "Lively";
+		default: return "No preference";
 		}
 	}
 
-	public String getPrice() //prop8
+	String getPrice() //prop8
 	{
 		switch(properties[PREFERENCES])
 		{
-		case 1: return "low";
-		case 2: return "high";
-		default: return "no preference";
+		case 1: return "Low";
+		case 2: return "High";
+		default: return "No preference";
 		}
 	}
 
-	public String getKitchen() //prop9
+	String getKitchen() //prop9
 	{
 		switch(properties[KITCHEN])
 		{
-		case 1: return "yes";
-		case 2: return "no";
-		default: return "no preference";
+		case 1: return "Yes";
+		case 2: return "No";
+		default: return "No preference";
 		}
 	}
 
-	public String getShower() //prop10
+	String getShower() //prop10
 	{
 		switch(properties[SHOWER])
 		{
-		case 1: return "yes";
-		case 2: return "no";
-		default: return "no preference";
+		case 1: return "Yes";
+		case 2: return "No";
+		default: return "No preference";
 		}
 	}
 
-	public String getWash_Dry() //prop11
+	String getWash_Dry() //prop11
 	{
 		switch(properties[WASH_DRY])
 		{
-		case 1: return "yes";
-		case 2: return "no";
-		default: return "no preference";
+		case 1: return "Yes";
+		case 2: return "No";
+		default: return "No preference";
 		}
 	}
 
-	public String getFloor() //prop12
+	String getFloor() //prop12
 	{
 		switch(properties[FLOOR])
 		{
-		case 1: return "upper";
-		case 2: return "lower";
-		default: return "no preference";
-		}
-	}
-	public String getLight() //prop13
-	{
-		switch(properties[LIGHT])
-		{
-		case 1: return "dark";
-		case 2: return "light";
-		default: return "no preference";
-		}
-	}
-	public String getBunk() //prop14
-	{
-		switch(properties[BUNK])
-		{
-		case 1: return "upper";
-		case 2: return "lower";
-		default: return "no preference";
+		case 1: return "Upper";
+		case 2: return "Lower";
+		default: return "No preference";
 		}
 	}
 
-	public void setProp(int i, String v)
+	String getLight() //prop13
+	{
+		switch(properties[LIGHT])
+		{
+		case 1: return "Dark";
+		case 2: return "Light";
+		default: return "No preference";
+		}
+	}
+	String getBunk() //prop14
+	{
+		switch(properties[BUNK])
+		{
+		case 1: return "Upper";
+		case 2: return "Lower";
+		default: return "No preference";
+		}
+	}
+
+	private void setProp(int i, String v)
 	{
 		switch(i)
 		{
@@ -304,154 +304,154 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	public void setLanguage(String l) //prop1
+	void setLanguage(String l) //prop1
 	{
 		switch(l)
 		{
-		case "english" : properties[LANGUAGE] = 1; break;
-		case "farsi" : properties[LANGUAGE] = 2; break;
-		case "japanese" : properties[LANGUAGE] = 3; break;
-		case "chinese" : properties[LANGUAGE] = 4; break;
-		case "vietnamese" : properties[LANGUAGE] = 5; break;
-		case "russian" : properties[LANGUAGE] = 6; break;
+		case "English" : properties[LANGUAGE] = 1; break;
+		case "Farsi" : properties[LANGUAGE] = 2; break;
+		case "Japanese" : properties[LANGUAGE] = 3; break;
+		case "Chinese" : properties[LANGUAGE] = 4; break;
+		case "Vietnamese" : properties[LANGUAGE] = 5; break;
+		case "Russian" : properties[LANGUAGE] = 6; break;
 		default : properties[LANGUAGE] = 0; break;
 		}
 	}
 
-	public void setGender(String g) //prop2
+	void setGender(String g) //prop2
 	{
 		switch(g)
 		{
-		case "male": properties[GENDER] = 1; break;
-		case "female": properties[GENDER] = 2; break;
-		case "other": properties[GENDER] = 3; break;
-		case "choose not to identify": properties[GENDER] = 4; break;
+		case "Male": properties[GENDER] = 1; break;
+		case "Female": properties[GENDER] = 2; break;
+		case "Other": properties[GENDER] = 3; break;
+		case "Not Identify": properties[GENDER] = 4; break;
 		default: properties[GENDER] = 0; break;
 		}
 	}
 
-	public void setMajor(String m) //prop3
+	void setMajor(String m) //prop3
 	{
 		switch(m)
 		{
-		case "computer Science" : properties[MAJOR] = 1; break;
-		case "engineering" : properties[MAJOR] = 2; break;
-		case "art" : properties[MAJOR] = 3; break;
-		case "underwater Basket Weaving" : properties[MAJOR] = 4; break;
-		case "undeclared" : properties[MAJOR] = 5; break;
-		default : properties[MAJOR] = 0; break;
+		case "Computer Science" : properties[MAJOR] = 1; break;
+		case "Engineering" : properties[MAJOR] = 2; break;
+		case "Art" : properties[MAJOR] = 3; break;
+		case "Underwater Basket Weaving" : properties[MAJOR] = 4; break;
+		case "Undeclared" : properties[MAJOR] = 5; break;
+		default : properties[MAJOR] = 5; break;
 		}	
 	}
 
-	public void setYear(String y) //prop 4
+	void setYear(String y) //prop 4
 	{
 		switch(y)
 		{
-		case "freshman": properties[YEAR] = 1; break;
-		case "sophomore": properties[YEAR] = 2; break;
-		case "junior": properties[YEAR] = 3; break;
-		case "senior": properties[YEAR] = 4; break;
-		case "graduate student": properties[YEAR] = 5; break;
+		case "Freshman": properties[YEAR] = 1; break;
+		case "Sophomore": properties[YEAR] = 2; break;
+		case "Junior": properties[YEAR] = 3; break;
+		case "Senior": properties[YEAR] = 4; break;
+		case "Graduate student": properties[YEAR] = 5; break;
 		default: properties[YEAR] = 0; break;
 		}
 	}
 
-	public void setSleep(String s) //prop5
+	void setSleep(String s) //prop5
 	{
 		switch(s)
 		{
-		case "early": properties[SLEEP] = 1; break;
-		case "late": properties[SLEEP] = 2; break;
+		case "Early": properties[SLEEP] = 1; break;
+		case "Late": properties[SLEEP] = 2; break;
 		default : properties[SLEEP] = 0; break;
 		}
 	}
 
-	public void setWake(String w) //prop6
+	void setWake(String w) //prop6
 	{
 		switch(w)
 		{
-		case "early": properties[WAKE] = 1; break;
-		case "late": properties[WAKE] = 2; break;
+		case "Early": properties[WAKE] = 1; break;
+		case "Late": properties[WAKE] = 2; break;
 		default: properties[WAKE] = 0; break;			
 		}
 	}
 
-	public void setPreferences(String p) //prop7
+	void setPreferences(String p) //prop7
 	{
 		switch(p)
 		{
-		case "lively": properties[WAKE] = 1; break;
-		case "quiet": properties[WAKE] = 2; break;
+		case "Lively": properties[WAKE] = 1; break;
+		case "Quiet": properties[WAKE] = 2; break;
 		default: properties[WAKE] = 0; break;			
 		}
 	}
 
-	public void setPrice(String p) //prop8
+	void setPrice(String p) //prop8
 	{
 		switch(p)
 		{
-		case "low" : properties[PRICE] = 1; break;
-		case "high" : properties[PRICE] = 2; break;
+		case "Low" : properties[PRICE] = 1; break;
+		case "High" : properties[PRICE] = 2; break;
 		default : properties[PRICE] = 0; break;
 		}
 	}
 
-	public void setKitchen(String k) //prop9
+	void setKitchen(String k) //prop9
 	{
 		switch(k)
 		{
-		case "yes": properties[KITCHEN] = 1; break;
-		case "no" : properties[KITCHEN] = 2; break;
+		case "Yes": properties[KITCHEN] = 1; break;
+		case "No" : properties[KITCHEN] = 2; break;
 		default: properties[KITCHEN] = 0; break;
 		}
 	}
 
-	public void setShower(String s) //prop10
+	void setShower(String s) //prop10
 	{
 		switch(s)
 		{
-		case "yes": properties[SHOWER] = 1; break;
-		case "no" : properties[SHOWER] = 2; break;
+		case "Yes": properties[SHOWER] = 1; break;
+		case "No" : properties[SHOWER] = 2; break;
 		default: properties[SHOWER] = 0; break;
 		}
 	}
 
-	public void setWash_Dry(String w) //prop11
+	void setWash_Dry(String w) //prop11
 	{
 		switch(w)
 		{
-		case "yes": properties[WASH_DRY] = 1; break;
-		case "no" : properties[WASH_DRY] = 2; break;
+		case "Yes": properties[WASH_DRY] = 1; break;
+		case "No" : properties[WASH_DRY] = 2; break;
 		default: properties[WASH_DRY] = 0; break;
 		}
 	}
 
-	public void setFloor(String f) //prop12
+	void setFloor(String f) //prop12
 	{
 		switch(f)
 		{
-		case "upper": properties[FLOOR] = 1; break;
-		case "lower": properties[FLOOR] = 2; break;
+		case "Upper": properties[FLOOR] = 1; break;
+		case "Lower": properties[FLOOR] = 2; break;
 		default: properties[FLOOR] = 0; break;
 		}
 	}
 
-	public void setLight(String l) //prop13
+	void setLight(String l) //prop13
 	{
 		switch(l)
 		{
-		case "dark": properties[LIGHT] = 1; break;
-		case "light" : properties[LIGHT] = 2; break;
+		case "Dark": properties[LIGHT] = 1; break;
+		case "Light" : properties[LIGHT] = 2; break;
 		default: properties[FLOOR] = 0; break;
 		}
 	}
 
-	public void setBunk(String b) //prop14
+	void setBunk(String b) //prop14
 	{
 		switch(b)
 		{
-		case "upper": properties[BUNK] = 1; break;
-		case "lower" : properties[BUNK] = 2; break;
+		case "Upper": properties[BUNK] = 1; break;
+		case "Lower" : properties[BUNK] = 2; break;
 		default: properties[BUNK] = 0; break;
 		}
 	}
@@ -467,7 +467,7 @@ public class Student implements Comparable<Student>
 		return c;
 	}
 
-	public static List<Student> readFile()
+	static List<Student> readFile()
 	{
 		List<Student> fromFile = new ArrayList<>();
 

@@ -14,7 +14,7 @@ public class ClassPathGUI {
     private JLabel displayDistancePath;
     private JLabel displayPath;
     private JButton clearButton;
-    public ArrayList<Integer> inputSet;
+    private ArrayList<Integer> inputSet;
 
     public static void main(String... args) {
         ClassPathGUI.createFrame();
@@ -26,7 +26,7 @@ public class ClassPathGUI {
     public static void createFrame() {
         JFrame frame = new JFrame("Class Path");
         frame.setContentPane(new ClassPathGUI().classPanel);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.pack(); //condensing contents of window to be as packed as possible.
         frame.setLocationRelativeTo(null); //setting location to middle of user's screen.
         frame.setVisible(true);
@@ -40,7 +40,6 @@ public class ClassPathGUI {
             displayPath.setText("Here is the shortest path to each class: " + displayPath());
         });
         previousButton.addActionListener(e -> {
-            MainMenuGUI.createFrame(); //calling for the creation of the sign up frame.
             ((JFrame) classPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
         });
         /**
@@ -52,7 +51,7 @@ public class ClassPathGUI {
         });
     }
 
-    public ArrayList<Integer> getInput() {
+    private ArrayList<Integer> getInput() {
         String input = scheduleField.getText();
         String[] classes = input.split(" ");
         for (int i = 0; i < classes.length; i++) {
@@ -63,17 +62,17 @@ public class ClassPathGUI {
 
     }
 
-    public String displayDistance() {
+    private String displayDistance() {
         ClassPath classPath = new ClassPath(getInput());
 
         for (int i = 0; i < classPath.classes.size(); i++) {
             ClassPath.dijkstra(ClassPath.graph, classPath.classes.get(i), classPath.classes);
         }
-        String distance = ClassPath.getTotal();
-        return distance;
+        return ClassPath.getTotal();
+//        return distance;
     }
 
-    public String displayPath() {
+    private String displayPath() {
         ClassPath classPath = new ClassPath(getInput());
         String path = "";
         for (int i = 0; i < classPath.classes.size(); i++) {

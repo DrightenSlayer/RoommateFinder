@@ -25,7 +25,6 @@ public class PersonalInfoGUI {
     private JRadioButton livelyButton;
     private JButton previousButton;
     private JButton nextButton;
-    private JTextField ageText;
     private List<String> personalInfoList;
     private final Charset UTF8 = StandardCharsets.UTF_8;
 
@@ -39,7 +38,7 @@ public class PersonalInfoGUI {
         frame.setVisible(true);
     }
 
-    public PersonalInfoGUI() {
+    private PersonalInfoGUI() {
         $$$setupUI$$$();
 
         personalInfoList = new ArrayList<>();

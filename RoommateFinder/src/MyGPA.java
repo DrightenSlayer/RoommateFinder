@@ -154,7 +154,7 @@ public class MyGPA {
     static void createFrame() {
         JFrame frame = new JFrame();
         frame.setContentPane(new MyGPA().myGpaPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);

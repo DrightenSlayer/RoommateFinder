@@ -22,9 +22,9 @@ public  class HuffmanTree
 		root = new Node(l.root, r.root);
 	}
 	
-	public Map<Character, String> bemap(){ return bemap(root, "");}
+	private Map<Character, String> bemap(){ return bemap(root, "");}
 	
-	public Map<Character, String> bemap(Node n, String s)
+	private Map<Character, String> bemap(Node n, String s)
 	{
 	Map<Character, String> map = new HashMap<>();
 		if(n.data == null)
@@ -39,7 +39,7 @@ public  class HuffmanTree
 		return map;
 	}
 	
-	public Node root;
+	private Node root;
 	class Node
 	{
 		public Node(Character data){this.data = data;}
@@ -47,7 +47,7 @@ public  class HuffmanTree
 		{
 			left = l; right = r;
 		}
-		public Character data;
+		Character data;
 		public Node left;
 		public Node right;
 	}
@@ -67,11 +67,11 @@ public  class HuffmanTree
 		public Group(Character val, int i){this.val = val; count = i;}
 		public int compareTo(Group other){return count - other.getCount();}
 		
-		public Character getVal(){return val;}
-		public Integer getCount(){return count;}
+		Character getVal(){return val;}
+		Integer getCount(){return count;}
 	}
 	
-	public Map<Character, String> getMap(String in)
+	Map<Character, String> getMap(String in)
 	{
 		ArrayList<Group> p = new ArrayList<>();
 		for(int i = 0; i < in.length(); i++)
