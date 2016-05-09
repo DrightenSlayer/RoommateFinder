@@ -164,11 +164,12 @@ public class Student implements Comparable<Student>
 	{
 		switch(properties[MAJOR])
 		{
-		case 1: return "Computer Science";
-		case 2: return "Engineering";
-		case 3: return "Art";
-		case 4: return "Underwater Basket Weaving";
-		default: return "undeclared";
+		case 1: return "computer Science";
+		case 2: return "engineering";
+		case 3: return "art";
+		case 4: return "underwater Basket Weaving";
+		case 5: return "undeclared";
+		default: return "";
 		}
 	}
 
@@ -334,6 +335,7 @@ public class Student implements Comparable<Student>
 		case "engineering" : properties[MAJOR] = 2; break;
 		case "art" : properties[MAJOR] = 3; break;
 		case "underwater Basket Weaving" : properties[MAJOR] = 4; break;
+		case "undeclared" : properties[MAJOR] = 5; break;
 		default : properties[MAJOR] = 0; break;
 		}	
 	}
