@@ -33,6 +33,7 @@ public class GradeCalc {
     private JPanel calcPanel;
     private JTextField grade7Text;
     private JTextField desiredLetterGrade;
+
     DecimalFormat df = new DecimalFormat("#.##");
 
     public static void main(String... args) {
@@ -67,16 +68,13 @@ public class GradeCalc {
         });
     }
 
-
-    private static double neededPercentage;
-
-
     public double getCurrentGrade() {
         grade = (helper()) / (currentPercent());
 
-        if (!Double.isNaN(grade)) {
+        if (!Double.isNaN(grade)){
             return Double.parseDouble(df.format(grade));
-        } else
+        }
+        else
             return 0.0;
     }
 
@@ -116,7 +114,7 @@ public class GradeCalc {
 
     public double number4DesiredGrade(double currentGrade, String desiredGrade) {
         double val = neededGradeForLetter(desiredGrade);
-        double curr = getCurrentGrade();
+        double curr = currentGrade;
         double pointsEarned = curr * currentPercent();
 
         double step = (val - pointsEarned);
@@ -139,7 +137,7 @@ public class GradeCalc {
         }
         if (input2Field.getText().length() != 0 && weight2Field.getText().length() != 0) {
             totalScore +=
-                    Double.parseDouble(input1Field.getText()) * Double.parseDouble(weight1Field.getText());
+                    Double.parseDouble(input2Field.getText()) * Double.parseDouble(weight2Field.getText());
         }
         if (input3Field.getText().length() != 0 && weight3Field.getText().length() != 0) {
             totalScore +=
@@ -152,6 +150,14 @@ public class GradeCalc {
         if (input5Field.getText().length() != 0 && weight5Field.getText().length() != 0) {
             totalScore +=
                     Double.parseDouble(input5Field.getText()) * Double.parseDouble(weight5Field.getText());
+        }
+        if (input6Field.getText().length() != 0 && weight6Field.getText().length() != 0) {
+            totalScore +=
+                    Double.parseDouble(input6Field.getText()) * Double.parseDouble(weight6Field.getText());
+        }
+        if (input7Field.getText().length() != 0 && weight7Field.getText().length() != 0) {
+            totalScore +=
+                    Double.parseDouble(input7Field.getText()) * Double.parseDouble(weight7Field.getText());
         }
         return totalScore;
     }
@@ -172,6 +178,12 @@ public class GradeCalc {
         }
         if (weight5Field.getText().length() != 0) {
             totalPercent += Double.parseDouble(weight5Field.getText());
+        }
+        if (weight6Field.getText().length() != 0) {
+            totalPercent += Double.parseDouble(weight6Field.getText());
+        }
+        if (weight7Field.getText().length() != 0) {
+            totalPercent += Double.parseDouble(weight7Field.getText());
         }
         return totalPercent;
     }
