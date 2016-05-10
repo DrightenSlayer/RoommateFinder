@@ -15,7 +15,7 @@ public class ClassPath
 	public static String s = "";
 	
 	
-	public static  double graph[][] = 
+	public static  double graph[][] =
 		{
 				{0,0.27,0.22,0.23,0.15,0.04,0.05,0.21,0.3,0.42, 0.18,0.31,0.39,0.38,0.37,0.26},//cvb start
 				{0.27,0,0.04,0.09,0.12,0.27,0.23,0.2,0.19,0.21,0.29,0.22,0.18,0.14,0.1,0.16},//mcq
@@ -44,7 +44,7 @@ public class ClassPath
 	public ClassPath(ArrayList<Integer> temp)
 	{
 		classes = temp;
-		
+
 	}
 	
 	/**
@@ -84,7 +84,7 @@ public class ClassPath
 	 */
 	private static String printPath(int parent[], int j)
 	{
-		
+
 		if (parent[j]==-1)
 		{
 			return"";	
@@ -111,9 +111,9 @@ public class ClassPath
 		
 		
 		for (int i = 0; i <= V && ((track+1)<arr.size()) ; i++)
-		{ 
-			
-		
+		{
+
+
 			if( arr.get(track+1) == i)
 			{
 				if(dist[i]==999)
@@ -241,8 +241,8 @@ public class ClassPath
 		s="";
 		track=0;
 		total=0;
-		
-	
+
+
 	}
 
 	/**

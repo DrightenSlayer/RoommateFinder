@@ -51,6 +51,7 @@ public class ClassPathGUI {
 			ClassPath.reset();
 			displayDistancePath.setText("");
 			displayPath.setText("");
+			scheduleField.setText("");
 			inputSet.clear();
 
 		});
@@ -97,7 +98,9 @@ public class ClassPathGUI {
 	private void $$$setupUI$$$() {
 		classPanel = new JPanel();
 		classPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(9, 4, new Insets(0, 0, 0, 0), -1, -1));
-		classPanel.setMaximumSize(new Dimension(800, 1000));
+		classPanel.setMaximumSize(new Dimension(900, 700));
+		classPanel.setMinimumSize(new Dimension(800, 600));
+		classPanel.setPreferredSize(new Dimension(900, 700));
 		final JLabel label1 = new JLabel();
 		label1.setFont(new Font(label1.getFont().getName(), label1.getFont().getStyle(), 36));
 		label1.setText("ClassPath");
