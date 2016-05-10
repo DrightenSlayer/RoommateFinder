@@ -185,3 +185,20 @@ Upper
 Light
 Upper
 
+Claudius
+SJSU
+English
+Male
+Philosophy
+Sophmore
+Late
+Late
+Quiet
+Low
+Yes
+Yes
+Yes
+Upper
+Light
+Lower
+

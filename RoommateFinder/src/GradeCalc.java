@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.text.DecimalFormat;
 
 public class GradeCalc {
     private static double grade = 0.00;
@@ -32,6 +33,7 @@ public class GradeCalc {
     private JPanel calcPanel;
     private JTextField class7Text;
     private JTextField desiredLetterGrade;
+    DecimalFormat df = new DecimalFormat("#.##");
 
     public static void main(String... args) {
         GradeCalc.createFrame();
@@ -65,9 +67,19 @@ public class GradeCalc {
         });
     }
 
+
+    private static double neededPercentage;
+
+    
+
     public double getCurrentGrade() {
         grade = (helper()) / (currentPercent());
-        return grade;
+
+        if (!Double.isNaN(grade)){
+            return Double.parseDouble(df.format(grade));
+        }
+        else
+        return 0.0;
     }
 
     private void clear() {
@@ -113,21 +125,58 @@ public class GradeCalc {
         double step = (val - pointsEarned);
         double pointsOnExam = (1 - currentPercent());
 
-        return (step / pointsOnExam);
+        double wantGrade = (step / pointsOnExam);
+
+        if (!Double.isNaN(wantGrade))
+            return Double.parseDouble(df.format(wantGrade));
+        else
+            return 0.0;
     }
 
     public double helper() {
-        return (Double.parseDouble(input1Field.getText()) * Double.parseDouble(weight1Field.getText()))
-                + (Double.parseDouble(input2Field.getText()) * Double.parseDouble(weight2Field.getText()))
-                + (Double.parseDouble(input3Field.getText()) * Double.parseDouble(weight3Field.getText())) +
-                (Double.parseDouble(input4Field.getText()) * Double.parseDouble(weight4Field.getText())) +
-                (Double.parseDouble(input5Field.getText()) * Double.parseDouble(weight5Field.getText()));
+        double totalScore = 0.0;
+
+        if (input1Field.getText().length() != 0 && weight1Field.getText().length() != 0) {
+            totalScore +=
+                    Double.parseDouble(input1Field.getText()) * Double.parseDouble(weight1Field.getText());
+        }
+        if (input2Field.getText().length() != 0 && weight2Field.getText().length() != 0) {
+            totalScore +=
+                    Double.parseDouble(input1Field.getText()) * Double.parseDouble(weight1Field.getText());
+        }
+        if (input3Field.getText().length() != 0 && weight3Field.getText().length() != 0) {
+            totalScore +=
+                    Double.parseDouble(input3Field.getText()) * Double.parseDouble(weight3Field.getText());
+        }
+        if (input4Field.getText().length() != 0 && weight4Field.getText().length() != 0) {
+            totalScore +=
+                    Double.parseDouble(input4Field.getText()) * Double.parseDouble(weight4Field.getText());
+        }
+        if (input5Field.getText().length() != 0 && weight5Field.getText().length() != 0) {
+            totalScore +=
+                    Double.parseDouble(input5Field.getText()) * Double.parseDouble(weight5Field.getText());
+        }
+        return totalScore;
     }
 
     public double currentPercent() {
-        return Double.parseDouble(weight1Field.getText()) + Double.parseDouble(weight2Field.getText()) +
-                Double.parseDouble(weight3Field.getText()) + Double.parseDouble(weight4Field.getText()) +
-                Double.parseDouble(weight5Field.getText());
+        double totalPercent = 0.0;
+        if (weight1Field.getText().length() != 0) {
+            totalPercent += Double.parseDouble(weight1Field.getText());
+        }
+        if (weight2Field.getText().length() != 0) {
+            totalPercent += Double.parseDouble(weight2Field.getText());
+        }
+        if (weight3Field.getText().length() != 0) {
+            totalPercent += Double.parseDouble(weight3Field.getText());
+        }
+        if (weight4Field.getText().length() != 0) {
+            totalPercent += Double.parseDouble(weight4Field.getText());
+        }
+        if (weight5Field.getText().length() != 0) {
+            totalPercent += Double.parseDouble(weight5Field.getText());
+        }
+        return totalPercent;
     }
 
     public double neededGradeForLetter(String desiredGrade) {
