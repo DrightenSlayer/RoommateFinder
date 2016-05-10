@@ -6,7 +6,6 @@ import java.text.DecimalFormat;
  * Created by William Vagharfard on 5/6/16.
  */
 public class MyGPA {
-
     private JTextField class1Text;
     private JComboBox class1Grade;
     private JButton calculateGPAButton;
@@ -49,29 +48,35 @@ public class MyGPA {
         clearButton.addActionListener(e -> {
             clear();
         });
-
     }
 
     private void clear() {
         class1Grade.setSelectedIndex(0);
         class1Credit.setText("");
+        class1Text.setText("( class name )");
         class2Grade.setSelectedIndex(0);
         class2Credit.setText("");
+        class2Text.setText("( class name )");
         class3Grade.setSelectedIndex(0);
         class3Credit.setText("");
+        class3Text.setText("( class name )");
         class4Grade.setSelectedIndex(0);
         class4Credit.setText("");
+        class4Text.setText("( class name )");
         class5Grade.setSelectedIndex(0);
         class5Credit.setText("");
+        class5Text.setText("( class name )");
         class6Grade.setSelectedIndex(0);
         class6Credit.setText("");
+        class6Text.setText("( class name )");
         class7Grade.setSelectedIndex(0);
         class7Credit.setText("");
+        class7Text.setText("( class name )");
         GpaField.setText("");
     }
 
     private String calculate() {
-        double GPA = 0;
+        double GPA;
         double totalScore = 0;
         int totalCredits = 0;
         DecimalFormat df = new DecimalFormat("#.##");

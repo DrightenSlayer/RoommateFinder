@@ -12,8 +12,8 @@ public class DisplayMatchesGUI {
     private JButton getInfoButton;
     private JButton returnButton;
     private static Queue<Student> studQueue = new LinkedList<>();
-    Student theChosenOne;
-    LogInGUI lg = new LogInGUI();
+    private Student theChosenOne;
+    private LogInGUI lg = new LogInGUI();
 
     DisplayMatchesGUI() {
         $$$setupUI$$$();
@@ -37,12 +37,12 @@ public class DisplayMatchesGUI {
                     theChosenOne = x;
                     break;
                 }
-//            System.out.println("size: " + studQueue.size());
-//            System.out.println("name: " + theChosenOne.getName());
-
             if (!studentList.isSelectionEmpty()) {
                 StudentMatch sm = new StudentMatch(new DisplayMatchesGUI());
                 sm.createFrame();
+            } else {
+                MustSelect ms = new MustSelect();
+                ms.createFrame();
             }
         });
 
@@ -93,11 +93,6 @@ public class DisplayMatchesGUI {
     public JComponent $$$getRootComponent$$$() {
         return matchesPanel;
     }
-
-//    public static void main(String[] args) {
-//        createFrame();
-//    }
-
 
     /**
      * Created by William Vagharfard on 5/6/16.
@@ -271,5 +266,65 @@ public class DisplayMatchesGUI {
 
     }
 
+    private class MustSelect extends JDialog {
+        private JPanel contentPane;
+        private JButton buttonOK;
+        private JTextField msText;
 
+        MustSelect() {
+            $$$setupUIMS$$$();
+
+            buttonOK.addActionListener(e -> {
+                ((JFrame) contentPane.getTopLevelAncestor()).dispose();
+            });
+        }
+
+        void createFrame() {
+
+            JFrame frame = new JFrame();
+            frame.setContentPane(contentPane);
+            setModal(true);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+
+        }
+
+        private void $$$setupUIMS$$$() {
+            contentPane = new JPanel();
+            contentPane.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(10, 10, 10, 10), -1, -1));
+            final JPanel panel1 = new JPanel();
+            panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+            contentPane.add(panel1, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, 1, null, null, null, 0, false));
+            final JPanel panel2 = new JPanel();
+            panel2.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+            panel1.add(panel2, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+            buttonOK = new JButton();
+            buttonOK.setText("OK");
+            panel2.add(buttonOK, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+            final JPanel panel3 = new JPanel();
+            panel3.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+            contentPane.add(panel3, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+            msText = new JTextField();
+            msText.setEditable(false);
+            msText.setHorizontalAlignment(0);
+            msText.setText("Must select a match");
+            panel3.add(msText, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        }
+
+        /**
+         * @noinspection ALL
+         */
+        public JComponent $$$getRootComponent$$$() {
+            return contentPane;
+        }
+//        public static void main(String[] args) {
+//            MustSelect dialog = new MustSelect();
+//            dialog.setLocationRelativeTo(null);
+//            dialog.pack();
+//            dialog.setVisible(true);
+//
+//        }
+    }
 }

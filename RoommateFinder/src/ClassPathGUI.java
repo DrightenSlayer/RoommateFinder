@@ -14,7 +14,7 @@ public class ClassPathGUI {
 	private JLabel displayDistancePath;
 	private JLabel displayPath;
 	private JButton clearButton;
-	public ArrayList<Integer> inputSet;
+	private ArrayList<Integer> inputSet;
 
 
 	public static void main(String... args) {
@@ -27,9 +27,9 @@ public class ClassPathGUI {
 	public static void createFrame() {
 		JFrame frame = new JFrame("Class Path");
 		frame.setContentPane(new ClassPathGUI().classPanel);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.pack(); //condensing contents of window to be as packed as possible.
-		frame.setLocationRelativeTo(null); //setting location to middle of user's screen.
+		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		frame.pack();
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 
@@ -42,20 +42,19 @@ public class ClassPathGUI {
 
 		});
 		previousButton.addActionListener(e -> {
-			MainMenuGUI.createFrame(); //calling for the creation of the sign up frame.
-			((JFrame) classPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
+			((JFrame) classPanel.getTopLevelAncestor()).dispose();
 		});
 		/**
 		 * Will clear input, but will error on the next input ( does not reset initial value, just adds to it ).
 		 */
 		clearButton.addActionListener(e -> {
-			ClassPath.reset(); 
+			ClassPath.reset();
 			displayDistancePath.setText("");
 			displayPath.setText("");
 			inputSet.clear();
-	
+
 		});
-		
+
 	}
 
 	public ArrayList<Integer> getInput() {
@@ -64,14 +63,13 @@ public class ClassPathGUI {
 		for (int i = 0; i < classes.length; i++) {
 			inputSet.add(Integer.parseInt(classes[i]));
 		}
-		//System.out.println(inputSet);
 		return inputSet;
 
 	}
 
 	public String displayDistance() {
 		ClassPath classPath = new ClassPath(getInput());
-		String distance = "";
+		String distance;
 		for (int i = 0; i < classPath.classes.size(); i++) {
 			ClassPath.dijkstra(ClassPath.graph, classPath.classes.get(i), classPath.classes);
 		}
@@ -99,6 +97,7 @@ public class ClassPathGUI {
 	private void $$$setupUI$$$() {
 		classPanel = new JPanel();
 		classPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(9, 4, new Insets(0, 0, 0, 0), -1, -1));
+		classPanel.setMaximumSize(new Dimension(800, 1000));
 		final JLabel label1 = new JLabel();
 		label1.setFont(new Font(label1.getFont().getName(), label1.getFont().getStyle(), 36));
 		label1.setText("ClassPath");
