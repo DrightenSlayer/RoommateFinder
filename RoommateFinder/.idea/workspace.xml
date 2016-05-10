@@ -22,30 +22,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DisplayMatchesGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DisplayMatchesGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DisplayMatchesGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+            <state relative-caret-position="357">
+              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="false" />
                 <element signature="method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="true" />
-                <element signature="e#4609#4610#0" expanded="true" />
-                <element signature="e#4644#4645#0" expanded="true" />
+                <element signature="class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
+                <element signature="method#StudentMatch#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
                 <element signature="docComment;method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
                 <element signature="method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoommateFinder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RoommateFinder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -62,20 +52,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogInGUI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/LogInGUI.java">
+      <file leaf-file-name="School.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/School.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="122" column="35" selection-start-line="122" selection-start-column="27" selection-end-line="122" selection-end-column="35" />
+            <state relative-caret-position="-1008">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignUp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SignUp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Student.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6765">
+              <caret line="489" column="29" selection-start-line="489" selection-start-column="0" selection-end-line="490" selection-end-column="0" />
               <folding>
-                <element signature="docComment;method#LogInGUI#0;class#LogInGUI#0" expanded="false" />
-                <element signature="docComment;method#getUserName#0;class#LogInGUI#0" expanded="false" />
-                <element signature="docComment;method#getPassword#0;class#LogInGUI#0" expanded="false" />
-                <element signature="docComment;method#modifyPassword#0;class#LogInGUI#0" expanded="false" />
-                <element signature="docComment;method#validateInput#0;class#LogInGUI#0" expanded="false" />
-                <element signature="e#4394#4395#0" expanded="true" />
-                <element signature="e#4424#4425#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Password.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Password.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -143,7 +157,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="11" />
+    <option name="x" value="4" />
     <option name="y" value="23" />
     <option name="width" value="1276" />
     <option name="height" value="777" />
@@ -222,25 +236,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RoomPreferencesGUI" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RoommateFinder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RoommateFinder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MainMenuGUI" />
+              <option name="myItemId" value="DisplayMatchesGUI" />
               <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -600,7 +596,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="11" y="23" width="1276" height="777" extended-state="6" />
+    <frame x="4" y="23" width="1276" height="777" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -685,8 +681,8 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="false" />
             <element signature="method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="true" />
-            <element signature="e#4609#4610#0" expanded="true" />
-            <element signature="e#4644#4645#0" expanded="true" />
+            <element signature="class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
+            <element signature="method#StudentMatch#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
             <element signature="docComment;method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
             <element signature="method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
           </folding>
@@ -827,22 +823,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SignUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-585">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Password.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ClassPathGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -895,16 +875,6 @@
         <state relative-caret-position="177">
           <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="489" column="29" selection-start-line="489" selection-start-column="0" selection-end-line="490" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -990,14 +960,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/School.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/accounts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1027,14 +989,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoommateFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainMenuGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -1043,6 +997,64 @@
             <element signature="e#253#254#0" expanded="true" />
             <element signature="e#294#295#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LogInGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="135" column="23" selection-start-line="135" selection-start-column="23" selection-end-line="135" selection-end-column="23" />
+          <folding>
+            <element signature="docComment;method#LogInGUI#0;class#LogInGUI#0" expanded="false" />
+            <element signature="docComment;method#getUserName#0;class#LogInGUI#0" expanded="false" />
+            <element signature="docComment;method#getPassword#0;class#LogInGUI#0" expanded="false" />
+            <element signature="docComment;method#modifyPassword#0;class#LogInGUI#0" expanded="false" />
+            <element signature="docComment;method#validateInput#0;class#LogInGUI#0" expanded="false" />
+            <element signature="e#4394#4395#0" expanded="true" />
+            <element signature="e#4424#4425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/School.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1008">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SignUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6765">
+          <caret line="489" column="29" selection-start-line="489" selection-start-column="0" selection-end-line="490" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Password.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RoommateFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1058,32 +1070,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DisplayMatchesGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+        <state relative-caret-position="357">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="false" />
             <element signature="method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="true" />
-            <element signature="e#4609#4610#0" expanded="true" />
-            <element signature="e#4644#4645#0" expanded="true" />
+            <element signature="class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
+            <element signature="method#StudentMatch#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
             <element signature="docComment;method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
             <element signature="method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LogInGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="122" column="35" selection-start-line="122" selection-start-column="27" selection-end-line="122" selection-end-column="35" />
-          <folding>
-            <element signature="docComment;method#LogInGUI#0;class#LogInGUI#0" expanded="false" />
-            <element signature="docComment;method#getUserName#0;class#LogInGUI#0" expanded="false" />
-            <element signature="docComment;method#getPassword#0;class#LogInGUI#0" expanded="false" />
-            <element signature="docComment;method#modifyPassword#0;class#LogInGUI#0" expanded="false" />
-            <element signature="docComment;method#validateInput#0;class#LogInGUI#0" expanded="false" />
-            <element signature="e#4394#4395#0" expanded="true" />
-            <element signature="e#4424#4425#0" expanded="true" />
           </folding>
         </state>
       </provider>

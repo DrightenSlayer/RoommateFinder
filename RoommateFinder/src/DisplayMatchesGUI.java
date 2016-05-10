@@ -40,8 +40,10 @@ public class DisplayMatchesGUI {
 //            System.out.println("size: " + studQueue.size());
 //            System.out.println("name: " + theChosenOne.getName());
 
-            StudentMatch sm = new StudentMatch(new DisplayMatchesGUI());
-            sm.createFrame();
+            if (!studentList.isSelectionEmpty()) {
+                StudentMatch sm = new StudentMatch(new DisplayMatchesGUI());
+                sm.createFrame();
+            }
         });
 
         returnButton.addActionListener(e -> {
