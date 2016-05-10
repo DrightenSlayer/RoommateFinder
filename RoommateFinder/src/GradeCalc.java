@@ -1,22 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
-import java.text.DecimalFormat;
 
 public class GradeCalc {
     private static double grade = 0.00;
     private JPanel myGpaPanel;
-    private JTextField class1Text;
+    private JTextField grade1Text;
     private JButton calculateGradeButton;
-    private JTextField class2Text;
-    private JTextField class3Text;
-    private JTextField class4Text;
-    private JTextField class5Text;
+    private JTextField grade2Text;
+    private JTextField grade3Text;
+    private JTextField grade4Text;
+    private JTextField grade5Text;
     private JTextField input1Field;
     private JTextField input2Field;
     private JTextField input3Field;
     private JTextField input4Field;
     private JTextField input5Field;
-    private JTextField class6Text;
+    private JTextField grade6Text;
     private JTextField input6Field;
     private JTextField input7Field;
     private JButton returnButton;
@@ -31,9 +30,8 @@ public class GradeCalc {
     private JTextField weight6Field;
     private JTextField weight7Field;
     private JPanel calcPanel;
-    private JTextField class7Text;
+    private JTextField grade7Text;
     private JTextField desiredLetterGrade;
-    DecimalFormat df = new DecimalFormat("#.##");
 
     public static void main(String... args) {
         GradeCalc.createFrame();
@@ -67,30 +65,19 @@ public class GradeCalc {
         });
     }
 
-
-    private static double neededPercentage;
-
-    
-
     public double getCurrentGrade() {
         grade = (helper()) / (currentPercent());
-
-        if (!Double.isNaN(grade)){
-            return Double.parseDouble(df.format(grade));
-        }
-        else
-        return 0.0;
+        return grade;
     }
 
     private void clear() {
-        class1Text.setText("( class name )");
-        class2Text.setText("( class name )");
-        ;
-        class3Text.setText("( class name )");
-        class4Text.setText("( class name )");
-        class5Text.setText("( class name )");
-        class6Text.setText("( class name )");
-        class7Text.setText("( class name )");
+        grade1Text.setText("( grade )");
+        grade2Text.setText("( grade )");
+        grade3Text.setText("( grade )");
+        grade4Text.setText("( grade )");
+        grade5Text.setText("( grade )");
+        grade6Text.setText("( grade )");
+        grade7Text.setText("( grade )");
 
         input1Field.setText("");
         input2Field.setText("");
@@ -125,58 +112,21 @@ public class GradeCalc {
         double step = (val - pointsEarned);
         double pointsOnExam = (1 - currentPercent());
 
-        double wantGrade = (step / pointsOnExam);
-
-        if (!Double.isNaN(wantGrade))
-            return Double.parseDouble(df.format(wantGrade));
-        else
-            return 0.0;
+        return (step / pointsOnExam);
     }
 
     public double helper() {
-        double totalScore = 0.0;
-
-        if (input1Field.getText().length() != 0 && weight1Field.getText().length() != 0) {
-            totalScore +=
-                    Double.parseDouble(input1Field.getText()) * Double.parseDouble(weight1Field.getText());
-        }
-        if (input2Field.getText().length() != 0 && weight2Field.getText().length() != 0) {
-            totalScore +=
-                    Double.parseDouble(input1Field.getText()) * Double.parseDouble(weight1Field.getText());
-        }
-        if (input3Field.getText().length() != 0 && weight3Field.getText().length() != 0) {
-            totalScore +=
-                    Double.parseDouble(input3Field.getText()) * Double.parseDouble(weight3Field.getText());
-        }
-        if (input4Field.getText().length() != 0 && weight4Field.getText().length() != 0) {
-            totalScore +=
-                    Double.parseDouble(input4Field.getText()) * Double.parseDouble(weight4Field.getText());
-        }
-        if (input5Field.getText().length() != 0 && weight5Field.getText().length() != 0) {
-            totalScore +=
-                    Double.parseDouble(input5Field.getText()) * Double.parseDouble(weight5Field.getText());
-        }
-        return totalScore;
+        return (Double.parseDouble(input1Field.getText()) * Double.parseDouble(weight1Field.getText()))
+                + (Double.parseDouble(input2Field.getText()) * Double.parseDouble(weight2Field.getText()))
+                + (Double.parseDouble(input3Field.getText()) * Double.parseDouble(weight3Field.getText())) +
+                (Double.parseDouble(input4Field.getText()) * Double.parseDouble(weight4Field.getText())) +
+                (Double.parseDouble(input5Field.getText()) * Double.parseDouble(weight5Field.getText()));
     }
 
     public double currentPercent() {
-        double totalPercent = 0.0;
-        if (weight1Field.getText().length() != 0) {
-            totalPercent += Double.parseDouble(weight1Field.getText());
-        }
-        if (weight2Field.getText().length() != 0) {
-            totalPercent += Double.parseDouble(weight2Field.getText());
-        }
-        if (weight3Field.getText().length() != 0) {
-            totalPercent += Double.parseDouble(weight3Field.getText());
-        }
-        if (weight4Field.getText().length() != 0) {
-            totalPercent += Double.parseDouble(weight4Field.getText());
-        }
-        if (weight5Field.getText().length() != 0) {
-            totalPercent += Double.parseDouble(weight5Field.getText());
-        }
-        return totalPercent;
+        return Double.parseDouble(weight1Field.getText()) + Double.parseDouble(weight2Field.getText()) +
+                Double.parseDouble(weight3Field.getText()) + Double.parseDouble(weight4Field.getText()) +
+                Double.parseDouble(weight5Field.getText());
     }
 
     public double neededGradeForLetter(String desiredGrade) {
@@ -275,26 +225,26 @@ public class GradeCalc {
         myGpaPanel = new JPanel();
         myGpaPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(11, 6, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(myGpaPanel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        class1Text = new JTextField();
-        class1Text.setText("( class name )");
-        myGpaPanel.add(class1Text, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        grade1Text = new JTextField();
+        grade1Text.setText("( class name )");
+        myGpaPanel.add(grade1Text, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
         myGpaPanel.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(8, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         calculateGradeButton = new JButton();
         calculateGradeButton.setText("Calculate Grade");
         myGpaPanel.add(calculateGradeButton, new com.intellij.uiDesigner.core.GridConstraints(10, 0, 1, 4, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        class2Text = new JTextField();
-        class2Text.setText("( class name )");
-        myGpaPanel.add(class2Text, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        class3Text = new JTextField();
-        class3Text.setText("( class name )");
-        myGpaPanel.add(class3Text, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        class4Text = new JTextField();
-        class4Text.setText("( class name )");
-        myGpaPanel.add(class4Text, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        class5Text = new JTextField();
-        class5Text.setText("( class name )");
-        myGpaPanel.add(class5Text, new com.intellij.uiDesigner.core.GridConstraints(5, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        grade2Text = new JTextField();
+        grade2Text.setText("( class name )");
+        myGpaPanel.add(grade2Text, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        grade3Text = new JTextField();
+        grade3Text.setText("( class name )");
+        myGpaPanel.add(grade3Text, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        grade4Text = new JTextField();
+        grade4Text.setText("( class name )");
+        myGpaPanel.add(grade4Text, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        grade5Text = new JTextField();
+        grade5Text.setText("( class name )");
+        myGpaPanel.add(grade5Text, new com.intellij.uiDesigner.core.GridConstraints(5, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final JLabel label1 = new JLabel();
         label1.setText("Course Name");
         myGpaPanel.add(label1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -317,12 +267,12 @@ public class GradeCalc {
         final JLabel label3 = new JLabel();
         label3.setText("Weight");
         myGpaPanel.add(label3, new com.intellij.uiDesigner.core.GridConstraints(0, 4, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        class6Text = new JTextField();
-        class6Text.setText("( class name )");
-        myGpaPanel.add(class6Text, new com.intellij.uiDesigner.core.GridConstraints(6, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        class7Text = new JTextField();
-        class7Text.setText("( class name )");
-        myGpaPanel.add(class7Text, new com.intellij.uiDesigner.core.GridConstraints(7, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        grade6Text = new JTextField();
+        grade6Text.setText("( class name )");
+        myGpaPanel.add(grade6Text, new com.intellij.uiDesigner.core.GridConstraints(6, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        grade7Text = new JTextField();
+        grade7Text.setText("( class name )");
+        myGpaPanel.add(grade7Text, new com.intellij.uiDesigner.core.GridConstraints(7, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         input6Field = new JTextField();
         input6Field.setText("");
         myGpaPanel.add(input6Field, new com.intellij.uiDesigner.core.GridConstraints(6, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), new Dimension(60, -1), 0, false));
