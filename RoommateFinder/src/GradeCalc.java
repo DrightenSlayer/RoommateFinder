@@ -79,13 +79,13 @@ public class GradeCalc {
     }
 
     private void clear() {
-        grade1Text.setText("( grade )");
-        grade2Text.setText("( grade )");
-        grade3Text.setText("( grade )");
-        grade4Text.setText("( grade )");
-        grade5Text.setText("( grade )");
-        grade6Text.setText("( grade )");
-        grade7Text.setText("( grade )");
+        grade1Text.setText("( Assignment )");
+        grade2Text.setText("( Assignment )");
+        grade3Text.setText("( Assignment )");
+        grade4Text.setText("( Assignment )");
+        grade5Text.setText("( Assignment )");
+        grade6Text.setText("( Assignment )");
+        grade7Text.setText("( Assignment )");
 
         input1Field.setText("");
         input2Field.setText("");
