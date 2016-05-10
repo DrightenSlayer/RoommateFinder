@@ -15,6 +15,7 @@ public class ClassPathGUI {
 	private JLabel displayPath;
 	private JButton clearButton;
 	private ArrayList<Integer> inputSet;
+	int count;
 
 	/**
 	 * Creates the main frame of the class path.
@@ -33,11 +34,16 @@ public class ClassPathGUI {
 	 */
 	public ClassPathGUI() {
 		$$$setupUI$$$();
+		count = 0;
 		inputSet = new ArrayList<>();
 
 		confirmButton.addActionListener(e -> {
-			displayDistancePath.setText("Shortest distance to your class: " + displayDistance());
-			displayPath.setText("Shortest path to your class: " + displayPath() + "\n");
+			if(count < 1) {
+				count++;
+				displayDistancePath.setText("Shortest distance to your class: " + displayDistance());
+				displayPath.setText("Shortest path to your class: " + displayPath() + "\n");
+			}
+			else ;
 
 		});
 
@@ -46,6 +52,7 @@ public class ClassPathGUI {
 		});
 
 		clearButton.addActionListener(e -> {
+			count = 0;
 			ClassPath.reset();
 			displayDistancePath.setText("");
 			displayPath.setText("");
