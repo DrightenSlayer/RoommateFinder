@@ -45,37 +45,7 @@ public class GradeCalc {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
-<<<<<<< Updated upstream
 
-=======
-
-<<<<<<< HEAD
-    private static double neededPercentage;
-
-    public static void main(String[] args)
-    {
-        input1 = 00;
-        input2 = 0;
-        input3 = 10;
-        
-        weight1 = .10;
-        weight2 = .20;
-        weight3 = .20;
-        
-        //You can change inputs (grades on assignments) and weights (how much % each weight is worth). 
-        //Input 1 correlates with Weight1 etc
-        //You can then call what grade you want, in this case a B.
-        System.out.println(getCurrentGrade() + " " + getCurrentLetter(getCurrentGrade()));
-
-        neededPercentage = number4DesiredGrade(getCurrentGrade(), "A");
-
-        if (neededPercentage > 100.00)
-            System.out.println("Sorry, it is not possible to achieve your desired grade. (T_T) ");
-        else
-            System.out.println("You will need a " + number4DesiredGrade(getCurrentGrade(), "A") + " to achieve your desired grade. ");
-
-=======
->>>>>>> Stashed changes
     public GradeCalc() {
         $$$setupUI$$$();
 
@@ -93,10 +63,6 @@ public class GradeCalc {
         clearButton.addActionListener(e -> {
             clear();
         });
-<<<<<<< Updated upstream
-=======
->>>>>>> origin/master
->>>>>>> Stashed changes
     }
 
     public double getCurrentGrade() {
@@ -138,7 +104,6 @@ public class GradeCalc {
     public String stringParse(double val) {
         return Double.toString(val);
     }
-
 
     public double number4DesiredGrade(double currentGrade, String desiredGrade) {
         double val = neededGradeForLetter(desiredGrade);
