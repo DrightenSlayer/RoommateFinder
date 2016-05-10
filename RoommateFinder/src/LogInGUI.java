@@ -4,10 +4,8 @@ import java.util.*;
 import java.util.List;
 
 /**
- * Launches the Log-in screen of the Roomie Finder application.
- * Created by Raymond Gevorkian on 4/26/2016
+ * Creates the GUI for log in, which is the first screen
  */
-
 public class LogInGUI {
     private JTextField nameField;
     private JPasswordField passwordField;
@@ -17,35 +15,25 @@ public class LogInGUI {
     private JPanel loginPanel;
     private List<String> logInEntryInfo;
     String currentUser;
-
-
     static Queue<Student> matches;
     static List<Student> fromFile;
 
-//    /**
-//     * Main method of the LogInGUI. Calls for the creation of the frame containing the log in window.
-//     * Also, it reads in the account file to later be validated against.
-//     */
-//    public static void main(String[] args) {
-//        LogInGUI.createFrame();
-//    }
-
     /**
-     * Creates the frame containing the log in window.
+     * Creates the main frame of the log in.
      */
     public static void createFrame() {
         JFrame frame = new JFrame("Roommate Finder Log In");
         frame.setContentPane(new LogInGUI().loginPanel);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.pack(); //condensing contents of window to be as packed as possible.
-        frame.setLocationRelativeTo(null); //setting location to middle of user's screen.
+        frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
     /**
-     * Constructor for the LogInGUI.
-     * Initializes a new ArrayList to monitor the inputted account information [username, password].
-     * Initializes action listeners and JButtons. A user is only logged in if the input is valid.
+     * Creates the log in fields, buttons, and the action listeners.
+     * A user can only log in if the user name and password are correct.
+     * It is case sensitive.
      */
     public LogInGUI() {
         $$$setupUI$$$();
@@ -56,62 +44,66 @@ public class LogInGUI {
         logInButton.addActionListener(e -> {
             currentUser = nameField.getText();
             runSchool();
-
             logInEntryInfo.add(getUserName());
             logInEntryInfo.add(getPassword());
 
             if (validateInput()) {
-                ((JFrame) loginPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
+                ((JFrame) loginPanel.getTopLevelAncestor()).dispose();
                 MainMenuGUI.createFrame();
             } else {
-                errorLabel.setVisible(true); //displaying an error when the given input is incorrect.
+                errorLabel.setVisible(true);
             }
         });
 
         signUpButton.addActionListener(e -> {
-            PasswordSetupGUI.createFrame(); //calling for the creation of the sign up frame.
-            ((JFrame) loginPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
+            PasswordSetupGUI.createFrame();
+            ((JFrame) loginPanel.getTopLevelAncestor()).dispose();
         });
     }
 
     /**
-     * Method to return the inputted username one is attempting to log in with.
-     *
-     * @return nameField.getText - the inputted username in the log in window.
+     * Gets the user inputted text for user's name.
+     * @return the inputted user name
      */
     private String getUserName() {
         return nameField.getText();
     }
 
     /**
-     * Method to return the inputted password one is attempting to log in with.
-     *
-     * @return passwordField.getText - the inputted password in the log in window.
+     * Gets the user inputted text for user's password.
+     * @return the inputted user password
      */
     private String getPassword() {
         return passwordField.getText();
     }
 
     /**
-     * Method to modify the password into its' encrypted state.
-     *
-     * @return Password.createPassword - the encrypted password by Huffman Tree.
+     * Modifies the password into its encrypted state.
+     * @return the encrypted password by Huffman Tree
      */
     private int modifyPassword() {
         return Password.createPassword(getPassword(), getPassword());
     }
 
     /**
-     * Method to check the validity of the password.
+     * Checks the validity of the password.
      * Encrypts the password first, then compares against the encrypted password.
-     *
-     * @return ReadFile.validate - true or false on whether or not the password is correct.
+     * @return true if the password is correct
      */
     private boolean validateInput() {
         String parsePassCheck = Integer.toString(modifyPassword());
         return ReadFile.validate(getUserName(), parsePassCheck);
     }
 
+    /**
+     * Creates a school and building for this demo version of our program.
+     * Also reads the students from a file, and populates them into the program.
+     * In an actual program, they would be stored in databases, but at our
+     * level we must use a text file and read in from it when the first screen
+     * of our program is called.
+     * It also determines who the actual user is, and creates a list of matches without
+     * including the user.
+     */
     void runSchool() {
         School sjsu = new School("SJSU");
         sjsu.add(new School.Building("CVB", 400));
@@ -124,9 +116,7 @@ public class LogInGUI {
             if (student.getSchool().getName().equals(sjsu.getName())) sjsu.add(student);
             if (student.getName().equals(userName)) me = student;
         }
-
         sjsu.add(Student.generate());
-
         try {
             matches = me.matches();
         } catch (NullPointerException e) {

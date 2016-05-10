@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Ray on 5/5/2016.
+ * Creates the GUI for the main menu.
  */
 public class MainMenuGUI {
     private JButton logInButton;
@@ -10,10 +10,9 @@ public class MainMenuGUI {
     private JPanel mainMenuPanel;
     private JButton logoutButton;
 
-    public static void main(String... args) {
-        MainMenuGUI.createFrame();
-    }
-
+    /**
+     * Creates the main frame of the main menu.
+     */
     public static void createFrame() {
         JFrame frame = new JFrame("Roommate Finder Main Menu");
         frame.setContentPane(new MainMenuGUI().mainMenuPanel);
@@ -23,11 +22,14 @@ public class MainMenuGUI {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates the main menu fields, buttons, and the action listeners.
+     */
     public MainMenuGUI() {
         $$$setupUI$$$();
         logInButton.addActionListener(e -> {
             DisplayMatchesGUI.createFrame();
-            ((JFrame) mainMenuPanel.getTopLevelAncestor()).dispose(); //closing the current screen.
+            ((JFrame) mainMenuPanel.getTopLevelAncestor()).dispose();
         });
 
         toolsButton.addActionListener(e -> {

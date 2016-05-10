@@ -151,3 +151,37 @@ Upper
 Dark
 Lower
 
+Francesco Totti
+SJSU
+Vietnamese
+Male
+Football
+Senior
+Early
+Early
+Lively
+High
+No
+No
+Yes
+Lower
+Dark
+Upper
+
+Marcus Aurelius
+SJSU
+English
+Male
+Philosophy
+Graduate Student
+Early
+Early
+Quiet
+Low
+Yes
+Yes
+Yes
+Upper
+Light
+Upper
+

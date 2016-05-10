@@ -4,23 +4,11 @@ import java.util.*;
 
 /**
  * The student class is the backbone of the roommate finder.
- * It hosts all the properties and methods required
- * of a single user's profile.
- * 
- * @author Matt
- *
+ * It hosts the methods and properties of a user and other students
  */
 public class Student implements Comparable<Student>
 {
-	/*properties that will be static in nature can be enumerate (e. g. "English == 0"
-	 * properties that are changing, e. g. a student's school (which is an object itself)
-	 * should be stored herein as a pointer.*/
-	/*
-	 * Additionally, name and key (password decryption) are stored outside the properties field,
-	 * although we could change this.
-	 */
 	private String name;
-	private int key;
 	private School school;
 	private String major;
 	
@@ -45,39 +33,47 @@ public class Student implements Comparable<Student>
 
 	public Student(){}
 
-
-	public void setKey(int key){this.key = key;}
-	public int getKey(){return key;}
-
-
-		static Student generate()
+	/**
+	 * Creates a random student.  This was used for testing purposes
+	 * but not used in the final code.
+ 	 * @return the random student that was created
+     */
+	static Student generate()
+	{
+		int nameLength = (int) ((100 * Math.random()) % 11) + 4;
+		String name = "";
+		name += (char) (65 + ((int)(10*Math.random())%25));
+		for(int i = 0; i < nameLength; i++)
 		{
-			int nameLength = (int) ((100 * Math.random()) % 11) + 4;
-			String name = "";
-			name += (char) (65 + ((int)(10*Math.random())%25));
-			for(int i = 0; i < nameLength; i++)
-			{
-				name += (char) (97 + (((int)((100*Math.random())))%25));
-			}
-			String name2 = ""; String name3 = "";
-			if((int)(Math.random()*10) >= 3)
-			{
-				int index = ((int) (Math.random()*10) % name.length());
-				if(index == 0) index = name.length()/2;
-				name2 = name.substring(0, index);
-				name3 = name.substring(index);
-				name = name2 + " " + name3;
-			}
-			int[] p = new int[PROPCOUNT];
-			for(int i = 0; i < PROPCOUNT; i++)
-			{
-					p[i] = (int) (10*Math.random());
-			};
-			return new Student(name, p);
+			name += (char) (97 + (((int)((100*Math.random())))%25));
 		}
+		String name2 = ""; String name3 = "";
+		if((int)(Math.random()*10) >= 3)
+		{
+			int index = ((int) (Math.random()*10) % name.length());
+			if(index == 0) index = name.length()/2;
+			name2 = name.substring(0, index);
+			name3 = name.substring(index);
+			name = name2 + " " + name3;
+		}
+		int[] p = new int[PROPCOUNT];
+		for(int i = 0; i < PROPCOUNT; i++)
+		{
+				p[i] = (int) (10*Math.random());
+		};
+		return new Student(name, p);
+	}
 
 	Queue<Student> matches(){return matches(this.school);}
 
+	/**
+	 * Creates a list of matches, based on how many
+	 * attributes of another student match the attributes
+	 * of the user.
+	 * The queue is ordered from high to low.
+	 * @param school the name of the school that students are housed in
+	 * @return the queue of matches.
+     */
 	private Queue<Student> matches(School school)
 	{
 		Set<Student> others = school.getStudents();
@@ -104,10 +100,11 @@ public class Student implements Comparable<Student>
 		}
 		return matches;
 	}
+
 	/**
 	 * This constructor is to be used if one knows the numeric codes for all student properties.
 	 * Add those codes in an array placed into the constructor, and the student will be quickly generated.
-	 * @param p
+	 * @param p the properties of the student.
 	 */
 	public Student(String name, int[] p)
 	{
@@ -116,15 +113,10 @@ public class Student implements Comparable<Student>
 		for(int i = 0; i < PROPCOUNT; i++) properties[i] = p[i];
 	}
 
-	public boolean completeProfile()
-	{
-		for(int i = 0; i != PROPCOUNT; ++i) if(properties[i] == 0) return false;
-		return name != null;
-	}
-
 	public String getName() {return name;}
 	public void setName(String name) {this.name = name;}
 	School getSchool(){return school;}
+
 	void setSchool(School school)
 	{
 		if(this.school != null) this.school.remove(this);
@@ -132,9 +124,11 @@ public class Student implements Comparable<Student>
 	}
 
 	/*
-	 * PROPERTIES SWITCH STATEMENTS
+	 * The following are switch statements for the properties.
+	 * The get and set methods will do just that for each property.
 	 */
-	String getLanguage() //prop1
+
+	String getLanguage() //Property 1
 	{
 		switch(properties[LANGUAGE])
 		{
@@ -148,7 +142,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getGender() //prop 2
+	String getGender() //Property 2
 	{
 		switch(properties[GENDER])
 		{
@@ -159,7 +153,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getMajor() // prop 3
+	String getMajor() //Property 3
 	{
 		switch(properties[MAJOR])
 		{
@@ -168,7 +162,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getYear() //prop 4
+	String getYear() //Property 4
 	{
 		switch(properties[YEAR])
 		{
@@ -181,7 +175,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getSleep() //prop5
+	String getSleep() //Property 5
 	{	
 		switch(properties[SLEEP])
 		{
@@ -191,7 +185,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getWake() //prop6
+	String getWake() //Property 6
 	{
 		switch(properties[WAKE])
 		{
@@ -201,7 +195,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getPreferences() //prop7
+	String getPreferences() //Property 7
 	{
 		switch(properties[PREFERENCES])
 		{
@@ -211,7 +205,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getPrice() //prop8
+	String getPrice() //Property 8
 	{
 		switch(properties[PREFERENCES])
 		{
@@ -221,7 +215,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getKitchen() //prop9
+	String getKitchen() //Property 9
 	{
 		switch(properties[KITCHEN])
 		{
@@ -231,7 +225,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getShower() //prop10
+	String getShower() //Property 10
 	{
 		switch(properties[SHOWER])
 		{
@@ -241,7 +235,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getWash_Dry() //prop11
+	String getWash_Dry() //Property 11
 	{
 		switch(properties[WASH_DRY])
 		{
@@ -251,7 +245,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getFloor() //prop12
+	String getFloor() //Property 12
 	{
 		switch(properties[FLOOR])
 		{
@@ -261,7 +255,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	String getLight() //prop13
+	String getLight() //Property 13
 	{
 		switch(properties[LIGHT])
 		{
@@ -270,7 +264,7 @@ public class Student implements Comparable<Student>
 		default: return "No preference";
 		}
 	}
-	String getBunk() //prop14
+	String getBunk() //Property 14
 	{
 		switch(properties[BUNK])
 		{
@@ -301,7 +295,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setLanguage(String l) //prop1
+	void setLanguage(String l) //Property 1
 	{
 		switch(l)
 		{
@@ -315,7 +309,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setGender(String g) //prop2
+	void setGender(String g) //Property 2
 	{
 		switch(g)
 		{
@@ -327,7 +321,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setMajor(String m) //prop3
+	void setMajor(String m) //Property 3
 	{
 		switch(m)
 		{
@@ -336,7 +330,7 @@ public class Student implements Comparable<Student>
 		}	
 	}
 
-	void setYear(String y) //prop 4
+	void setYear(String y) //Property 4
 	{
 		switch(y)
 		{
@@ -349,7 +343,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setSleep(String s) //prop5
+	void setSleep(String s) //Property 5
 	{
 		switch(s)
 		{
@@ -359,7 +353,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setWake(String w) //prop6
+	void setWake(String w) //Property 6
 	{
 		switch(w)
 		{
@@ -369,7 +363,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setPreferences(String p) //prop7
+	void setPreferences(String p) //Property 7
 	{
 		switch(p)
 		{
@@ -379,7 +373,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setPrice(String p) //prop8
+	void setPrice(String p) //Property 8
 	{
 		switch(p)
 		{
@@ -389,7 +383,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setKitchen(String k) //prop9
+	void setKitchen(String k) //Property 9
 	{
 		switch(k)
 		{
@@ -399,7 +393,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setShower(String s) //prop10
+	void setShower(String s) //Property 10
 	{
 		switch(s)
 		{
@@ -409,7 +403,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setWash_Dry(String w) //prop11
+	void setWash_Dry(String w) //Property 11
 	{
 		switch(w)
 		{
@@ -419,7 +413,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setFloor(String f) //prop12
+	void setFloor(String f) //Property 12
 	{
 		switch(f)
 		{
@@ -429,7 +423,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setLight(String l) //prop13
+	void setLight(String l) //Property 13
 	{
 		switch(l)
 		{
@@ -439,7 +433,7 @@ public class Student implements Comparable<Student>
 		}
 	}
 
-	void setBunk(String b) //prop14
+	void setBunk(String b) //Property 14
 	{
 		switch(b)
 		{
@@ -449,6 +443,12 @@ public class Student implements Comparable<Student>
 		}
 	}
 
+	/**
+	 * Compares one student to another, in order to determine
+	 * the ones with the highest matches.
+	 * @param other the other student
+	 * @return the number of matches between a student and the user
+     */
 	@Override
 	public int compareTo(Student other)
 	{
@@ -461,6 +461,13 @@ public class Student implements Comparable<Student>
 		return c;
 	}
 
+	/**
+	 * Reads the list of saved students from the StudentInfo.txt file,
+	 * which is where a student and a new user both get saved.
+	 * Only looks within one school in order to not return
+	 * students that can not room together.
+	 * @return a complete list of students inside a school.
+     */
 	static List<Student> readFile()
 	{
 		List<Student> fromFile = new ArrayList<>();
@@ -480,7 +487,6 @@ public class Student implements Comparable<Student>
 					String line = br.nextLine();
 					if (!line.equals(""))
 					{
-//						props.add(line.toLowerCase());
 						props.add(line);
 					}
 					else break;
@@ -501,18 +507,5 @@ public class Student implements Comparable<Student>
 			e.printStackTrace();
 		}
 		return fromFile;
-	}
-
-	public static void main(String[] args)
-	{
-		Student me = null;
-		String username = "Wu Zetian";
-		List<Student> students = Student.readFile();
-		for(Student student : students)
-		{
-			System.out.println(student.getName() + "\t" + student.getLanguage() + "\t" + student.getMajor());
-			if(student.getName().equals(username)) me = student;
-		}
-		System.out.println(me.getName() + "\t" + me.getLanguage() + "\t" + me.getMajor());
 	}
 }

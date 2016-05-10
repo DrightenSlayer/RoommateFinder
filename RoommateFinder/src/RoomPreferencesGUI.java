@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by William Vagharfard on 4/29/16.
+ * Creates the GUI for the room preferences entry screen.
  */
 public class RoomPreferencesGUI {
     private JRadioButton lowPriceButton;
@@ -33,8 +33,11 @@ public class RoomPreferencesGUI {
     private List<String> roomPreferencesList;
     private final Charset UTF8 = StandardCharsets.UTF_8;
 
+    /**
+     * Creates the main frame of the room preferences screen.
+     */
     static void createFrame() {
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("Room Preferences");
         frame.setContentPane(new RoomPreferencesGUI().RoomPreferencesPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -42,9 +45,12 @@ public class RoomPreferencesGUI {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates the room preferences fields, buttons, and the action listeners.
+     * Writes out the preferences to the StudentInfo text file.
+     */
     private RoomPreferencesGUI() {
         $$$setupUI$$$();
-
         roomPreferencesList = new ArrayList<>();
 
         nextButton.addActionListener(e -> {
@@ -74,6 +80,12 @@ public class RoomPreferencesGUI {
         });
     }
 
+    /*
+     * These next few get methods just get the user inputted methods.
+     * For the ones with two buttons, if nothing is selected,
+     * it returns "No Preference".
+     * Both buttons can not be selected at the same time.
+     */
     private String pricePref() {
         if (lowPriceButton.isSelected())
             return "Low";
@@ -135,10 +147,6 @@ public class RoomPreferencesGUI {
             return "Upper";
         else
             return "No preference";
-    }
-
-    public static void main(String[] args) {
-        RoomPreferencesGUI.createFrame();
     }
 
     /**

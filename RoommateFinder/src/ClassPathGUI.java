@@ -3,7 +3,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Created by Ray on 5/6/2016.
+ * Creates the GUI for the class path
  */
 public class ClassPathGUI {
 	private JTextArea scheduleField;
@@ -16,13 +16,8 @@ public class ClassPathGUI {
 	private JButton clearButton;
 	private ArrayList<Integer> inputSet;
 
-
-	public static void main(String... args) {
-		ClassPathGUI.createFrame();
-	}
-
 	/**
-	 * Creates the frame containing the log in window.
+	 * Creates the main frame of the class path.
 	 */
 	public static void createFrame() {
 		JFrame frame = new JFrame("Class Path");
@@ -33,20 +28,23 @@ public class ClassPathGUI {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * Creates the class path fields, buttons, and the action listeners.
+	 */
 	public ClassPathGUI() {
-		inputSet = new ArrayList<>();
 		$$$setupUI$$$();
+		inputSet = new ArrayList<>();
+
 		confirmButton.addActionListener(e -> {
-			displayDistancePath.setText("Here is the shortest distance to your class: " + displayDistance());
-			displayPath.setText("Here is the shortest path to each class: " + displayPath() + "\n");
+			displayDistancePath.setText("Shortest distance to your class: " + displayDistance());
+			displayPath.setText("Shortest path to your class: " + displayPath() + "\n");
 
 		});
+
 		previousButton.addActionListener(e -> {
 			((JFrame) classPanel.getTopLevelAncestor()).dispose();
 		});
-		/**
-		 * Will clear input, but will error on the next input ( does not reset initial value, just adds to it ).
-		 */
+
 		clearButton.addActionListener(e -> {
 			ClassPath.reset();
 			displayDistancePath.setText("");
@@ -55,20 +53,26 @@ public class ClassPathGUI {
 			inputSet.clear();
 
 		});
-
 	}
 
-	public ArrayList<Integer> getInput() {
+	/**
+	 * Gets the user input from the text field.
+	 * @return the array list of inputs
+     */
+	private ArrayList<Integer> getInput() {
 		String input = scheduleField.getText();
 		String[] classes = input.split(" ");
 		for (int i = 0; i < classes.length; i++) {
 			inputSet.add(Integer.parseInt(classes[i]));
 		}
 		return inputSet;
-
 	}
 
-	public String displayDistance() {
+	/**
+	 * Displays the distance in miles of the shortest path.
+	 * @return the distance, in miles
+     */
+	private String displayDistance() {
 		ClassPath classPath = new ClassPath(getInput());
 		String distance;
 		for (int i = 0; i < classPath.classes.size(); i++) {
@@ -78,7 +82,10 @@ public class ClassPathGUI {
 		return distance;
 	}
 
-
+	/**
+	 * Displays the path between two user inputted points.
+	 * @return the path
+     */
 	public String displayPath() {
 		ClassPath classPath = new ClassPath(getInput());
 		String path = "";

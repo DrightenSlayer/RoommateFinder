@@ -1,9 +1,8 @@
 import java.util.ArrayList;
+
 /**
  * calculates the minimum distance to each class 
  * to find shortest, efficient path
- * @author Khoi
- *
  */
 public class ClassPath 
 {
@@ -12,10 +11,9 @@ public class ClassPath
 	private static int track=0;
 	private static int heading=0;
 	private static double total=0;
-	public static String s = "";
-	
-	
-	public static  double graph[][] =
+	public static String str = "";
+
+	static double graph[][] =
 		{
 				{0,0.27,0.22,0.23,0.15,0.04,0.05,0.21,0.3,0.42, 0.18,0.31,0.39,0.38,0.37,0.26},//cvb start
 				{0.27,0,0.04,0.09,0.12,0.27,0.23,0.2,0.19,0.21,0.29,0.22,0.18,0.14,0.1,0.16},//mcq
@@ -35,7 +33,7 @@ public class ClassPath
 				{0.26,0.16,0.13,0.07,0.1,0.14,0.17,0.06,0.1,0.2,0.15,0.21,0.21,0.2,0.26,0}//engineering
 
 		};
-	public static ArrayList<Integer> classes;
+	static ArrayList<Integer> classes;
 	
 	/**
 	 * copy array list for class functions
@@ -44,7 +42,6 @@ public class ClassPath
 	public ClassPath(ArrayList<Integer> temp)
 	{
 		classes = temp;
-
 	}
 	
 	/**
@@ -55,12 +52,13 @@ public class ClassPath
 	{
 		classes.add(buildingNumber);
 	}
-/**
- * finds the distance between buildings and overwrites if shorter
- * @param dist keeps minimum distance from each building
- * @param sptSet checks if we visited building yet
- * @return
- */
+
+	/**
+	 * finds the distance between buildings and overwrites if shorter
+	 * @param dist keeps minimum distance from each building
+	 * @param sptSet checks if we visited building yet
+	 * @return
+	 */
 	public static int minDistance(double dist[], boolean sptSet[])
 	{
 
@@ -68,67 +66,61 @@ public class ClassPath
 		int min_index = -1;
 
 		for (int v = 0; v < V; v++)
-			if (sptSet[v] == false && dist[v] <= min)
+			if (!sptSet[v] && dist[v] <= min)
 			{
 				min = dist[v];
 				min_index = v;
 			}
-
 		return min_index;
 	}
+
 	/**
 	 * prints the shortest path to building
-	 * @param parent the list of vertexs we pass to get shortest distance
+	 * @param parent the list of vertices we pass to get shortest distance
 	 * @param j the spot in the array containing vertex number
 	 * @return string containing path
 	 */
 	private static String printPath(int parent[], int j)
 	{
-
-		if (parent[j]==-1)
+		if (parent[j] == -1)
 		{
 			return"";	
 		}
 		printPath(parent, parent[j]);
-		return ""+j;
+		return "" + j;
 	}
-/**
- * formats and prints out a table containing paths and costs
- * also gets total distance for schedule
- * @param dist the shortest distance to each location
- * @param n number of vertexes
- * @param parent array containing path
- * @param arr list of buildings student needs to go in order
- * @return result, string version of result
- */
+
+	/**
+	 * formats and prints out a table containing paths and costs
+	 * also gets total distance for schedule
+	 * @param dist the shortest distance to each location
+	 * @param n number of vertices
+	 * @param parent array containing path
+	 * @param arr list of buildings student needs to go to, in order
+	 * @return string version of result
+	 */
 	private static String printSolution(double[] dist, int n, int[] parent,ArrayList<Integer> arr)
 	{
-		String error="";
-		String result="";
-		int src = temp;
-		String top="";
-	
-		
-		
-		for (int i = 0; i <= V && ((track+1)<arr.size()) ; i++)
+		String error = "";
+		String result = "";
+		int start = temp;
+		String top = "";
+
+		for (int i = 0; i <= V && ((track + 1)<arr.size()); i++)
 		{
-
-
-			if( arr.get(track+1) == i)
+			if( arr.get(track + 1) == i)
 			{
-				if(dist[i]==999)
+				if(dist[i] == 999)
 				{
-					error="no path";
+					error = "no path";
 				}
 				else
 				{
-					error=""+temp;
+					error= "" + temp;
 				}
-				for(int k=0; k <arr.size(); k++)
+				for(int k = 0; k <arr.size(); k++)
 				{
-					//TODO: if there is a way to make this work with integers instead of "%d"
-					//TODO: then I think the convertToName would work
-					result =convertToName(temp)+" -> " + convertToName(i)+"		   "+ dist[i]+"			   " ;
+					result = convertToName(temp)+" -> " + convertToName(i)+"		   "+ dist[i]+"			   " ;
 					total = total+ dist[i];
 					if(error.equals("no path"))
 					{
@@ -136,40 +128,32 @@ public class ClassPath
 					}
 					else
 					{
-						s=printPath(parent, i);
+						str = printPath(parent, i);
 					}
 					break;
 				}
 			}
-		
-				
-			
 		}
 		track++;
-		result = top + "\n" + result +" ";
+		result = top + "\n" + result + " ";
 		return result;
-		
 	}
-/**
- * sets the values with default values before start
- * gets the minimum distance and overwrites if smaller than one already in parent
- * after finish, calls printsolution
- * @param graph the adjacency matrix
- * @param src where to start
- * @param arr list of building order must follow
- * @return returnResult the solution string
- */
-	public static String dijkstra(double graph[][], int src, ArrayList<Integer>arr)
+
+	/**
+	 * sets the values with default values before start
+	 * gets the minimum distance and overwrites if smaller than one already in parent
+	 * after finish, calls printSolution
+	 * @param graph the adjacency matrix
+	 * @param start where to start
+	 * @param arr list of building order must follow
+	 * @return returnResult the solution string
+	 */
+	static String dijkstra(double graph[][], int start, ArrayList<Integer>arr)
 	{
-
-		temp=src;
-
+		temp = start;
 		double[] dist = new double[V];
 		boolean[] sptSet = new boolean[V];
-
-
 		int[] parent = new int[V];
-
 
 		for (int i = 0; i < V; i++)
 		{
@@ -178,71 +162,61 @@ public class ClassPath
 			sptSet[i] = false;
 		}
 
-
-		dist[src] = 0;
-
-
+		dist[start] = 0;
 		int u = minDistance(dist, sptSet);
-
 		sptSet[u] = true;
 
 		for (int v = 0; v < V; v++)
-
-			if (!sptSet[v] && graph[u][v] != 0 &&
-			dist[u] + graph[u][v] < dist[v])
+			if (!sptSet[v] && graph[u][v] != 0 && dist[u] + graph[u][v] < dist[v])
 			{
 				parent[v]  = u;
 				dist[v] = dist[u] + graph[u][v];
-			}  
-
-		String returnResult= printSolution(dist, V, parent,arr);
+			}
+		String returnResult = printSolution(dist, V, parent,arr);
 		return returnResult;
-
-
 	}
-/**
- * converts int into a string value
- * @param i the building number
- * @return string with building name equivalent
- */
-	private static String convertToName(int i) {
 
+	/**
+	 * converts int into a string value
+	 * @param i the building number
+	 * @return string with building name equivalent
+	 */
+	private static String convertToName(int i) {
 		switch (i) {
 			case 0  : return "CVB";
-			case 1  : return "McQuarrie Hall";
-			case 2  : return "Sweeney Hall";
-			case 3  : return "Health Building";
-			case 4  : return "Bricks";
+			case 1  : return "MQH";
+			case 2  : return "SH";
+			case 3  : return "SWC";
+			case 4  : return "HOV";
 			case 5  : return "CVC";
 			case 6  : return "CVA";
-			case 7  : return "Student Union";
-			case 8  : return "Clark Hall";
-			case 9  : return "Library";
-			case 10 : return "Business Building";
-			case 11 : return "Duncan Hall";
-			case 12 : return "Old Science Building";
-			case 13 : return "Washington Square Hall";
-			case 14 : return "Yoshida Uchida Hall";
-			case 15 : return "Engineering";
+			case 7  : return "SU";
+			case 8  : return "CL";
+			case 9  : return "King";
+			case 10 : return "BBC";
+			case 11 : return "DH";
+			case 12 : return "SCI";
+			case 13 : return "WSQ";
+			case 14 : return "YUH";
+			case 15 : return "ENG";
 			default : return "Didn't work";
 		}
 	}
+
 	/**
 	 * gets the total journey distance
 	 * @return total, the distance for your schedule
 	 */
-	public static String getTotal()
+	static String getTotal()
 	{
-		return "\nTotal walk length: " +total;
+		return "\nTotal walk length: " + total;
 	}
 	
-	public static void reset()
+	static void reset()
 	{
-		s="";
-		track=0;
-		total=0;
-
-
+		str = "";
+		track = 0;
+		total = 0;
 	}
 
 	/**
@@ -251,25 +225,6 @@ public class ClassPath
 	 */
 	public static void main(String[] args)
 	{
-		//0= CVB
-		//1=McQuarrie Hall
-		//2=Sweeney Hall
-		//3= Health Bulding
-		//4=Bricks
-		//5=CVC
-		//6=CVA
-		//7=Student Union
-		//8=Clark Hall
-		//9=Library
-		//10=Business Building
-		//11=Duncan Hall
-		//12=old Science
-		//13=washington square hall
-		//14=yoshida uchida hall
-		//15 Engineering
-
-
-
 		ArrayList<Integer> schedule = new ArrayList<Integer>();
 		schedule.add(1);
 		schedule.add(7);
@@ -279,11 +234,8 @@ public class ClassPath
 		for(int i=0; i <schedule.size(); i++)
 		{
 			System.out.println(dijkstra(graph, schedule.get(i),schedule));//A=0, B=1, C=2 etc
-			
 		}
-		
 	System.out.println(getTotal());
 	}
-
 }
 

@@ -5,13 +5,10 @@ import java.util.Map;
 import java.util.Stack;
 
 /**
- * All you need to know is that the getMap method
- * will return a map with all the huffman encodings
+ * The getMap method returns a map with all the huffman encodings
  * in the form HashMap<Character, String>
  * String is such as "0110", etc
  * see the password java file (temporary) for its use
- * @author Matt
- *
  */
 public  class HuffmanTree
 {
@@ -40,6 +37,10 @@ public  class HuffmanTree
 	}
 	
 	private Node root;
+
+	/**
+	 * Class for defining a Node
+	 */
 	class Node
 	{
 		public Node(Character data){this.data = data;}
@@ -51,7 +52,12 @@ public  class HuffmanTree
 		public Node left;
 		public Node right;
 	}
-	
+
+	/**
+	 * Creates the group of nodes by comparing values,
+	 * which is the number of times it is seen within a string.
+	 * Thus the characters can be sorted by their number.
+	 */
 	public class Group implements Comparable<Group>
 	{
 		@Override

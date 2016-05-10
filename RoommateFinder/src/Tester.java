@@ -12,7 +12,7 @@ public class Tester
 	{
 		School sjsu = new School("SJSU");
 		sjsu.add(new School.Building("CVB", 400));
-		
+
 		String username = "Wu Zetian";
 		Student me = null;
 		List<Student> fromFile = Student.readFile();
@@ -21,11 +21,11 @@ public class Tester
 			if(student.getSchool().getName().equals(sjsu.getName())) sjsu.add(student);
 			if(student.getName().equals(username)) me = student;
 		}
-		
+
 		sjsu.add(Student.generate());
-		
+
 		Queue<Student> matches = me.matches();
-		
+
 		System.out.println("Name\t\t\t" + "Number of similarities to You\t");
 		for(Student match : matches)
 		{

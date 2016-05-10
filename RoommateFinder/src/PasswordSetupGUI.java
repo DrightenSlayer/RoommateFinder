@@ -9,9 +9,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
- * Created by Ray on 4/29/2016.
+ * Creates the GUI for the password set up
  */
 public class PasswordSetupGUI {
     private JLabel nameLabel;
@@ -31,10 +30,9 @@ public class PasswordSetupGUI {
     Password pClass;
     static String name;
 
-    public static void main(String[] args) {
-        PasswordSetupGUI.createFrame();
-    }
-
+    /**
+     * Creates the main frame of the password creation.
+     */
     public static void createFrame() {
         JFrame frame = new JFrame("Account Setup");
         frame.setContentPane(new PasswordSetupGUI().accountSetupPanel);
@@ -44,17 +42,21 @@ public class PasswordSetupGUI {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates the password setup fields, buttons, and the action listeners.
+     * Writes the student's name into a StudentInfo text file to be saved, and
+     * the student's name and encrypted password into a NewAccounts file to be
+     * validated later at login.
+     */
     PasswordSetupGUI() {
         $$$setupUI$$$();
         accountSecurityInfo = new ArrayList<>();
         userName = new ArrayList<>();
 
         nextButton.addActionListener(e -> {
-
             accountSecurityInfo.add(getNameEntry());
             accountSecurityInfo.add("" + getHashedPassword());
             userName.add(getNameEntry());
-
 
             if (checkPasswords() && !noInput()) {
                 try {
@@ -69,27 +71,44 @@ public class PasswordSetupGUI {
                 StudentInfoGUI.createFrame();
             } else errorLabel.setVisible(true);
         });
+
         prevButton.addActionListener(e -> {
             LogInGUI.createFrame();
             ((JFrame) accountSetupPanel.getTopLevelAncestor()).dispose();
         });
     }
 
-    String getNameEntry() {
+    /**
+     * Gets the name of the user that was inputted
+     * @return the user's inputted name
+     */
+    private String getNameEntry() {
         return nameEntryField.getText();
     }
 
+    /**
+     * Gets the hashed password, to be written into the NewAccounts text file.
+     * @return the hashed password
+     */
     private int getHashedPassword() {
         if (checkPasswords())
             return pClass.createPassword(pwdEntryField.getText(), pwdCheckField.getText());
-
         return 0;
     }
 
+    /**
+     * Checks to see whether both the password and the re-entered password
+     * are equal, to make sure the user enters the correct password.
+     * @return true if they are equal
+     */
     private boolean checkPasswords() {
         return pwdEntryField.getText().equals(pwdCheckField.getText());
     }
 
+    /**
+     * Checks if any of the fields are empty.
+     * @return true if any fields are empty.
+     */
     private boolean noInput() {
         return pwdEntryField.getText().isEmpty();
     }

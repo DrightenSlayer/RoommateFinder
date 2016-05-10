@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Ray on 5/5/2016.
+ * Creates the GUI for the student tools.
  */
 public class StudentToolsGUI {
     private JButton calculatorButton;
@@ -10,19 +10,21 @@ public class StudentToolsGUI {
     private JButton mainMenu;
     private JPanel studentToolsPanel;
 
-    public static void main(String... args) {
-        StudentToolsGUI.createFrame();
-    }
-
+    /**
+     * Creates the main frame of the student tools.
+     */
     public static void createFrame() {
         JFrame frame = new JFrame("Student Tools");
         frame.setContentPane(new StudentToolsGUI().studentToolsPanel);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setLocationRelativeTo(null); //setting location to middle of user's screen.
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
+    /**
+     * Creates the student tools fields, buttons, and the action listeners.
+     */
     public StudentToolsGUI() {
         $$$setupUI$$$();
 

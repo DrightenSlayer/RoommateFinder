@@ -3,7 +3,7 @@ import java.awt.*;
 import java.text.DecimalFormat;
 
 /**
- * Created by William Vagharfard on 5/6/16.
+ * Creates the GUI for the GPA calculator
  */
 public class MyGPA {
     private JTextField class1Text;
@@ -33,7 +33,21 @@ public class MyGPA {
     private JTextField GpaField;
     private JButton clearButton;
 
+    /**
+     * Creates the main frame of the GPA calculator.
+     */
+    static void createFrame() {
+        JFrame frame = new JFrame("GPA Calculator");
+        frame.setContentPane(new MyGPA().myGpaPanel);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
 
+    /**
+     * Creates the GPA calculator fields, buttons, and the action listeners.
+     */
     public MyGPA() {
         $$$setupUI$$$();
 
@@ -50,6 +64,9 @@ public class MyGPA {
         });
     }
 
+    /**
+     * Clears the fields when a user wants to start from scratch.
+     */
     private void clear() {
         class1Grade.setSelectedIndex(0);
         class1Credit.setText("");
@@ -75,6 +92,10 @@ public class MyGPA {
         GpaField.setText("");
     }
 
+    /**
+     * Calculates the GPA based on the common GPA calculation algorithm
+     * @return a formatted GPA in the #.## format
+     */
     private String calculate() {
         double GPA;
         double totalScore = 0;
@@ -109,7 +130,6 @@ public class MyGPA {
             totalScore += getCredits(class7Credit.getText()) * getScore(class7Grade.getSelectedItem().toString());
             totalCredits += getCredits(class7Credit.getText());
         }
-
         GPA = totalScore / totalCredits;
 
         if (!Double.isNaN(GPA))
@@ -118,10 +138,20 @@ public class MyGPA {
             return "0.0";
     }
 
+    /**
+     * Gets the number of credits for each class
+     * @param s the number of credits, entered as a string
+     * @return the credits, but parsed to an integer
+     */
     private int getCredits(String s) {
         return Integer.parseInt(s);
     }
 
+    /**
+     * Gets the GPA score for the grade the user received in their course.
+     * @param letterGrade the letter grade the user selects
+     * @return the GPA value for that grade
+     */
     private double getScore(String letterGrade) {
         switch (letterGrade) {
             case ("A+"):
@@ -153,20 +183,6 @@ public class MyGPA {
             default:
                 return 0.0;
         }
-    }
-
-
-    static void createFrame() {
-        JFrame frame = new JFrame();
-        frame.setContentPane(new MyGPA().myGpaPanel);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        createFrame();
     }
 
     /**

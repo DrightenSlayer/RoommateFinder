@@ -2,12 +2,16 @@ import java.util.Map;
 
 public class Password
 {
-	/*
-	 * takes a string, and produces a key for the password (as follows).
+	/**
+	 * Takes in a string and produces a key for the password (as follows):
 	 * In subsequent entries of the password, the Huffman Tree
-	 * will be recomputed, the password will be converted into Huffman values,
-	 * That string (of bits) will be converted to decimal, then the first character's of the password ASCII value  is added
+	 * will be recomputed, and the password will be converted into Huffman values.
+	 * That string (of bits) will be converted to decimal,
+	 * then the first character's of the password ASCII value is added.
 	 * if that matches the key, the user logs in.
+	 * @param p
+	 * @param c
+	 * @return
 	 */
 	static int createPassword(String p, String c)
 	{

@@ -10,10 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by William Vagharfard on 4/29/16.
+ * Creates the GUI for the personal preferences information entry screen.
  */
 public class PersonalInfoGUI {
-
     private JTextField majorText;
     private JComboBox yearBox;
     private JPanel PersonalInfoPanel;
@@ -28,9 +27,11 @@ public class PersonalInfoGUI {
     private List<String> personalInfoList;
     private final Charset UTF8 = StandardCharsets.UTF_8;
 
-
+    /**
+     * Creates the main frame of the personal preferences screen.
+     */
     static void createFrame() {
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("Personal Preferences");
         frame.setContentPane(new PersonalInfoGUI().PersonalInfoPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -38,9 +39,12 @@ public class PersonalInfoGUI {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates the personal info entry fields, buttons, and the action listeners.
+     * Writes out the personal info to the StudentInfo text file.
+     */
     private PersonalInfoGUI() {
         $$$setupUI$$$();
-
         personalInfoList = new ArrayList<>();
 
         nextButton.addActionListener(e -> {
@@ -56,7 +60,6 @@ public class PersonalInfoGUI {
             } catch (IOException exc) {
                 exc.printStackTrace();
             }
-
             ((JFrame) PersonalInfoPanel.getTopLevelAncestor()).dispose();
             RoomPreferencesGUI.createFrame();
         });
@@ -67,7 +70,13 @@ public class PersonalInfoGUI {
         });
     }
 
-
+    /*
+     * These next few get methods just get the user inputted methods.
+     * If there is no inputted major, it returns "Undeclared"
+     * For the ones with two buttons, if nothing is selected,
+     * it returns "No Preference".
+     * Both buttons can not be selected at the same time.
+     */
     private String getMajor() {
         if (majorText.getText().length() == 0)
             return "Undeclared";
@@ -104,10 +113,6 @@ public class PersonalInfoGUI {
             return "Lively";
         else
             return "No preference";
-    }
-
-    public static void main(String[] args) {
-        PersonalInfoGUI.createFrame();
     }
 
     /**
