@@ -22,7 +22,8 @@ public class Student implements Comparable<Student>
 	private String name;
 	private int key;
 	private School school;
-
+	private String major;
+	
 	private static final int PROPCOUNT = 14;
 
 	private static final int LANGUAGE = 0;
@@ -162,12 +163,8 @@ public class Student implements Comparable<Student>
 	{
 		switch(properties[MAJOR])
 		{
-		case 1: return "Computer Science";
-		case 2: return "Engineering";
-		case 3: return "Art";
-		case 4: return "Underwater Basket Weaving";
-		case 5: return "Undeclared";
-		default: return "Undeclared";
+		case 0: return "Undeclared";
+		default: return major;
 		}
 	}
 
@@ -334,12 +331,8 @@ public class Student implements Comparable<Student>
 	{
 		switch(m)
 		{
-		case "Computer Science" : properties[MAJOR] = 1; break;
-		case "Engineering" : properties[MAJOR] = 2; break;
-		case "Art" : properties[MAJOR] = 3; break;
-		case "Underwater Basket Weaving" : properties[MAJOR] = 4; break;
-		case "Undeclared" : properties[MAJOR] = 5; break;
-		default : properties[MAJOR] = 5; break;
+		case "Undeclared" : properties[MAJOR] = 0; break;
+		default : major = m; properties[MAJOR] = 1; break;
 		}	
 	}
 
@@ -460,10 +453,11 @@ public class Student implements Comparable<Student>
 	public int compareTo(Student other)
 	{
 		int c = 0;
-		for(int i = 0; i < PROPCOUNT; i++)
+		for(int i = 0; i < PROPCOUNT; i = (i == 3) ? i+2 : i+1)
 		{
 			if(properties[i] == other.properties[i]) c++;
 		}
+		if(major.equals(other.major)) c++;
 		return c;
 	}
 
@@ -516,9 +510,9 @@ public class Student implements Comparable<Student>
 		List<Student> students = Student.readFile();
 		for(Student student : students)
 		{
-			System.out.println(student.getName() + "\t" + student.getLanguage() + "\t" + student.getGender());
+			System.out.println(student.getName() + "\t" + student.getLanguage() + "\t" + student.getMajor());
 			if(student.getName().equals(username)) me = student;
 		}
-		System.out.println(me.getName() + "\t" + me.getLanguage() + "\t" + me.getGender());
+		System.out.println(me.getName() + "\t" + me.getLanguage() + "\t" + me.getMajor());
 	}
 }
