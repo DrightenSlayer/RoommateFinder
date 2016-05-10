@@ -295,7 +295,7 @@ public class DisplayMatchesGUI {
          * Creates the GUI for the popup dialog window
          */
         void createFrame() {
-            JFrame frame = new JFrame();
+            JFrame frame = new JFrame("Display Matches");
             frame.setContentPane(contentPane);
             setModal(true);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

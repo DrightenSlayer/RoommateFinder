@@ -22,52 +22,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GradeCalc.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GradeCalc.java">
+      <file leaf-file-name="DisplayMatchesGUI.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/DisplayMatchesGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+            <state relative-caret-position="240">
+              <caret line="293" column="11" selection-start-line="293" selection-start-column="11" selection-end-line="293" selection-end-column="11" />
               <folding>
-                <element signature="e#1275#1276#0" expanded="true" />
-                <element signature="e#1314#1315#0" expanded="true" />
-                <element signature="e#3412#3413#0" expanded="true" />
-                <element signature="e#3455#3456#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentToolsGUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/StudentToolsGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding>
-                <element signature="docComment;method#$$$setupUI$$$#0;class#StudentToolsGUI#0" expanded="false" />
-                <element signature="method#$$$setupUI$$$#0;class#StudentToolsGUI#0" expanded="false" />
-                <element signature="docComment;method#$$$getRootComponent$$$#0;class#StudentToolsGUI#0" expanded="false" />
-                <element signature="e#7230#7231#0" expanded="false" />
-                <element signature="e#7270#7271#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentToolsGUI.form" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/StudentToolsGUI.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyGPA.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MyGPA.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
-              <folding>
-                <element signature="method#clear#0;class#MyGPA#0" expanded="false" />
-                <element signature="method#getScore#0;class#MyGPA#0" expanded="false" />
+                <element signature="docComment;method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="false" />
+                <element signature="method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="true" />
+                <element signature="docComment;method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
+                <element signature="method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
+                <element signature="method#$$$setupUIMS$$$#0;class#MustSelect#0;class#DisplayMatchesGUI#0" expanded="false" />
+                <element signature="method#$$$getRootComponent$$$#0;class#MustSelect#0;class#DisplayMatchesGUI#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,12 +91,12 @@
         <option value="$PROJECT_DIR$/src/PersonalInfoGUI.java" />
         <option value="$PROJECT_DIR$/src/RoomPreferencesGUI.java" />
         <option value="$PROJECT_DIR$/src/StudentInfoGUI.java" />
-        <option value="$PROJECT_DIR$/src/DisplayMatchesGUI.java" />
-        <option value="$PROJECT_DIR$/src/ClassPathGUI.java" />
-        <option value="$PROJECT_DIR$/src/GradeCalc.java" />
         <option value="$PROJECT_DIR$/src/MyGPA.java" />
         <option value="$PROJECT_DIR$/src/StudentToolsGUI.java" />
         <option value="$PROJECT_DIR$/src/StudentToolsGUI.form" />
+        <option value="$PROJECT_DIR$/src/GradeCalc.java" />
+        <option value="$PROJECT_DIR$/src/ClassPathGUI.java" />
+        <option value="$PROJECT_DIR$/src/DisplayMatchesGUI.java" />
       </list>
     </option>
   </component>
@@ -142,7 +108,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="51" />
+    <option name="x" value="4" />
     <option name="y" value="23" />
     <option name="width" value="1276" />
     <option name="height" value="777" />
@@ -206,10 +172,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StudentToolsGUI" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -223,6 +185,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DisplayMatchesGUI" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -581,7 +547,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="51" y="23" width="1276" height="777" extended-state="0" />
+    <frame x="4" y="23" width="1276" height="777" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -596,7 +562,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3006483" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3006483" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -919,33 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClassPathGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding>
-            <element signature="docComment;method#$$$setupUI$$$#0;class#ClassPathGUI#0" expanded="false" />
-            <element signature="method#$$$setupUI$$$#0;class#ClassPathGUI#0" expanded="true" />
-            <marker date="1462860016000" expanded="false" signature="2757:8822" placeholder="UI Designer generated code" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DisplayMatchesGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="293" column="11" selection-start-line="293" selection-start-column="11" selection-end-line="293" selection-end-column="11" />
-          <folding>
-            <element signature="docComment;method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="false" />
-            <element signature="method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="true" />
-            <element signature="docComment;method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
-            <element signature="method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
-            <element signature="method#$$$setupUIMS$$$#0;class#MustSelect#0;class#DisplayMatchesGUI#0" expanded="false" />
-            <element signature="method#$$$getRootComponent$$$#0;class#MustSelect#0;class#DisplayMatchesGUI#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LogInGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1425">
@@ -1021,36 +960,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/StudentToolsGUI.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GradeCalc.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+        <state relative-caret-position="3885">
+          <caret line="384" column="0" selection-start-line="384" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
           <folding>
             <element signature="e#1275#1276#0" expanded="true" />
             <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#3412#3413#0" expanded="true" />
-            <element signature="e#3455#3456#0" expanded="true" />
+            <element signature="e#3359#3360#0" expanded="true" />
+            <element signature="e#3402#3403#0" expanded="true" />
+            <marker date="1462900300000" expanded="false" signature="8108:26492" placeholder="UI Designer generated code" />
+            <marker date="1462900300000" expanded="false" signature="8322:26369" placeholder="UI Designer generated code" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StudentToolsGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="42">
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
           <folding>
             <element signature="docComment;method#$$$setupUI$$$#0;class#StudentToolsGUI#0" expanded="false" />
-            <element signature="method#$$$setupUI$$$#0;class#StudentToolsGUI#0" expanded="false" />
+            <element signature="method#$$$setupUI$$$#0;class#StudentToolsGUI#0" expanded="true" />
             <element signature="docComment;method#$$$getRootComponent$$$#0;class#StudentToolsGUI#0" expanded="false" />
-            <element signature="e#7230#7231#0" expanded="false" />
-            <element signature="e#7270#7271#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StudentToolsGUI.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/ClassPathGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+          <folding>
+            <element signature="method#$$$setupUI$$$#0;class#ClassPathGUI#0" expanded="true" />
+            <element signature="method#$$$setupUI$$$#0;class#ClassPathGUI#0" expanded="true" />
+            <element signature="e#9046#9047#0" expanded="true" />
+            <element signature="e#9070#9071#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DisplayMatchesGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="293" column="11" selection-start-line="293" selection-start-column="11" selection-end-line="293" selection-end-column="11" />
+          <folding>
+            <element signature="docComment;method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="false" />
+            <element signature="method#$$$setupUI$$$#0;class#DisplayMatchesGUI#0" expanded="true" />
+            <element signature="docComment;method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
+            <element signature="method#$$$setupUINewOne$$$#0;class#StudentMatch#0;class#DisplayMatchesGUI#0" expanded="false" />
+            <element signature="method#$$$setupUIMS$$$#0;class#MustSelect#0;class#DisplayMatchesGUI#0" expanded="false" />
+            <element signature="method#$$$getRootComponent$$$#0;class#MustSelect#0;class#DisplayMatchesGUI#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

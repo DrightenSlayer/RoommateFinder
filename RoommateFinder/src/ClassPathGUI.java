@@ -38,13 +38,13 @@ public class ClassPathGUI {
 		inputSet = new ArrayList<>();
 
 		confirmButton.addActionListener(e -> {
-			if(count < 1) {
-				count++;
-				displayDistancePath.setText("Shortest distance to your class: " + displayDistance());
-				displayPath.setText("Shortest path to your class: " + displayPath() + "\n");
+			if (scheduleField.getText().length() != 0) {
+				if (count < 1) {
+					count++;
+					displayDistancePath.setText("Shortest distance to your class: " + displayDistance());
+					displayPath.setText("Shortest path to your class: " + displayPath() + "\n");
+				} else ;
 			}
-			else ;
-
 		});
 
 		previousButton.addActionListener(e -> {
@@ -64,8 +64,9 @@ public class ClassPathGUI {
 
 	/**
 	 * Gets the user input from the text field.
+	 *
 	 * @return the array list of inputs
-     */
+	 */
 	private ArrayList<Integer> getInput() {
 		String input = scheduleField.getText();
 		String[] classes = input.split(" ");
@@ -77,8 +78,9 @@ public class ClassPathGUI {
 
 	/**
 	 * Displays the distance in miles of the shortest path.
+	 *
 	 * @return the distance, in miles
-     */
+	 */
 	private String displayDistance() {
 		ClassPath classPath = new ClassPath(getInput());
 		String distance;
@@ -91,8 +93,9 @@ public class ClassPathGUI {
 
 	/**
 	 * Displays the path between two user inputted points.
+	 *
 	 * @return the path
-     */
+	 */
 	public String displayPath() {
 		ClassPath classPath = new ClassPath(getInput());
 		String path = "";

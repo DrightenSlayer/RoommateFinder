@@ -70,16 +70,14 @@ public class GradeCalc {
 
     private static double neededPercentage;
 
-    
 
     public double getCurrentGrade() {
         grade = (helper()) / (currentPercent());
 
-        if (!Double.isNaN(grade)){
+        if (!Double.isNaN(grade)) {
             return Double.parseDouble(df.format(grade));
-        }
-        else
-        return 0.0;
+        } else
+            return 0.0;
     }
 
     private void clear() {
