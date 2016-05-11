@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 /**
- * calculates the minimum distance to each class 
- * to find shortest, efficient path
+ * This class is used to calculate the minimum distance from
+ * one building to another, in order to find the most efficient path.
  */
 public class ClassPath 
 {
@@ -36,7 +36,7 @@ public class ClassPath
 	static ArrayList<Integer> classes;
 	
 	/**
-	 * copy array list for class functions
+	 * Copies the array list
 	 * @param temp the temporary array list
 	 */
 	public ClassPath(ArrayList<Integer> temp)
@@ -45,7 +45,7 @@ public class ClassPath
 	}
 	
 	/**
-	 * inserts class building into array list
+	 * Inserts class building into the array list
 	 * @param buildingNumber the building you are going to
 	 */
 	public static void insert(int buildingNumber)
@@ -54,10 +54,10 @@ public class ClassPath
 	}
 
 	/**
-	 * finds the distance between buildings and overwrites if shorter
+	 * Finds the distance between buildings and overwrites if shorter
 	 * @param dist keeps minimum distance from each building
-	 * @param sptSet checks if we visited building yet
-	 * @return
+	 * @param sptSet checks if a building has been visited already
+	 * @return the minimum index
 	 */
 	public static int minDistance(double dist[], boolean sptSet[])
 	{
@@ -75,10 +75,10 @@ public class ClassPath
 	}
 
 	/**
-	 * prints the shortest path to building
+	 * Prints the shortest path to a specified building.
 	 * @param parent the list of vertices we pass to get shortest distance
 	 * @param j the spot in the array containing vertex number
-	 * @return string containing path
+	 * @return the path
 	 */
 	private static String printPath(int parent[], int j)
 	{
@@ -91,13 +91,13 @@ public class ClassPath
 	}
 
 	/**
-	 * formats and prints out a table containing paths and costs
-	 * also gets total distance for schedule
+	 * Formats and prints out a table containing paths and costs,
+	 * also gets total distance for the schedule.
 	 * @param dist the shortest distance to each location
 	 * @param n number of vertices
 	 * @param parent array containing path
-	 * @param arr list of buildings student needs to go to, in order
-	 * @return string version of result
+	 * @param arr list of buildings user needs to go to
+	 * @return the path result
 	 */
 	private static String printSolution(double[] dist, int n, int[] parent,ArrayList<Integer> arr)
 	{
@@ -140,13 +140,13 @@ public class ClassPath
 	}
 
 	/**
-	 * sets the values with default values before start
-	 * gets the minimum distance and overwrites if smaller than one already in parent
-	 * after finish, calls printSolution
+	 * Sets the values with default values before start.
+	 * Gets the minimum distance and overwrites if smaller than one already in parent.
+	 * Calls printSolution at the end.
 	 * @param graph the adjacency matrix
-	 * @param start where to start
-	 * @param arr list of building order must follow
-	 * @return returnResult the solution string
+	 * @param start the start location
+	 * @param arr the list of buildings that the order must follow
+	 * @return the solution string
 	 */
 	static String dijkstra(double graph[][], int start, ArrayList<Integer>arr)
 	{
@@ -177,9 +177,10 @@ public class ClassPath
 	}
 
 	/**
-	 * converts int into a string value
+	 * Converts the building number into an abbreviated version of the
+	 * building name.
 	 * @param i the building number
-	 * @return string with building name equivalent
+	 * @return the abbreviated version of the building name
 	 */
 	private static String convertToName(int i) {
 		switch (i) {
@@ -204,38 +205,22 @@ public class ClassPath
 	}
 
 	/**
-	 * gets the total journey distance
-	 * @return total, the distance for your schedule
+	 * Gets the total journey distance.
+	 * @return the total distance for the user's pathway
 	 */
 	static String getTotal()
 	{
 		return "\nTotal walk length: " + total;
 	}
-	
+
+	/**
+	 * Resets the values so the user can start again.
+	 */
 	static void reset()
 	{
 		str = "";
 		track = 0;
 		total = 0;
-	}
-
-	/**
-	 * tester class
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		ArrayList<Integer> schedule = new ArrayList<Integer>();
-		schedule.add(1);
-		schedule.add(7);
-		schedule.add(3);
-		schedule.add(9);
-
-		for(int i=0; i <schedule.size(); i++)
-		{
-			System.out.println(dijkstra(graph, schedule.get(i),schedule));//A=0, B=1, C=2 etc
-		}
-	System.out.println(getTotal());
 	}
 }
 
