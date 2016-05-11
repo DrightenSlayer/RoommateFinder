@@ -65,7 +65,7 @@ public class MyGPA {
     }
 
     /**
-     * Clears the fields when a user wants to start from scratch.
+     * Clears the fields when a user wants to re-calculate the GPA.
      */
     private void clear() {
         class1Grade.setSelectedIndex(0);

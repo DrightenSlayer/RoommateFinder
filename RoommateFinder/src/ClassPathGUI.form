@@ -52,7 +52,7 @@
       </component>
       <component id="da1bd" class="javax.swing.JButton" binding="confirmButton">
         <constraints>
-          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Go"/>
@@ -60,10 +60,10 @@
       </component>
       <component id="8de0a" class="javax.swing.JButton" binding="previousButton" default-binding="true">
         <constraints>
-          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Previous"/>
+          <text value="Return"/>
         </properties>
       </component>
       <component id="3c3d8" class="javax.swing.JLabel" binding="displayDistancePath">
@@ -91,7 +91,7 @@
       </vspacer>
       <component id="ad8eb" class="javax.swing.JButton" binding="clearButton" default-binding="true">
         <constraints>
-          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Clear"/>

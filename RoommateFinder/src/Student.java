@@ -56,7 +56,7 @@ public class Student implements Comparable<Student>
 			name3 = name.substring(index);
 			name = name2 + " " + name3;
 		}
-		
+
 		int[] p = new int[PROPCOUNT];
 		for(int i = 0; i < PROPCOUNT; i++)
 		{

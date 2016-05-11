@@ -42,7 +42,7 @@ public class LogInGUI {
         logInEntryInfo = new ArrayList<>();
 
         logInButton.addActionListener(e -> {
-            currentUser = nameField.getText();
+            currentUser = getUserName();
             runSchool();
             logInEntryInfo.add(getUserName());
             logInEntryInfo.add(getPassword());
@@ -66,7 +66,8 @@ public class LogInGUI {
      * @return the inputted user name
      */
     private String getUserName() {
-        return nameField.getText();
+        return nameField.getText().substring(0, 1).toUpperCase() +
+                nameField.getText().substring(1, nameField.getText().length());
     }
 
     /**
@@ -116,7 +117,7 @@ public class LogInGUI {
             if (student.getSchool().getName().equals(sjsu.getName())) sjsu.add(student);
             if (student.getName().equals(userName)) me = student;
         }
-        sjsu.add(Student.generate());
+
         try {
             matches = me.matches();
         } catch (NullPointerException e) {

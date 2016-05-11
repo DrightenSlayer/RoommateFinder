@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.text.DecimalFormat;
 
+/**
+ * Creates the GUI for the grade calculator
+ */
 public class GradeCalc {
     private static double grade = 0.00;
     private JPanel myGpaPanel;
@@ -36,10 +39,9 @@ public class GradeCalc {
 
     DecimalFormat df = new DecimalFormat("#.##");
 
-    public static void main(String... args) {
-        GradeCalc.createFrame();
-    }
-
+    /**
+     * Creates the main frame of the grade calculator.
+     */
     static void createFrame() {
         JFrame frame = new JFrame();
         frame.setContentPane(new GradeCalc().calcPanel);
@@ -49,15 +51,18 @@ public class GradeCalc {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates the GPA calculator fields, buttons, and the action listeners.
+     */
     public GradeCalc() {
         $$$setupUI$$$();
 
         calculateGradeButton.addActionListener(e -> {
             gradeField.setText(stringParse(getCurrentGrade()));
             neededNumber.setText(
-                    stringParse(number4DesiredGrade(getCurrentGrade(), desiredLetterGrade.getText())));
+                    stringParse(number4DesiredGrade(getCurrentGrade(),
+                            desiredLetterGrade.getText().toUpperCase())));
         });
-
 
         returnButton.addActionListener(e -> {
             ((JFrame) myGpaPanel.getTopLevelAncestor()).dispose();
@@ -68,6 +73,11 @@ public class GradeCalc {
         });
     }
 
+    /**
+     * Gets the current grade of the user, as inputted by the user.
+     *
+     * @return the user's inputted current grade
+     */
     public double getCurrentGrade() {
         grade = (helper()) / (currentPercent());
 
@@ -77,6 +87,9 @@ public class GradeCalc {
             return 0.0;
     }
 
+    /**
+     * Clears all field so the user can start a new calculation.
+     */
     private void clear() {
         grade1Text.setText("( Assignment )");
         grade2Text.setText("( Assignment )");
@@ -107,11 +120,23 @@ public class GradeCalc {
         desiredLetterGrade.setText("");
     }
 
-    public String stringParse(double val) {
+    /**
+     * Parses a string from the double that is entered by the user.
+     *
+     * @param val the value of the double
+     * @return the parsed string
+     */
+    private String stringParse(double val) {
         return Double.toString(val);
     }
 
-    public double number4DesiredGrade(double currentGrade, String desiredGrade) {
+    /**
+     * Calculates the grade needed to achieve the user's desired grade.
+     * @param currentGrade the current grade of the user
+     * @param desiredGrade the user's desired grade
+     * @return the grade needed to achieve the desired grade
+     */
+    private double number4DesiredGrade(double currentGrade, String desiredGrade) {
         double val = neededGradeForLetter(desiredGrade);
         double curr = currentGrade;
         double pointsEarned = curr * currentPercent();
@@ -127,7 +152,11 @@ public class GradeCalc {
             return 0.0;
     }
 
-    public double helper() {
+    /**
+     * The method which adds the total score that has been entered by the user.
+     * @return the total score
+     */
+    private double helper() {
         double totalScore = 0.0;
 
         if (input1Field.getText().length() != 0 && weight1Field.getText().length() != 0) {
@@ -161,7 +190,11 @@ public class GradeCalc {
         return totalScore;
     }
 
-    public double currentPercent() {
+    /**
+     * Gets the current percent of weighted assignments
+     * @return the current percent.
+     */
+    private double currentPercent() {
         double totalPercent = 0.0;
         if (weight1Field.getText().length() != 0) {
             totalPercent += Double.parseDouble(weight1Field.getText());
@@ -184,10 +217,21 @@ public class GradeCalc {
         if (weight7Field.getText().length() != 0) {
             totalPercent += Double.parseDouble(weight7Field.getText());
         }
+
+        if (totalPercent >= 1) {
+            totalPercent = 0.99;
+        }
+
         return totalPercent;
     }
 
-    public double neededGradeForLetter(String desiredGrade) {
+    /**
+     * Determines what letter grades correspond to what percentage, based
+     * on standard university grading scales.
+     * @param desiredGrade the letter grade desired by the user
+     * @return the minimum grade percentage needed for such a letter grade
+     */
+    private double neededGradeForLetter(String desiredGrade) {
         if (desiredGrade.equals("A")) {
             return 94;
         }
@@ -227,6 +271,13 @@ public class GradeCalc {
         return 0;
     }
 
+    /**
+     * Gets the current letter grade of the student. This method can be
+     * implemented at a later date if desired.  Right now we are happy
+     * with the current functionality of the program.
+     * @param currentGrade the current percent grade of the student
+     * @return the letter grade that corresponds to the user's current percent grade
+     */
     public String getCurrentLetter(double currentGrade) {
         if (currentGrade >= 94 && currentGrade <= 100) {
             return "A";

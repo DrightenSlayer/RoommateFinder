@@ -22,7 +22,7 @@ public class Tester
 			if(student.getName().equals(username)) me = student;
 		}
 
-		sjsu.add(Student.generate());
+//		sjsu.add(Student.generate());
 
 		Queue<Student> matches = me.matches();
 

@@ -77,6 +77,7 @@ public class DisplayMatchesGUI {
         final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
         matchesPanel.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(1, 2, 2, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         studentList = new JList();
+        studentList.setSelectionMode(0);
         matchesPanel.add(studentList, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 2, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         getInfoButton = new JButton();
         getInfoButton.setText("Get Information");
@@ -118,6 +119,7 @@ public class DisplayMatchesGUI {
         /**
          * Creates the fields, buttons, and action listeners for the
          * student matches information.
+         *
          * @param dm the outer class
          */
         StudentMatch(DisplayMatchesGUI dm) {
