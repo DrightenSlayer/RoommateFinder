@@ -66,8 +66,7 @@ public class LogInGUI {
      * @return the inputted user name
      */
     private String getUserName() {
-        return nameField.getText().substring(0, 1).toUpperCase() +
-                nameField.getText().substring(1, nameField.getText().length());
+        return nameField.getText();
     }
 
     /**

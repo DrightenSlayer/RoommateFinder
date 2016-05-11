@@ -15,6 +15,8 @@ public class ReadFile {
 
     /**
      * Reads the file in and generates the user name array and password array.
+     * userNames adds all names in lower case in order for the log in name
+     * to not be case-sensitive.
      */
     static void read()
     {
@@ -24,7 +26,7 @@ public class ReadFile {
                 accountInfo.add(str);
 
             for (int i = 0; i < accountInfo.size() - 1; i += 2) {
-                userNames.add(accountInfo.get(i));
+                userNames.add(accountInfo.get(i).toLowerCase());
                 passwords.add(accountInfo.get(i + 1));
             }
         } catch (IOException e) {
@@ -34,13 +36,16 @@ public class ReadFile {
     }
 
     /**
-     * decrypts the file, and then validates it.
+     * Decrypts the file, and then validates it.
+     * The user field is changed to lower case in order for the log in
+     * name to not be case-sensitive.
      * @param user the user name
      * @param pass the password
      * @return true if the user/password combination is legal
      */
     static boolean validate(String user, String pass)
     {
+        user = user.toLowerCase();
         int index = userNames.indexOf(user);
         if(index == -1) return false;
 
