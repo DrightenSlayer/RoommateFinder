@@ -22,14 +22,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyGPA.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyGPA.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MyGPA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1338">
-              <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+            <state relative-caret-position="240">
+              <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
               <folding>
-                <element signature="e#6727#6728#0" expanded="true" />
-                <element signature="e#6769#6770#0" expanded="true" />
+                <element signature="e#6885#6886#0" expanded="true" />
+                <element signature="e#6927#6928#0" expanded="true" />
                 <element signature="method#getScore#0;class#MyGPA#0" expanded="false" />
                 <element signature="method#$$$setupUI$$$#0;class#MyGPA#0" expanded="true" />
               </folding>
@@ -37,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentInfoGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StudentInfoGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/StudentInfoGUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="312">
@@ -1011,25 +1011,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyGPA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+          <folding>
+            <element signature="e#6885#6886#0" expanded="true" />
+            <element signature="e#6927#6928#0" expanded="true" />
+            <element signature="method#getScore#0;class#MyGPA#0" expanded="false" />
+            <element signature="method#$$$setupUI$$$#0;class#MyGPA#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/StudentInfoGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="101" column="57" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="57" />
           <folding>
             <element signature="method#$$$setupUI$$$#0;class#StudentInfoGUI#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyGPA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1338">
-          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
-          <folding>
-            <element signature="e#6727#6728#0" expanded="true" />
-            <element signature="e#6769#6770#0" expanded="true" />
-            <element signature="method#getScore#0;class#MyGPA#0" expanded="false" />
-            <element signature="method#$$$setupUI$$$#0;class#MyGPA#0" expanded="true" />
           </folding>
         </state>
       </provider>
