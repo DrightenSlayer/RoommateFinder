@@ -64,7 +64,6 @@ public class ClassPathGUI {
 
 	/**
 	 * Gets the user input from the text field.
-	 *
 	 * @return the array list of inputs
 	 */
 	private ArrayList<Integer> getInput() {
@@ -78,7 +77,6 @@ public class ClassPathGUI {
 
 	/**
 	 * Displays the distance in miles of the shortest path.
-	 *
 	 * @return the distance, in miles
 	 */
 	private String displayDistance() {
@@ -93,7 +91,6 @@ public class ClassPathGUI {
 
 	/**
 	 * Displays the path between two user inputted points.
-	 *
 	 * @return the path
 	 */
 	public String displayPath() {

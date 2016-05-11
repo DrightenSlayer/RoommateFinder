@@ -59,7 +59,6 @@
             <properties>
               <model>
                 <item value="SJSU"/>
-                <item value="UCLA"/>
               </model>
             </properties>
           </component>

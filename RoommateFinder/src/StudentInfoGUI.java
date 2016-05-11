@@ -75,6 +75,7 @@ public class StudentInfoGUI {
 
     /**
      * Gets the gender selected by the user.
+     *
      * @return the gender selected by the user in a string
      */
     private String getGenderEntry() {
@@ -83,6 +84,7 @@ public class StudentInfoGUI {
 
     /**
      * Gets the student ID number
+     *
      * @return the student ID number inputted by the student
      */
     private String getSidEntry() {
@@ -95,6 +97,7 @@ public class StudentInfoGUI {
     /**
      * Checks if the student ID number is legitimate.
      * For our purposes we will consider student ID's with only digits, no letters.
+     *
      * @return true if the student ID is legitimate
      */
     private boolean legitSidEntry() {
@@ -108,6 +111,7 @@ public class StudentInfoGUI {
 
     /**
      * Gets the school selected by a user.
+     *
      * @return the user's selected school, in a string.
      */
     private String getSchoolEntry() {
@@ -117,6 +121,7 @@ public class StudentInfoGUI {
     /**
      * Gets the language selected by a user.
      * For our purposes we will only consider a few languages as valid selections.
+     *
      * @return the user's selected language, in a string.
      */
     private String getLanguageEntry() {
@@ -155,7 +160,6 @@ public class StudentInfoGUI {
         schoolComboBox = new JComboBox();
         final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
         defaultComboBoxModel1.addElement("SJSU");
-        defaultComboBoxModel1.addElement("UCLA");
         schoolComboBox.setModel(defaultComboBoxModel1);
         panel1.add(schoolComboBox, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         sidField = new JTextField();
