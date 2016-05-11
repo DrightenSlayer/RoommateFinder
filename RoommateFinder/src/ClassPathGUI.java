@@ -97,6 +97,10 @@ public class ClassPathGUI {
 		ClassPath classPath = new ClassPath(getInput());
 		String path = "";
 		for (int i = 0; i < classPath.classes.size(); i++) {
+			if (ClassPath.valid(classPath.classes) == false) {
+				path += ClassPath.dijkstra(ClassPath.graph, classPath.classes.get(i), classPath.classes) + "\n";
+				break;
+			}
 			path += ClassPath.dijkstra(ClassPath.graph, classPath.classes.get(i), classPath.classes) + "\n";
 		}
 		return path;

@@ -12,6 +12,7 @@ public class ClassPath
 	private static int heading=0;
 	private static double total=0;
 	public static String str = "";
+	public static int messageCount = 0;
 
 	static double graph[][] =
 		{
@@ -34,6 +35,14 @@ public class ClassPath
 
 		};
 	static ArrayList<Integer> classes;
+
+	public static boolean valid(ArrayList<Integer> arr) {
+		for (int i = 0; i < arr.size(); i++) {
+			if (arr.get(i) < 0 || arr.get(i) > V - 1)
+				return false;
+		}
+		return true;
+	}
 	
 	/**
 	 * Copies the array list
@@ -142,14 +151,22 @@ public class ClassPath
 	/**
 	 * Sets the values with default values before start.
 	 * Gets the minimum distance and overwrites if smaller than one already in parent.
+	 * If the input array is invalid (> 15 or < 0) it returns an error message.
 	 * Calls printSolution at the end.
 	 * @param graph the adjacency matrix
 	 * @param start the start location
 	 * @param arr the list of buildings that the order must follow
 	 * @return the solution string
 	 */
-	static String dijkstra(double graph[][], int start, ArrayList<Integer>arr)
+	static String dijkstra(double graph[][], int start, ArrayList<Integer> arr)
 	{
+		if (!valid(arr)) {
+			if (messageCount == 0) {
+				return "Invalid schedule input";
+			}
+			return "";
+		}
+
 		temp = start;
 		double[] dist = new double[V];
 		boolean[] sptSet = new boolean[V];
