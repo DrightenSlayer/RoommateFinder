@@ -22,26 +22,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClassPathGUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ClassPathGUI.java">
+      <file leaf-file-name="MyGPA.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MyGPA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
+            <state relative-caret-position="-1338">
+              <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
               <folding>
-                <element signature="method#$$$setupUI$$$#0;class#ClassPathGUI#0" expanded="true" />
-                <element signature="e#9195#9196#0" expanded="true" />
-                <element signature="e#9219#9220#0" expanded="true" />
+                <element signature="e#6727#6728#0" expanded="true" />
+                <element signature="e#6769#6770#0" expanded="true" />
+                <element signature="method#getScore#0;class#MyGPA#0" expanded="false" />
+                <element signature="method#$$$setupUI$$$#0;class#MyGPA#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClassPath.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ClassPath.java">
+      <file leaf-file-name="StudentInfoGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/StudentInfoGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="160" column="75" selection-start-line="160" selection-start-column="75" selection-end-line="160" selection-end-column="75" />
-              <folding />
+            <state relative-caret-position="312">
+              <caret line="101" column="57" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="57" />
+              <folding>
+                <element signature="method#$$$setupUI$$$#0;class#StudentInfoGUI#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +95,6 @@
         <option value="$PROJECT_DIR$/StudentInfo.txt" />
         <option value="$PROJECT_DIR$/src/StudentInfoGUI.form" />
         <option value="$PROJECT_DIR$/src/MainMenuGUI.java" />
-        <option value="$PROJECT_DIR$/src/MyGPA.java" />
         <option value="$PROJECT_DIR$/src/PersonalInfoGUI.java" />
         <option value="$PROJECT_DIR$/src/RoomPreferencesGUI.java" />
         <option value="$PROJECT_DIR$/src/StudentInfoGUI.java" />
@@ -104,6 +106,7 @@
         <option value="$PROJECT_DIR$/src/ReadFile.java" />
         <option value="$PROJECT_DIR$/src/ClassPathGUI.java" />
         <option value="$PROJECT_DIR$/src/ClassPath.java" />
+        <option value="$PROJECT_DIR$/src/MyGPA.java" />
       </list>
     </option>
   </component>
@@ -178,6 +181,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RoommateFinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RoommateFinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StudentInfoGUI" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -831,14 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StudentInfoGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1692">
-          <caret line="209" column="6" selection-start-line="209" selection-start-column="6" selection-end-line="209" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RoomPreferencesGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2157">
@@ -865,17 +878,6 @@
         <state relative-caret-position="507">
           <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyGPA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1932">
-          <caret line="188" column="53" selection-start-line="188" selection-start-column="53" selection-end-line="188" selection-end-column="53" />
-          <folding>
-            <element signature="method#clear#0;class#MyGPA#0" expanded="false" />
-            <element signature="method#getScore#0;class#MyGPA#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -989,6 +991,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClassPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="160" column="75" selection-start-line="160" selection-start-column="75" selection-end-line="160" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ClassPathGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1001,11 +1011,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClassPath.java">
+    <entry file="file://$PROJECT_DIR$/src/StudentInfoGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="160" column="75" selection-start-line="160" selection-start-column="75" selection-end-line="160" selection-end-column="75" />
-          <folding />
+        <state relative-caret-position="312">
+          <caret line="101" column="57" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="57" />
+          <folding>
+            <element signature="method#$$$setupUI$$$#0;class#StudentInfoGUI#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyGPA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1338">
+          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+          <folding>
+            <element signature="e#6727#6728#0" expanded="true" />
+            <element signature="e#6769#6770#0" expanded="true" />
+            <element signature="method#getScore#0;class#MyGPA#0" expanded="false" />
+            <element signature="method#$$$setupUI$$$#0;class#MyGPA#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
