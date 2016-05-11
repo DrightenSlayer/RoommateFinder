@@ -56,12 +56,14 @@ public class Student implements Comparable<Student>
 			name3 = name.substring(index);
 			name = name2 + " " + name3;
 		}
+		
 		int[] p = new int[PROPCOUNT];
 		for(int i = 0; i < PROPCOUNT; i++)
 		{
 				p[i] = (int) (10*Math.random());
 		};
-		return new Student(name, p);
+		Student r = new Student(name, p); r.setMajor(name3+name2);
+		return r;
 	}
 
 	Queue<Student> matches(){return matches(this.school);}
@@ -157,7 +159,6 @@ public class Student implements Comparable<Student>
 	{
 		switch(properties[MAJOR])
 		{
-		case 0: return "Undeclared";
 		default: return major;
 		}
 	}
@@ -325,8 +326,7 @@ public class Student implements Comparable<Student>
 	{
 		switch(m)
 		{
-		case "Undeclared" : properties[MAJOR] = 0; break;
-		default : major = m; properties[MAJOR] = 1; break;
+		default : major = m; properties[MAJOR] = 0; break;
 		}	
 	}
 
@@ -457,7 +457,8 @@ public class Student implements Comparable<Student>
 		{
 			if(properties[i] == other.properties[i]) c++;
 		}
-		if(major.equals(other.major)) c++;
+		if(major.equals
+				(other.major)) c++;
 		return c;
 	}
 
